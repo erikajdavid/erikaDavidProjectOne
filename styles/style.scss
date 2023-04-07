@@ -182,6 +182,9 @@ header {
     @include flexStyle(flex, 0, space-between, flex-start);
     padding: 5rem 0;
     .textContainer {
+        h2 {
+            @include fontStyling($secondaryFont, 1.25rem, 0, 0, 2.5rem);
+        }
         h3 {
             @include fontStyling($secondaryFont, 2rem, 0, 0, 2.5rem);
             padding: 1rem 0;
@@ -207,19 +210,62 @@ header {
 }
 
 //shop section//
-
-.productGallery {
-    @include flexStyle(flex, row, space-between, center);
-    flex-wrap: wrap;
-    li {
-        max-width: 275px;
-        margin-bottom: 2rem;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-        .imageContainer {
-            width: 100%;
+.shopProducts {
+    padding: 5rem;
+    .wrapper {
+        @include flexStyle(flex, column, center, center);
+        .shopText {
+            width: 55%;
+            text-align: center;
+            h2 {
+                @include fontStyling($secondaryFont, 2rem, 0, 0, 1rem);
+                text-transform: uppercase;
+            }
+            p {
+                padding: 2rem;
+            }
+        }
+        .productGallery {
+            @include flexStyle(flex, row, space-between, center);
+            flex-wrap: wrap;
+            li {
+                max-width: 275px;
+                margin-bottom: 2rem;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+                position: relative;
+                .imageContainer {
+                    width: 100%;
+                }
+                .productInfoContainer {
+                    padding: 0.75rem;
+                    h3 {
+                        @include fontStyling($secondaryFont, 1.1rem, 0, 0, 1rem);
+                    }
+                    p {
+                        padding: 0.75rem 0;
+                    }
+                    .price {
+                        padding: 0 0 0.75rem 0;
+                        color: $plantGreen;
+                        font-weight: 600;
+                        span {
+                            text-decoration: line-through;
+                        }
+                    }
+                    button {
+                        position: absolute;
+                    }
+                }
+            }   
+        }
+        .shopBtn {
+            margin-top: 3rem;
         }
     }
 }
+
+       
+
 
 //gallery section//
 

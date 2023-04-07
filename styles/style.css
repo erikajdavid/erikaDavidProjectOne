@@ -406,6 +406,13 @@ header {
   align-items: flex-start;
   padding: 5rem 0;
 }
+.about .wrapper .textContainer h2 {
+  font-family: "Lora", serif;
+  font-size: 1.25rem;
+  font-weight: 0;
+  letter-spacing: 0;
+  line-height: 2.5rem;
+}
 .about .wrapper .textContainer h3 {
   font-family: "Lora", serif;
   font-size: 2rem;
@@ -436,18 +443,70 @@ header {
   margin-left: 2rem;
 }
 
-.productGallery {
+.shopProducts {
+  padding: 5rem;
+}
+.shopProducts .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.shopProducts .wrapper .shopText {
+  width: 55%;
+  text-align: center;
+}
+.shopProducts .wrapper .shopText h2 {
+  font-family: "Lora", serif;
+  font-size: 2rem;
+  font-weight: 0;
+  letter-spacing: 0;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+.shopProducts .wrapper .shopText p {
+  padding: 2rem;
+}
+.shopProducts .wrapper .productGallery {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-.productGallery li {
+.shopProducts .wrapper .productGallery li {
   max-width: 275px;
   margin-bottom: 2rem;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
-.productGallery li .imageContainer {
+.shopProducts .wrapper .productGallery li .imageContainer {
   width: 100%;
+}
+.shopProducts .wrapper .productGallery li .productInfoContainer {
+  padding: 0.75rem;
+}
+.shopProducts .wrapper .productGallery li .productInfoContainer h3 {
+  font-family: "Lora", serif;
+  font-size: 1.1rem;
+  font-weight: 0;
+  letter-spacing: 0;
+  line-height: 1rem;
+}
+.shopProducts .wrapper .productGallery li .productInfoContainer p {
+  padding: 0.75rem 0;
+}
+.shopProducts .wrapper .productGallery li .productInfoContainer .price {
+  padding: 0 0 0.75rem 0;
+  color: #207200;
+  font-weight: 600;
+}
+.shopProducts .wrapper .productGallery li .productInfoContainer .price span {
+  text-decoration: line-through;
+}
+.shopProducts .wrapper .productGallery li .productInfoContainer button {
+  position: absolute;
+}
+.shopProducts .wrapper .shopBtn {
+  margin-top: 3rem;
 }
