@@ -26,12 +26,22 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
     align-items: $alignItems;
 }
 
-@mixin btnStyling($fontSize, $padding, $bRadius, $textTransform, $margin) {
-    font-size: $fontSize;
+@mixin btnStyling($bgColor, $color, $padding, $bRadius, $border, $margin, $boxShadow) {
+    background-color: $bgColor;
+    color: $color;
     padding: $padding;
     border-radius: $bRadius;
+    border: $border;
     margin: $margin;
+    box-shadow: $boxShadow;
+}
+
+@mixin btnFontStyling($fontFamily, $fontSize, $fontWeight, $textTransform, $letterSpacing) {
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
     text-transform: $textTransform;
+    letter-spacing: $letterSpacing;
 }
 
 @mixin bgImgStyling($bgPosition, $bgSize, $bgRepeat) {
@@ -89,12 +99,23 @@ a {
 }
 
 button {
-    background-color: $plantGreen;
-    color: $white;
-    border: none;
-    font-family: $primaryFont;
-    font-weight: 600;
-    box-shadow: 0 0 2px rgba ((0, 0, 0, 0.25));
+    @include btnStyling($plantGreen, $white, 0.5rem 1rem, 1rem, none, 0, (0 0 2px rgba(0, 0, 0, 0.25)));
+    @include btnFontStyling($primaryFont, 0.9rem, 500, uppercase, 0.05rem);
+}
+
+.btnVar2 {
+    @include btnStyling(0, 0, 0.3rem 0.75rem, 0.75rem, 0, 0, 0);
+    @include btnFontStyling(0, 0.8rem, 400, capitalize, 0);
+}
+
+.btnVar3 {
+    @include btnStyling(0, 0, 0.75rem 1.5rem, 1.5rem, 0, 0, 0);
+    @include btnFontStyling(0, 0.9rem, 400, capitalize, 0);
+}
+
+.btnVar4 {
+    @include btnStyling(0, 0, 1.1rem 2.25rem, 2.25rem, 0, 0, 0);
+    @include btnFontStyling(0, 0.9rem, 600, capitalize, 0);
 }
 
 .textContainer,
@@ -152,9 +173,6 @@ header {
         p {
             padding: 2rem 0;
         }
-        button {
-            @include btnStyling(0.8rem, 0.5rem 1rem, 1rem, uppercase, 0);
-                }
     }
 }
 
@@ -172,7 +190,6 @@ header {
             padding: 0.5rem 0;
         }
         button {
-            @include btnStyling(0.8rem, 0.5rem 1rem, 1rem, uppercase, 0);
             margin-top: 1rem;
         }
     }

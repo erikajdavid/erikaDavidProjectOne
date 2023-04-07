@@ -266,10 +266,61 @@ a {
 button {
   background-color: #207200;
   color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
   border: none;
+  margin: 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
   font-family: "Barlow", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.btnVar2 {
+  background-color: 0;
+  color: 0;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 0;
+  margin: 0;
+  box-shadow: 0;
+  font-family: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0;
+}
+
+.btnVar3 {
+  background-color: 0;
+  color: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1.5rem;
+  border: 0;
+  margin: 0;
+  box-shadow: 0;
+  font-family: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0;
+}
+
+.btnVar4 {
+  background-color: 0;
+  color: 0;
+  padding: 1.1rem 2.25rem;
+  border-radius: 2.25rem;
+  border: 0;
+  margin: 0;
+  box-shadow: 0;
+  font-family: 0;
+  font-size: 0.9rem;
   font-weight: 600;
-  box-shadow: 0 0 2px rgba 0, 0, 0, 0.25;
+  text-transform: capitalize;
+  letter-spacing: 0;
 }
 
 .textContainer,
@@ -347,13 +398,6 @@ header {
 .hero .textContainer p {
   padding: 2rem 0;
 }
-.hero .textContainer button {
-  font-size: 0.8rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  margin: 0;
-  text-transform: uppercase;
-}
 
 .about .wrapper {
   display: flex;
@@ -374,11 +418,6 @@ header {
   padding: 0.5rem 0;
 }
 .about .wrapper .textContainer button {
-  font-size: 0.8rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  margin: 0;
-  text-transform: uppercase;
   margin-top: 1rem;
 }
 .about .wrapper .aboutText {
