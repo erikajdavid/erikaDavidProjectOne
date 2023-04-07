@@ -19,13 +19,71 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 //mixins 
 
+@mixin flexStyle($display, $flexDirection, $justifyContent, $alignItems) {
+    display: $display;
+    flex-direction: $flexDirection;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
 //generic styles//
+html {
+    font-family: $primaryFont;
+    color: $black;
+    font-size: 125%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
 
 //reusable code//
 
+.wrapper {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
 //nagivation section//
 
+nav {
+    @include flexStyle(flex, row, space-between, center);
+    ul {
+        @include flexStyle(flex, row , space-between, center);
+        li {
+            margin-left: 1rem;
+        }
+    }
+}
+
 //header section//
+
+header {
+    height: 100vh;
+    background-image: url(../assets/header/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: red;
+}
+
+.hero {
+    @include flexStyle(flex, row, space-between, center);
+    height: 90vh;
+}
 
 //about section//
 
