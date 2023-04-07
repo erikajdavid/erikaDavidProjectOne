@@ -26,16 +26,26 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
     align-items: $alignItems;
 }
 
-@mixin btnStyling() {
+@mixin btnStyling($fontSize, $padding, $bRadius, $textTransform, $margin) {
+    font-size: $fontSize;
     padding: $padding;
     border-radius: $bRadius;
     margin: $margin;
+    text-transform: $textTransform;
 }
 
 @mixin bgImgStyling($bgPosition, $bgSize, $bgRepeat) {
     background-position: $bgPosition;
     background-size: $bgSize;
     background-repeat: $bgRepeat;
+}
+
+@mixin fontStyling($fontFamily, $fontSize, $fontWeight, $letterSpacing, $lineHeight) {
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    letter-spacing: $letterSpacing;
+    line-height: $lineHeight;
 }
 
 //generic styles//
@@ -58,6 +68,15 @@ body {
     margin: 0 auto;
 }
 
+h1, h2, h3, p {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    line-height: 1.6rem;
+}
+
 ul {
     list-style: none;
     margin: 0;
@@ -74,6 +93,7 @@ button {
     color: $white;
     border: none;
     font-family: $primaryFont;
+    font-weight: 600;
     box-shadow: 0 0 2px rgba ((0, 0, 0, 0.25));
 }
 
@@ -97,9 +117,14 @@ nav {
         @include flexStyle(flex, 0, space-between, center);
         ul {
             @include flexStyle(flex, 0 , space-between, center);
+            text-transform: uppercase;
+            font-weight: 500;
             li {
-                margin-left: 1rem;
+                margin-left: 2rem;
             }
+                svg {
+                    width: 1.5rem;
+                }
         }
     }
 }
@@ -115,12 +140,25 @@ header {
 .hero {
     @include flexStyle(flex, row, space-between, center);
     height: 90vh;
+    .textContainer {
+        h1 {
+            @include fontStyling($secondaryFont, 2.5rem, 900, 0.1rem, 3.5rem);
+        }
+        p {
+            padding: 2rem 0;
+        }
+        button {
+            @include btnStyling(0.8rem, 0.5rem 1rem, 1rem, uppercase, 0);
+                }
+    }
 }
 
 //about section//
 
 .about .wrapper {
     @include flexStyle(flex, 0, space-between, flex-start);
+    padding: 4rem 0;
+
 }
 
 //shop section//
