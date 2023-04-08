@@ -7,7 +7,9 @@ Convert a static multi-page PSD* using HTML AND CSS into a well-tested, accessib
 *The design and assets were provided by Juno College. 
 
 ## Technical challenges: 
-- SVGS not loading despite changing fill color. 
+- SVGs not loading despite changing fill color. SOLVED by applying setting with to svgs. 
+- SVG colors are off. Look over properties that need to be leveraged. 
+- Box-shadow for nav not showing. SOLVED by applying position: relative to nav. Shadow was initally rendering beneath the hero div. 
 - Box 7 in shop section disappears when resizing browser. 
 - Updated border for product containers but cannot close space between image container and product info container in shop. 
 - Footer logo not given in the right color. Is there a way to change the color of a png?
