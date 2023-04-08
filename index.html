@@ -282,8 +282,9 @@
     <!-- beginning of footer section -->
     <footer>
         <div class="wrapper">
-            <div>
-                <img src="./assets/logo-white.png">
+            <div class="footerCol first">
+                <!-- is this the logo you're supposed to use? color does not match PSD -->
+                <img src="./assets/logo.png">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum amet a non sapiente perspiciatis. Dignissimos amet quidem modi sapiente!</p>
                 <nav>
                     <!-- need to figure out styling for social media icons and proper svg indentation-->
@@ -340,7 +341,7 @@
                     </ul>
                 </nav>
             </div>
-            <div>
+            <div class="footerCol second">
                 <h3>Quick links</h3>
                 <nav>
                     <ul>
@@ -365,39 +366,39 @@
                     </ul>
                 </nav>
             </div>
-            <div>
+            <div class="footerCol third">
                 <h3>Recent products</h3>
                 <ul>
                     <li>
-                        <div class="">
+                        <div class="imageContainer">
                             <img src="./assets/product8.jpeg" alt="#">
                         </div>
-                        <div>
-                            <p>Fresh vegetable</p>
-                            <p>$13</p>
+                        <div class="textContainer">
+                            <p class="item">Fresh vegetable</p>
+                            <p class="price">$13</p>
                         </div>
                     </li>
                     <li>
-                        <div class="">
+                        <div class="imageContainer">
                             <img src="./assets/product7.jpeg" alt="#">
                         </div>
-                        <div>
-                            <p>Fresh fruit</p>
-                            <p>$13</p>
+                        <div class="textContainer">
+                            <p class="item">Fresh fruit</p>
+                            <p class="price">$13</p>
                         </div>
                     </li>
                     <li>
-                        <div class="">
+                        <div class="imageContainer">
                             <img src="./assets/product5.jpeg" alt="#">
                         </div>
-                        <div>
-                            <p>Fresh bean</p>
-                            <p>$13</p>
+                        <div class="textContainer">
+                            <p class="item">Fresh bean</p>
+                            <p class="price">$13</p>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div>
+            <div class="footerCol fourth">
                 <!-- should you use an address tag in this column? -->
                 <h3>Subscribe</h3>
                 <h4>Address:</h4>
@@ -411,8 +412,8 @@
                     <input type="text" id="email" class="email" name="email" placeholder="Enter Email...">
                 </form>
             </div>
-            <p>Coded by <a href="#">Erika David</a>. Copyright &#169 <a href="https://www.junocollege.com" target="_blank">Juno College</a>. All rights reserved.</p>
         </div>
+        <p class="copyright">Coded by <a href="#">Erika David</a>. Copyright &#169 <a href="https://www.junocollege.com" target="_blank">Juno College</a>. All rights reserved.</p>
     </footer>
     <!-- end of about section -->
 </body>
