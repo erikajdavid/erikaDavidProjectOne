@@ -230,6 +230,7 @@ html {
   font-family: "Barlow", sans-serif;
   color: #1A2428;
   font-size: 125%;
+  font-weight: 400;
 }
 
 body {
@@ -246,6 +247,24 @@ body {
 h1, h2, h3, p {
   padding: 0;
   margin: 0;
+}
+
+h2 {
+  font-family: "Lora", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: "Lora", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.025rem;
+  line-height: 1.5rem;
+  text-transform: 0;
 }
 
 p {
@@ -334,10 +353,15 @@ img {
      object-fit: cover;
 }
 
+.sectionHeading {
+  width: 65%;
+  text-align: center;
+}
+
 nav {
   height: 10vh;
   color: #fff;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: 0;
   justify-content: 0;
@@ -355,7 +379,7 @@ nav .wrapper ul {
   justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 nav .wrapper ul li {
   margin-left: 2rem;
@@ -394,6 +418,7 @@ header {
   font-weight: 900;
   letter-spacing: 0.1rem;
   line-height: 3.5rem;
+  text-transform: capitalize;
 }
 .hero .textContainer p {
   padding: 2rem 0;
@@ -407,18 +432,21 @@ header {
   padding: 5rem 0;
 }
 .about .wrapper .textContainer h2 {
-  font-family: "Lora", serif;
+  font-family: 0;
   font-size: 1.25rem;
   font-weight: 0;
   letter-spacing: 0;
-  line-height: 2.5rem;
+  line-height: 0;
+  text-transform: capitalize;
+  padding-bottom: 0.5rem;
 }
 .about .wrapper .textContainer h3 {
-  font-family: "Lora", serif;
+  font-family: 0;
   font-size: 2rem;
   font-weight: 0;
   letter-spacing: 0;
   line-height: 2.5rem;
+  text-transform: capitalize;
   padding: 1rem 0;
 }
 .about .wrapper .textContainer p {
@@ -436,78 +464,64 @@ header {
   font-weight: 500;
   letter-spacing: 0.075rem;
   line-height: 2rem;
-  background-color: green;
+  text-transform: capitalize;
+  background-color: #5EA85E;
   color: #fff;
   padding: 4rem;
   border-radius: 2rem;
   margin-left: 2rem;
 }
 
-.shopProducts {
+.shop {
   padding: 5rem;
 }
-.shopProducts .wrapper {
+.shop .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.shopProducts .wrapper .shopText {
+.shop .wrapper .shopText {
   width: 65%;
   text-align: center;
 }
-.shopProducts .wrapper .shopText h2 {
-  font-family: "Lora", serif;
-  font-size: 2rem;
-  font-weight: 0;
-  letter-spacing: 0;
-  line-height: 1rem;
-  text-transform: uppercase;
-}
-.shopProducts .wrapper .shopText p {
+.shop .wrapper .shopText p {
   padding: 2rem;
 }
-.shopProducts .wrapper .productGallery {
+.shop .wrapper .productGallery {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-.shopProducts .wrapper .productGallery li {
+.shop .wrapper .productGallery li {
   max-width: 275px;
   margin-bottom: 2rem;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   position: relative;
 }
-.shopProducts .wrapper .productGallery li .imageContainer {
+.shop .wrapper .productGallery li .imageContainer {
   width: 100%;
 }
-.shopProducts .wrapper .productGallery li .productInfoContainer {
+.shop .wrapper .productGallery li .productInfoContainer {
   padding: 0.75rem;
 }
-.shopProducts .wrapper .productGallery li .productInfoContainer h3 {
-  font-family: "Lora", serif;
-  font-size: 1.1rem;
-  font-weight: 0;
-  letter-spacing: 0;
-  line-height: 1rem;
-}
-.shopProducts .wrapper .productGallery li .productInfoContainer p {
+.shop .wrapper .productGallery li .productInfoContainer p {
   padding: 0.75rem 0;
 }
-.shopProducts .wrapper .productGallery li .productInfoContainer .price {
+.shop .wrapper .productGallery li .productInfoContainer .price {
   padding: 0 0 0.75rem 0;
   color: #207200;
   font-weight: 600;
 }
-.shopProducts .wrapper .productGallery li .productInfoContainer .price span {
+.shop .wrapper .productGallery li .productInfoContainer .price span {
   text-decoration: line-through;
 }
-.shopProducts .wrapper .productGallery li .productInfoContainer button {
+.shop .wrapper .productGallery li .productInfoContainer button {
   position: absolute;
 }
-.shopProducts .wrapper .shopBtn {
+.shop .wrapper .shopBtn {
   margin-top: 3rem;
 }
 
@@ -527,14 +541,6 @@ header {
 }
 .gallery .wrapper .topGallery {
   width: 65%;
-}
-.gallery .wrapper .topGallery h2 {
-  font-family: "Lora", serif;
-  font-size: 2rem;
-  font-weight: 0;
-  letter-spacing: 0;
-  line-height: 1rem;
-  text-transform: uppercase;
 }
 .gallery .wrapper .topGallery p {
   padding: 2rem;
@@ -584,14 +590,6 @@ header {
   color: #fff;
   text-align: center;
 }
-.blog .wrapper .topBlog h2 {
-  font-family: "Lora", serif;
-  font-size: 2rem;
-  font-weight: 0;
-  letter-spacing: 0;
-  line-height: 1rem;
-  text-transform: uppercase;
-}
 .blog .wrapper .topBlog p {
   padding: 2rem;
 }
@@ -616,11 +614,7 @@ header {
   width: 100%;
 }
 .blog .wrapper ul .blogPost .textContainer h3 {
-  font-family: "Lora", serif;
-  font-size: 1.25rem;
-  font-weight: 0;
-  letter-spacing: 0;
-  line-height: 2rem;
+  font-size: 1.15rem;
 }
 .blog .wrapper ul .blogPost .textContainer p {
   padding: 1rem 0;
@@ -657,6 +651,7 @@ footer .wrapper .footerCol h3 {
   font-weight: 700;
   letter-spacing: 0.075rem;
   line-height: 1.5rem;
+  text-transform: 0;
 }
 footer .wrapper .first img {
   width: 40%;
