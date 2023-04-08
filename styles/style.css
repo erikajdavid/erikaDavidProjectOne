@@ -628,3 +628,109 @@ header {
 .blog .wrapper ul .blogPost .textContainer button {
   margin-top: 1rem;
 }
+
+footer {
+  background-image: url(../assets/cow.png);
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+footer .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5rem 0 4rem 0;
+}
+footer .wrapper .footerCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 25%;
+  height: 45vh;
+}
+footer .wrapper .footerCol h3 {
+  padding-bottom: 2rem;
+  font-family: "Lora", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.075rem;
+  line-height: 1.5rem;
+}
+footer .wrapper .first img {
+  width: 40%;
+  padding: 0.75rem 0;
+}
+footer .wrapper .first nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .wrapper .second {
+  padding-left: 1rem;
+}
+footer .wrapper .second nav {
+  height: 100%;
+  box-shadow: none;
+}
+footer .wrapper .second nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+footer .wrapper .third ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+footer .wrapper .third ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .wrapper .third ul li .imageContainer {
+  width: 33.3333333333%;
+}
+footer .wrapper .third ul li .textContainer {
+  width: 75%;
+  padding-left: 1rem;
+}
+footer .wrapper .third ul li .textContainer .item {
+  font-family: "Lora", serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+footer .wrapper .third ul li .textContainer .price {
+  color: #207200;
+  font-weight: 600;
+}
+footer .wrapper .fourth {
+  padding-left: 1.7rem;
+}
+footer .wrapper .fourth h3 {
+  padding: 0;
+  margin: 0;
+}
+footer .wrapper .fourth form {
+  padding-top: 1rem;
+  width: 100%;
+}
+footer .wrapper .fourth form input[type=text] {
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+footer .copyright {
+  text-align: center;
+  color: #fff;
+  font-size: 0.9rem;
+}
+footer .copyright a {
+  color: #fff;
+}

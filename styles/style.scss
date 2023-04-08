@@ -355,3 +355,88 @@ header {
     }
 }
 //footer section//
+footer {
+    background-image: url(../assets/cow.png);
+    @include bgImgStyling(bottom, contain, no-repeat);
+    .wrapper {
+        @include flexStyle(flex, row, space-between, flex-start);
+        padding: 5rem 0 4rem 0;
+        .footerCol {
+            @include flexStyle(flex, column, space-between, flex-start);
+            width: 25%;
+            height: 45vh;
+            h3 {
+                padding-bottom: 2rem;
+                @include fontStyling($secondaryFont, 1.15rem, 700, 0.075rem, 1.5rem);
+            }
+        }
+        .first {
+            img {
+                width: 40%;
+                padding: 0.75rem 0;
+            }
+            nav {
+                @include flexStyle(flex, row, space-between, center);
+            }
+        }
+        .second {
+            padding-left: 1rem;
+            nav {
+                height: 100%;
+                box-shadow: none;
+                ul {
+                    @include flexStyle(flex, column, space-between, flex-start);
+                    height: 100%;
+                }
+            }
+        }
+        .third {
+            ul {
+                @include flexStyle(flex, column, space-between, flex-start);
+                height: 100%;
+                li {
+                    @include flexStyle(flex, row, space-between, center);
+                    .imageContainer {
+                        width: calc(100% / 3);
+                    }
+                    .textContainer {
+                        width: 75%;
+                        padding-left: 1rem;
+                        .item {
+                            font-family: $secondaryFont;
+                            font-weight: 600;
+                            font-size: 0.9rem;
+                        }
+                        .price {
+                            color: $plantGreen;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+        .fourth {
+            padding-left: 1.7rem;
+            h3 {
+                padding: 0;
+                margin: 0;
+            }
+            form {
+                padding-top: 1rem;
+                width: 100%;
+                input[type=text] {
+                    width: 100%;
+                    padding: 0.5rem 1rem;
+                }
+            }
+        }
+    }
+    .copyright {
+        text-align: center;
+        color: $white;
+        font-size: 0.9rem;
+        a {
+            color: $white;
+        }
+    }
+}
