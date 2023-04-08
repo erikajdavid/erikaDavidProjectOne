@@ -568,3 +568,63 @@ header {
 .gallery .wrapper .bottomGallery {
   padding-top: 2rem;
 }
+
+.blog {
+  background-color: #207200;
+  padding: 6rem 0;
+}
+.blog .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.blog .wrapper .topBlog {
+  width: 65%;
+  color: #fff;
+  text-align: center;
+}
+.blog .wrapper .topBlog h2 {
+  font-family: "Lora", serif;
+  font-size: 2rem;
+  font-weight: 0;
+  letter-spacing: 0;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+.blog .wrapper .topBlog p {
+  padding: 2rem;
+}
+.blog .wrapper ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.blog .wrapper ul .blogPost {
+  width: 32%;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+}
+.blog .wrapper ul .blogPost .imageContainer {
+  width: 100%;
+}
+.blog .wrapper ul .blogPost .textContainer {
+  padding: 1rem 0;
+  width: 100%;
+}
+.blog .wrapper ul .blogPost .textContainer h3 {
+  font-family: "Lora", serif;
+  font-size: 1.25rem;
+  font-weight: 0;
+  letter-spacing: 0;
+  line-height: 2rem;
+}
+.blog .wrapper ul .blogPost .textContainer p {
+  padding: 1rem 0;
+}
+.blog .wrapper ul .blogPost .textContainer button {
+  margin-top: 1rem;
+}
