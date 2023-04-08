@@ -2,12 +2,12 @@
 
 ## The objective: 
 
-Convert a static multi-page PSD* using HTML AND CSS into a well-tested, accessible, responsive and pixel-perfect website for desktop and mobile. Site must responsive all the way down to 320px, and mobile view should provide good user experience.  
+Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessible, responsive and pixel-perfect website for desktop and mobile. Site must responsive all the way down to 320px, and mobile view should provide good user experience.  
 
 *The design and assets were provided by Juno College. 
 
 ## Technical challenges: 
-- SVGs not loading despite changing fill color. SOLVED by applying setting with to svgs. 
+- SVGs not loading despite changing fill color. SOLVED by applying width to svgs. 
 - SVG colors are off. Look over properties that need to be leveraged. 
 - Box-shadow for nav not showing. SOLVED by applying position: relative to nav. Shadow was initally rendering beneath the hero div. 
 - Box 7 in shop section disappears when resizing browser. 
