@@ -19,6 +19,16 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Initial draft of desktop landing page completed in under 24hours.
 - Leveraged mixins to keep SCSS short and sweet.  
 
+## Design liberties taken: 
+
+- Centered text in right container element of about section. Initial text-align: left looks weird and unfinished. 
+
+## Design liberties to consider:
+
+- Consider adding a background color similar to header image to shop section to break up the sections. All white feels like a never-ending scroll. 
+- Add to Card btn placement on container border is very strange. Was it designed this way on purpose? Maybe consider putting it inside the text container with everything else. 
+- Consider added more spacing between footer image and footer content. On larger screens, the content spills into the image footer and makes the text unlegible. 
+
 ## To improve:
 - Refine details of overall landing page. 
 - Create more consistency with font styling. 
