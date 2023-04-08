@@ -6,12 +6,13 @@
 - Footer content not lining up perfectly at the bottom. 
 
 ## Technical wins: 
-- Initial draft of landing page completed in under 24hours.
+- Initial draft of desktop landing page completed in under 24hours.
 - Leveraged mixins to keep SCSS short and sweet.  
 
 ## To improve:
 - Refine details of overall landing page. 
 - Create more consistency with font styling. 
-- Looking over mixins and look for new mixin and/or resuseable code opportunities. 
+- Look over mixins and look for new mixin and/or resuseable code opportunities. 
 - Revisit SVGs and bottom of footer alignment issue. 
+- Time allowing, create a branch to see how you would go about the project the second time. 
 
