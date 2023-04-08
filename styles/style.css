@@ -453,7 +453,7 @@ header {
   align-items: center;
 }
 .shopProducts .wrapper .shopText {
-  width: 55%;
+  width: 65%;
   text-align: center;
 }
 .shopProducts .wrapper .shopText h2 {
@@ -509,4 +509,62 @@ header {
 }
 .shopProducts .wrapper .shopBtn {
   margin-top: 3rem;
+}
+
+.gallery {
+  background-image: url(../assets/grass.jpg);
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.gallery .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+  text-align: center;
+}
+.gallery .wrapper .topGallery {
+  width: 65%;
+}
+.gallery .wrapper .topGallery h2 {
+  font-family: "Lora", serif;
+  font-size: 2rem;
+  font-weight: 0;
+  letter-spacing: 0;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+.gallery .wrapper .topGallery p {
+  padding: 2rem;
+}
+.gallery .wrapper .topGallery button {
+  margin: 0 0.3rem;
+}
+.gallery .wrapper .mainGallery {
+  padding: 2rem 0;
+}
+.gallery .wrapper .mainGallery .col2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.gallery .wrapper .mainGallery .col2 li {
+  width: calc(50% - 5px);
+  margin: 5px;
+}
+.gallery .wrapper .mainGallery .col3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.gallery .wrapper .mainGallery .col3 li {
+  width: calc(33.3333333333% - 5px);
+  margin: 0 5px;
+}
+.gallery .wrapper .bottomGallery {
+  padding-top: 2rem;
 }

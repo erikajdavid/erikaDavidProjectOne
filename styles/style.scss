@@ -215,7 +215,7 @@ header {
     .wrapper {
         @include flexStyle(flex, column, center, center);
         .shopText {
-            width: 55%;
+            width: 65%;
             text-align: center;
             h2 {
                 @include fontStyling($secondaryFont, 2rem, 0, 0, 1rem);
@@ -264,10 +264,50 @@ header {
     }
 }
 
-       
-
-
 //gallery section//
+.gallery {
+    background-image: url(../assets/grass.jpg);
+    @include bgImgStyling(bottom, contain, no-repeat);
+    .wrapper {
+        @include flexStyle(flex, column, center, center);
+        padding: 5rem 0;
+        text-align: center;
+        .topGallery {
+            width: 65%;
+            h2 {
+                @include fontStyling($secondaryFont, 2rem, 0, 0, 1rem);
+                text-transform: uppercase;
+            }
+            p {
+                padding: 2rem;
+            }
+            button {
+                margin: 0 0.3rem;
+            }
+        }
+        .mainGallery {
+            padding: 2rem 0;
+            .col2 {
+                @include flexStyle(flex, row, space-between, center);
+                li {
+                    width: calc(50% - 5px);
+                    margin: 5px;
+                }
+            }
+            .col3 {
+                @include flexStyle(flex, row, space-between, center);
+                li {
+                    width: calc((100% / 3) - 5px);
+                    margin: 0 5px;
+                }
+            }
+        }
+        .bottomGallery {
+            padding-top: 2rem; 
+        }
+    }
+}
+
 
 //blog section//
 
