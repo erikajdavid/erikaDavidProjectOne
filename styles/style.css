@@ -233,18 +233,13 @@ html {
   font-weight: 400;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .wrapper {
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
 }
 
-h1, h2, h3, p {
+body, h1, h2, h3, ul, p {
   padding: 0;
   margin: 0;
 }
@@ -273,8 +268,6 @@ p {
 
 ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 a {
@@ -349,6 +342,13 @@ img {
      object-fit: cover;
 }
 
+svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .textContainer,
 .imageContainer {
   width: 50%;
@@ -364,22 +364,23 @@ img {
   width: 65%;
 }
 
-nav {
+header nav {
   height: 10vh;
   color: #fff;
-  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  position: relative;
   display: flex;
   flex-direction: 0;
   justify-content: 0;
   align-items: center;
 }
-nav .wrapper {
+header nav .wrapper {
   display: flex;
   flex-direction: 0;
   justify-content: space-between;
   align-items: center;
 }
-nav .wrapper ul {
+header nav .wrapper ul {
   display: flex;
   flex-direction: 0;
   justify-content: space-between;
@@ -387,11 +388,8 @@ nav .wrapper ul {
   text-transform: uppercase;
   font-weight: 600;
 }
-nav .wrapper ul li {
+header nav .wrapper ul li {
   margin-left: 2rem;
-}
-nav .wrapper ul svg {
-  width: 1.5rem;
 }
 
 header {
@@ -652,13 +650,20 @@ footer .wrapper .first nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+}
+footer .wrapper .first nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
 }
 footer .wrapper .second {
   padding-left: 1rem;
 }
 footer .wrapper .second nav {
   height: 100%;
-  box-shadow: none;
 }
 footer .wrapper .second nav ul {
   display: flex;
