@@ -73,6 +73,7 @@ html {
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+    padding: 5rem 0;
 }
 
 body, h1, h2, h3, ul, p {
@@ -81,7 +82,7 @@ body, h1, h2, h3, ul, p {
 }
 
 h2 {
-    @include fontStyling($secondaryFont, 2rem, 700, 0.1rem, 2rem, uppercase);
+    @include fontStyling($secondaryFont, 1.75rem, 700, 0, 2rem, uppercase);
 }
 
 h3 {
@@ -101,29 +102,8 @@ a {
     color: $black;
 }
 
-button {
-    @include btnStyling($plantGreen, $white, 0.5rem 1rem, 1rem, none, 0, (0 0 2px rgba(0, 0, 0, 0.25)));
-    @include btnFontStyling($primaryFont, 0.9rem, 500, uppercase, 0.05rem);
-}
-
-.btnVar2 {
-    @include btnStyling(0, 0, 0.3rem 0.75rem, 0.75rem, 0, 0, 0);
-    @include btnFontStyling(0, 0.8rem, 400, capitalize, 0);
-}
-
-.btnVar3 {
-    @include btnStyling(0, 0, 0.75rem 1.5rem, 1.5rem, 0, 0, 0);
-    @include btnFontStyling(0, 0.9rem, 400, capitalize, 0);
-}
-
-.btnVar4 {
-    @include btnStyling(0, 0, 1.1rem 2.25rem, 2.25rem, 0, 0, 0);
-    @include btnFontStyling(0, 0.9rem, 600, capitalize, 0);
-}
-
 img {
     width: 100%;
-    height: auto;
     object-fit: cover;
 }
 
@@ -146,6 +126,26 @@ svg {
     padding: 2.5rem;
     margin: 0 auto;
     width: 65%;
+}
+
+button {
+    @include btnStyling($plantGreen, $white, 0.5rem 1rem, 1rem, none, 0, (0 0 3px rgba(0, 0, 0, 0.3)));
+    @include btnFontStyling($primaryFont, 0.9rem, 500, uppercase, 0.05rem);
+}
+
+.btnVar2 {
+    @include btnStyling(0, 0, 0.3rem 0.75rem, 0.75rem, 0, 0, 0);
+    @include btnFontStyling(0, 0.8rem, 400, capitalize, 0);
+}
+
+.btnVar3 {
+    @include btnStyling(0, 0, 0.75rem 1.5rem, 1.5rem, 0, 0, 0);
+    @include btnFontStyling(0, 0.9rem, 400, capitalize, 0);
+}
+
+.btnVar4 {
+    @include btnStyling(0, 0, 1.1rem 2.25rem, 2.25rem, 0, 0, 0);
+    @include btnFontStyling(0, 0.9rem, 600, capitalize, 0);
 }
 
 //nagivation section//
@@ -198,7 +198,6 @@ header {
 
 .about .wrapper {
     @include flexStyle(flex, 0, space-between, flex-start);
-    padding: 5rem 0;
     .textContainer {
         h2 {
             @include fontStyling(0, 1.25rem, 0, 0, 0, capitalize);
@@ -220,7 +219,7 @@ header {
     }
     .textContainer .aboutFact {
         @include fontStyling($secondaryFont, 1.5rem, 500, 0.075rem, 2rem, capitalize);
-        background-color: #5EA85E; //figure out the right color here//
+        background-color: #5EA85E; 
         color: $white;
         padding: 4rem;
         border-radius: 2rem;
@@ -229,9 +228,7 @@ header {
 }
 
 //shop section//
-.shop {
-    padding: 5rem;
-    .wrapper {
+.shop .wrapper {
         @include flexStyle(flex, column, center, center);
         .productGallery {
             @include flexStyle(flex, row, space-between, center);
@@ -269,7 +266,6 @@ header {
             margin-top: 3rem;
         }
     }
-}
 
 //gallery section//
 .gallery {
@@ -277,7 +273,6 @@ header {
     @include bgImgStyling(bottom, contain, no-repeat);
     .wrapper {
         @include flexStyle(flex, column, center, center);
-        padding: 5rem 0;
         text-align: center;
         .sectionHeading {
             button {
@@ -310,7 +305,6 @@ header {
 //blog section//
 .blog {
     background-color: $plantGreen;
-    padding: 6rem 0;
     .wrapper {
         @include flexStyle(flex, column, center, center);
         .sectionHeading {
@@ -350,11 +344,11 @@ footer {
     @include bgImgStyling(bottom, contain, no-repeat);
     .wrapper {
         @include flexStyle(flex, row, space-between, flex-start);
-        padding: 5rem 0 4rem 0;
         .footerCol {
             @include flexStyle(flex, column, space-between, flex-start);
             width: 25%;
             height: 45vh;
+            background-color: red;
             h3 {
                 padding-bottom: 2rem;
                 @include fontStyling($secondaryFont, 1.15rem, 700, 0.075rem, 1.5rem, 0);
