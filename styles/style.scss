@@ -128,19 +128,25 @@ button {
     @include btnFontStyling(0, 0.9rem, 600, capitalize, 0);
 }
 
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 .textContainer,
 .imageContainer {
     width: 50%;
 }
 
-img {
-    width: 100%;
-    object-fit: cover;
+.sectionHeading {
+    text-align: center;
 }
 
-.sectionHeading {
+.sectionHeading p {
+    padding: 2.5rem;
+    margin: 0 auto;
     width: 65%;
-    text-align: center;
 }
 
 //nagivation section//
@@ -230,26 +236,21 @@ header {
     padding: 5rem;
     .wrapper {
         @include flexStyle(flex, column, center, center);
-        .shopText {
-            width: 65%;
-            text-align: center;
-            p {
-                padding: 2rem;
-            }
-        }
         .productGallery {
             @include flexStyle(flex, row, space-between, center);
             flex-wrap: wrap;
             li {
                 max-width: 275px;
-                margin-bottom: 2rem;
-                box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+                margin-bottom: 3rem;
                 position: relative;
                 .imageContainer {
                     width: 100%;
                 }
                 .productInfoContainer {
                     padding: 0.75rem;
+                    border-bottom: 1px solid lightgray;
+                    border-left: 1px solid lightgray;
+                    border-right: 1px solid lightgray;
                     p {
                         padding: 0.75rem 0;
                     }
@@ -281,11 +282,7 @@ header {
         @include flexStyle(flex, column, center, center);
         padding: 5rem 0;
         text-align: center;
-        .topGallery {
-            width: 65%;
-            p {
-                padding: 2rem;
-            }
+        .sectionHeading {
             button {
                 margin: 0 0.3rem;
             }
@@ -319,13 +316,8 @@ header {
     padding: 6rem 0;
     .wrapper {
         @include flexStyle(flex, column, center, center);
-        .topBlog {
-            width: 65%;
+        .sectionHeading {
             color: $white;
-            text-align: center;
-            p {
-                padding: 2rem;
-            }
         }
         ul {
             @include flexStyle(flex, row, space-between, center);
