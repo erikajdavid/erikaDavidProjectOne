@@ -12,7 +12,7 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - ~~Box-shadow for nav not showing.~~ SOLVED by applying position: relative to nav. Shadow was initally rendering beneath the hero div. 
 - Box 7 in shop section disappears when resizing browser. 
 - Updated border for product containers but cannot close space between image container and product info container in shop. 
-- ~~Footer logo not given in the right color. Is there a way to change the color of a png?~~SOLVED using CSS filter generator found at https://codepen.io/sosuke/pen/Pjoqqp and then tinkering with brightness value.
+- ~~Footer logo not given in the right color. Is there a way to change the color of a png?~~ SOLVED using CSS filter generator found at https://codepen.io/sosuke/pen/Pjoqqp and then tinkering with brightness value.
 - Footer content not lining up perfectly at the bottom. 
 
 ## Technical wins: 
