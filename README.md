@@ -1,9 +1,10 @@
 # Juno College Cohort 49 - Project 1
 
-## The objective: Convert a static multi-page PSD* using HTML AND CSS into a well-tested, accessible, responsive and pixel-perfect website for desktop and mobile. Site must responsive all the way down to 320px, and mobile view should provide good user experience.  
+## The objective: 
+
+Convert a static multi-page PSD* using HTML AND CSS into a well-tested, accessible, responsive and pixel-perfect website for desktop and mobile. Site must responsive all the way down to 320px, and mobile view should provide good user experience.  
 
 *The design and assets were provided by Juno College. 
-
 
 ## Technical challenges: 
 - SVGS not loading despite changing fill color. 
