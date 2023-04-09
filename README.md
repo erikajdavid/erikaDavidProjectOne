@@ -8,26 +8,15 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 
 ## Technical challenges: 
 - ~~SVGs not loading despite changing fill color.~~ SOLVED by applying width to svgs. 
-- SVG colors are off. Look over properties that need to be leveraged. 
+- ~~SVG colors are off. Look over properties that need to be leveraged.~~ SOLVED simply by styling in CSS annd changing some SVG values in html. 
 - ~~Box-shadow for nav not showing.~~ SOLVED by applying position: relative to nav. Shadow was initally rendering beneath the hero div. 
 - Box 7 in shop section disappears when resizing browser. 
 - Updated border for product containers but cannot close space between image container and product info container in shop. 
-- ~~Footer logo not given in the right color. Is there a way to change the color of a png?~~ SOLVED using CSS filter generator found at https://codepen.io/sosuke/pen/Pjoqqp and then tinkering with brightness value.
-- Footer content not lining up perfectly at the bottom. 
+- ~~Footer logo not given in the right color. Is there a way to change the color of a png?~~ SOLVED using CSS filter generator found at https://codepen.io/sosuke/pen/Pjoqqp and then tinkering with brightness value. 
 
 ## Technical wins: 
 - Initial draft of desktop landing page completed in under 24hours.
 - Leveraged mixins to keep SCSS short and sweet.  
-
-## Design liberties taken: 
-
-- Centered text in right container element of about section. Initial text-align: left looks weird and unfinished. 
-
-## Design liberties to consider:
-
-- Consider adding a background color similar to header image to shop section to break up the sections. All white feels like a never-ending scroll. 
-- Add to Card btn placement on container border is very strange. Was it designed this way on purpose? Maybe consider putting it inside the text container with everything else. 
-- Consider added more spacing between footer image and footer content. On larger screens, the content spills into the image footer and makes the text unlegible. 
 
 ## To improve:
 - Refine details of overall landing page. 
@@ -42,5 +31,16 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Media queries for multiple devices, all the way down to 320px. 
 - Seperated SCSS into partials. 
 - Experiment with animations and transitions in a seperate branch. 
+
+## Design liberties taken: 
+
+- Centered text in right container element of about section. Initial text-align: left looks weird and unfinished. 
+
+## Design liberties to consider:
+
+- Consider adding a background color similar to header image to shop section to break up the sections. All white feels like a never-ending scroll. 
+- Add to Card btn placement on container border is very strange. Was it designed this way on purpose? Maybe consider putting it inside the text container with everything else. 
+- Consider added more spacing between footer image and footer content. On larger screens, the content spills into the image footer and makes the text unlegible. 
+
 
 
