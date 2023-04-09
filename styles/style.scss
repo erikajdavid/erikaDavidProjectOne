@@ -76,7 +76,7 @@ html {
     padding: 5rem 0;
 }
 
-body, h1, h2, h3, ul, p {
+body, h1, h2, h3, h4, ul, p {
     padding: 0;
     margin: 0;
 }
@@ -130,6 +130,12 @@ svg {
     padding: 2.5rem;
     margin: 0 auto;
     width: 65%;
+}
+
+.division {
+    @include flexStyle(flex, column, space-between, flex-start);
+    height: 80%;
+
 }
 
 button {
@@ -348,15 +354,16 @@ header {
     }
 }
 //footer section//
+
 footer {
     background-image: url(../assets/cow.png);
     @include bgImgStyling(bottom, contain, no-repeat);
     .wrapper {
-        @include flexStyle(flex, row, space-between, flex-start);
+        @include flexStyle(flex, row, space-between, 0);
         .footerCol {
-            @include flexStyle(flex, column, space-between, flex-start);
+            @include flexStyle(flex, column, space-between, 0);
             width: 25%;
-            height: 45vh;
+            height: 42vh;
             h3 {
                 padding-bottom: 2rem;
                 @include fontStyling($secondaryFont, 1.15rem, 700, 0.075rem, 1.5rem, 0);
@@ -365,13 +372,9 @@ footer {
         .first {
             img {
                 width: 40%;
-                padding: 0.75rem 0;
                 filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);            
             }
-            nav {
-                @include flexStyle(flex, row, space-between, center);
-                width: 100%;
-                ul {
+            nav ul {
                     @include flexStyle(flex, row, space-between, center);
                     width: 60%;
                 }
@@ -379,47 +382,34 @@ footer {
         }
         .second {
             padding-left: 1rem;
-            nav {
-                height: 100%;
-                ul {
-                    @include flexStyle(flex, column, space-between, flex-start);
+            nav ul {
+                    @include flexStyle(flex, column, space-between, 0);
                     height: 100%;
                 }
             }
         }
-        .third {
-            ul {
-                @include flexStyle(flex, column, space-between, flex-start);
-                height: 100%;
-                li {
-                    @include flexStyle(flex, row, space-between, center);
-                    .imageContainer {
-                        width: calc(100% / 3);
+        .third li {
+                @include flexStyle(flex, row, space-between, 0);
+                .imageContainer {
+                    width: calc(100% / 3);
                     }
-                    .textContainer {
-                        width: 75%;
-                        padding-left: 1rem;
-                        .item {
-                            font-family: $secondaryFont;
-                            font-weight: 600;
-                            font-size: 0.9rem;
-                        }
-                        .price {
-                            color: $plantGreen;
-                            font-weight: 600;
-                        }
+                .textContainer {
+                    width: 75%;
+                    padding-left: 1rem;
+                    @include flexStyle(flex, column, space-evenly, 0);
+                    .item {
+                        @include fontStyling($secondaryFont, 0.8rem, 600, 0, 0rem, 0);
+                    }
+                    .price {
+                        color: $plantGreen;
+                        font-weight: 600;
                     }
                 }
             }
-        }
         .fourth {
             padding-left: 1.7rem;
-            h3 {
-                padding: 0;
-                margin: 0;
-            }
             form {
-                padding-top: 1rem;
+                padding-top: 0.5rem;
                 width: 100%;
                 input[type=text] {
                     width: 100%;
@@ -427,14 +417,14 @@ footer {
                 }
             }
         }
-    }
-    .copyright {
-        text-align: center;
-        color: $white;
-        font-size: 0.8rem;
-        a {
+        .copyright {
             color: $white;
+            font-size: 0.8rem;
+            text-align: center;
+            a {
+                color: $white;
+            }
         }
-    }
-}
+
+
 
