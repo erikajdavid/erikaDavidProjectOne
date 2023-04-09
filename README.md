@@ -10,7 +10,7 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - ~~SVGs not loading despite changing fill color.~~ SOLVED by applying width to svgs. 
 - ~~SVG colors are off. Look over properties that need to be leveraged.~~ SOLVED simply by styling in CSS annd changing some SVG values in html. 
 - ~~Box-shadow for nav not showing.~~ SOLVED by applying position: relative to nav. Shadow was initally rendering beneath the hero div. 
-- Box 7 in shop section disappears when resizing browser. 
+- ~~Box 7 in shop section disappears when resizing browser.~~ SOLVED by removing flex-wrap property from <ul> and leveraging two <ul> instead of one. 
 - ~~Updated border for product containers but cannot close space between image container and product info container in shop.~~ SOLVED by setting font-size: 0 to image container.
 - ~~Footer logo not given in the right color. Is there a way to change the color of a png?~~ SOLVED using CSS filter generator found at https://codepen.io/sosuke/pen/Pjoqqp and then tinkering with brightness value. 
 - ~~Bottom footer content alignment not perfect.~~ SOLVED by creating a container for col2-4 with a set height and leveraging flex properties. 
