@@ -714,11 +714,11 @@ footer .wrapper .fourth form input[type=text] {
   width: 100%;
   padding: 0.5rem 1rem;
 }
-footer .wrapper .copyright {
+footer .copyright {
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-align: center;
 }
-footer .wrapper .copyright a {
+footer .copyright a {
   color: #fff;
 }

@@ -356,13 +356,13 @@ footer {
             nav ul {
                     @include flexStyle(flex, column, space-between, 0);
                     height: 100%;
-             }
-        }
+                }
+            }
         .third li {
             @include flexStyle(flex, row, space-between, 0);
             .imageContainer {
                 width: calc(100% / 3);
-            }
+                }
             .textContainer {
                 width: 75%;
                 padding-left: 1rem;
@@ -387,16 +387,17 @@ footer {
                 }
             }
         }
-        .copyright {
+    }
+    .copyright {
+        color: $white;
+        font-size: 0.75rem;
+        text-align: center;
+        a {
             color: $white;
-            font-size: 0.8rem;
-            text-align: center;
-            a {
-                color: $white;
-            }
         }
     }
 }
+
 
 
 
