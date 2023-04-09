@@ -19,6 +19,7 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Both HTML and CSS for initial draft of desktop landing page completed in under 24hours.
 - Leveraged mixins to keep SCSS short and sweet.  
 - All technical challenges (seen above) that were solved. 
+
 ## To improve:
 - Reassess btn styling mixins and determine if there is another way to create DRYer code. 
 - Refine details of overall landing page. 
