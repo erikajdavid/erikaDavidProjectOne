@@ -502,10 +502,9 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 .shop .wrapper .productGallery li {
-  max-width: 275px;
+  max-width: 24%;
   margin-bottom: 3rem;
   position: relative;
 }

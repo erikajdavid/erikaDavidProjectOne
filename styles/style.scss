@@ -247,9 +247,8 @@ header {
         @include flexStyle(flex, column, center, center);
         .productGallery {
             @include flexStyle(flex, row, space-between, center);
-            flex-wrap: wrap;
             li {
-                max-width: 275px;
+                max-width: 24%;
                 margin-bottom: 3rem;
                 position: relative;
                 .imageContainer {
