@@ -283,10 +283,14 @@ img {
 }
 
 svg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
   -o-object-fit: cover;
      object-fit: cover;
+  background-color: #207200;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  margin-right: 1rem;
 }
 
 .textContainer,
@@ -390,6 +394,10 @@ header nav .wrapper ul {
 }
 header nav .wrapper ul li {
   margin-left: 2rem;
+}
+header nav .wrapper ul li svg {
+  all: revert;
+  width: 1.75rem;
 }
 
 header {
@@ -637,7 +645,7 @@ footer .wrapper .footerCol h3 {
 footer .wrapper .first img {
   width: 40%;
   padding: 0.75rem 0;
-  filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(55%) contrast(101%);
+  filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);
 }
 footer .wrapper .first nav {
   display: flex;
@@ -713,7 +721,7 @@ footer .wrapper .fourth form input[type=text] {
 footer .copyright {
   text-align: center;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 footer .copyright a {
   color: #fff;

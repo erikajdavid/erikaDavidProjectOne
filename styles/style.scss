@@ -108,9 +108,13 @@ img {
 }
 
 svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
     object-fit: cover;
+    background-color: $plantGreen;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    margin-right: 1rem;
 }
 
 .textContainer,
@@ -164,6 +168,11 @@ header nav {
             font-weight: 600;
             li {
                 margin-left: 2rem;
+                svg {
+                    all: revert;
+                    width: 1.75rem;
+                }
+
             }
         }
     }
@@ -357,7 +366,7 @@ footer {
             img {
                 width: 40%;
                 padding: 0.75rem 0;
-                filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(55%) contrast(101%);            
+                filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);            
             }
             nav {
                 @include flexStyle(flex, row, space-between, center);
@@ -422,9 +431,10 @@ footer {
     .copyright {
         text-align: center;
         color: $white;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         a {
             color: $white;
         }
     }
 }
+
