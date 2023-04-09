@@ -285,8 +285,6 @@ img {
 svg {
   width: 1.75rem;
   height: 1.75rem;
-  -o-object-fit: cover;
-     object-fit: cover;
   background-color: #207200;
   padding: 0.5rem;
   border-radius: 2rem;
@@ -319,61 +317,65 @@ svg {
 button {
   background-color: #207200;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
+  margin: 0;
   border-radius: 1rem;
   border: none;
-  margin: 0;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   font-family: "Barlow", sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
-  text-transform: uppercase;
   letter-spacing: 0.05rem;
+  line-height: 0;
+  text-transform: uppercase;
 }
 
 .btnVar2 {
   background-color: 0;
   color: 0;
-  padding: 0.3rem 0.75rem;
+  padding: 0.75rem;
+  margin: 0;
   border-radius: 0.75rem;
   border: 0;
-  margin: 0;
   box-shadow: 0;
   font-family: 0;
   font-size: 0.8rem;
   font-weight: 400;
-  text-transform: capitalize;
   letter-spacing: 0;
+  line-height: 0;
+  text-transform: capitalize;
 }
 
 .btnVar3 {
   background-color: 0;
   color: 0;
-  padding: 0.75rem 1.5rem;
+  padding: 1.25rem;
+  margin: 0;
   border-radius: 1.5rem;
   border: 0;
-  margin: 0;
   box-shadow: 0;
   font-family: 0;
   font-size: 0.9rem;
   font-weight: 400;
-  text-transform: capitalize;
   letter-spacing: 0;
+  line-height: 0;
+  text-transform: capitalize;
 }
 
 .btnVar4 {
   background-color: 0;
   color: 0;
-  padding: 1.1rem 2.25rem;
+  padding: 1.6rem 2rem;
+  margin: 0;
   border-radius: 2.25rem;
   border: 0;
-  margin: 0;
   box-shadow: 0;
   font-family: 0;
   font-size: 0.9rem;
   font-weight: 600;
-  text-transform: capitalize;
   letter-spacing: 0;
+  line-height: 0;
+  text-transform: capitalize;
 }
 
 header nav {
@@ -487,8 +489,10 @@ header {
   background-color: #5EA85E;
   color: #fff;
   padding: 4rem;
+  margin: 0 0 0 2rem;
   border-radius: 2rem;
-  margin-left: 2rem;
+  border: none;
+  box-shadow: none;
 }
 
 .shop .wrapper {
@@ -598,9 +602,12 @@ header {
 }
 .blog .wrapper ul .blogPost {
   width: 32%;
-  border-radius: 6px;
   background-color: #fff;
+  color: 0;
   padding: 1rem;
+  margin: 0;
+  border-radius: 6px;
+  border: 0;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
 }
 .blog .wrapper ul .blogPost .imageContainer {
