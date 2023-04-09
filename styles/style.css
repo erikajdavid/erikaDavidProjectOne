@@ -511,12 +511,12 @@ header {
 }
 .shop .wrapper .productGallery li .imageContainer {
   width: 100%;
+  font-size: 0;
 }
 .shop .wrapper .productGallery li .productInfoContainer {
   padding: 0.75rem;
-  border-bottom: 1px solid lightgray;
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
+  border: 1.5px solid #EAEAEA;
+  border-top: none;
 }
 .shop .wrapper .productGallery li .productInfoContainer p {
   padding: 0.75rem 0;

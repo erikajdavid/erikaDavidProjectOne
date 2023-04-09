@@ -254,12 +254,12 @@ header {
                 position: relative;
                 .imageContainer {
                     width: 100%;
+                    font-size: 0;
                 }
                 .productInfoContainer {
                     padding: 0.75rem;
-                    border-bottom: 1px solid lightgray;
-                    border-left: 1px solid lightgray;
-                    border-right: 1px solid lightgray;
+                    border: 1.5px solid #EAEAEA;
+                    border-top: none;
                     p {
                         padding: 0.75rem 0;
                     }
