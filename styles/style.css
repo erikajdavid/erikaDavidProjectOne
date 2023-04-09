@@ -286,9 +286,12 @@ svg {
   width: 1.75rem;
   height: 1.75rem;
   background-color: #207200;
+  color: 0;
   padding: 0.5rem;
+  margin: 0 1rem 0 0;
   border-radius: 2rem;
-  margin-right: 1rem;
+  border: none;
+  box-shadow: none;
 }
 
 .textContainer,
@@ -350,7 +353,7 @@ button {
   background-color: 0;
   color: 0;
   padding: 1.25rem;
-  margin: 0;
+  margin: 0 0.3rem;
   border-radius: 1.5rem;
   border: 0;
   box-shadow: 0;
@@ -366,7 +369,7 @@ button {
   background-color: 0;
   color: 0;
   padding: 1.6rem 2rem;
-  margin: 0;
+  margin: 1rem 0 0 0;
   border-radius: 2.25rem;
   border: 0;
   box-shadow: 0;
@@ -552,9 +555,6 @@ header {
   align-items: center;
   text-align: center;
 }
-.gallery .wrapper .sectionHeading button {
-  margin: 0 0.3rem;
-}
 .gallery .wrapper .mainGallery {
   padding: 2rem 0;
 }
@@ -623,9 +623,6 @@ header {
 .blog .wrapper ul .blogPost .textContainer p {
   padding: 1rem 0;
 }
-.blog .wrapper ul .blogPost .textContainer button {
-  margin-top: 1rem;
-}
 
 footer {
   background-image: url(../assets/cow.png);
@@ -667,27 +664,26 @@ footer .wrapper .first nav ul {
   align-items: center;
   width: 60%;
 }
-footer .second {
+footer .wrapper .second {
   padding-left: 1rem;
 }
-footer .second nav ul {
+footer .wrapper .second nav ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: 0;
   height: 100%;
 }
-
-.third li {
+footer .wrapper .third li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: 0;
 }
-.third li .imageContainer {
+footer .wrapper .third li .imageContainer {
   width: 33.3333333333%;
 }
-.third li .textContainer {
+footer .wrapper .third li .textContainer {
   width: 75%;
   padding-left: 1rem;
   display: flex;
@@ -695,7 +691,7 @@ footer .second nav ul {
   justify-content: space-evenly;
   align-items: 0;
 }
-.third li .textContainer .item {
+footer .wrapper .third li .textContainer .item {
   font-family: "Lora", serif;
   font-size: 0.8rem;
   font-weight: 600;
@@ -703,28 +699,26 @@ footer .second nav ul {
   line-height: 0rem;
   text-transform: 0;
 }
-.third li .textContainer .price {
+footer .wrapper .third li .textContainer .price {
   color: #207200;
   font-weight: 600;
 }
-
-.fourth {
+footer .wrapper .fourth {
   padding-left: 1.7rem;
 }
-.fourth form {
+footer .wrapper .fourth form {
   padding-top: 0.5rem;
   width: 100%;
 }
-.fourth form input[type=text] {
+footer .wrapper .fourth form input[type=text] {
   width: 100%;
   padding: 0.5rem 1rem;
 }
-
-.copyright {
+footer .wrapper .copyright {
   color: #fff;
   font-size: 0.8rem;
   text-align: center;
 }
-.copyright a {
+footer .wrapper .copyright a {
   color: #fff;
 }

@@ -102,10 +102,7 @@ img {
 svg {
     width: 1.75rem;
     height: 1.75rem;
-    background-color: $plantGreen;
-    padding: 0.5rem;
-    border-radius: 2rem;
-    margin-right: 1rem;
+    @include genStyling($plantGreen, 0, 0.5rem, 2rem, none, 0 1rem 0 0, none);
 }
 
 .textContainer,
@@ -140,12 +137,12 @@ button {
 }
 
 .btnVar3 {
-    @include genStyling(0, 0, 1.25rem, 1.5rem, 0, 0, 0);
+    @include genStyling(0, 0, 1.25rem, 1.5rem, 0, 0 0.3rem, 0);
     @include fontStyling(0, 0.9rem, 400, 0, 0, capitalize);
 }
 
 .btnVar4 {
-    @include genStyling(0, 0, 1.6rem 2rem, 2.25rem, 0, 0, 0);
+    @include genStyling(0, 0, 1.6rem 2rem, 2.25rem, 0, 1rem 0 0 0, 0);
     @include fontStyling(0, 0.9rem, 600, 0, 0, capitalize);
 }
 
@@ -275,11 +272,6 @@ header {
     .wrapper {
         @include flexStyle(flex, column, center, center);
         text-align: center;
-        .sectionHeading {
-            button {
-                margin: 0 0.3rem;
-            }
-        }
         .mainGallery {
             padding: 2rem 0;
             .col2 {
@@ -328,9 +320,6 @@ header {
                     p {
                         padding: 1rem 0;
                     }
-                    button {
-                        margin-top: 1rem;
-                    }
                 }
             }
         }
@@ -360,7 +349,6 @@ footer {
             nav ul {
                     @include flexStyle(flex, row, space-between, center);
                     width: 60%;
-                }
             }
         }
         .second {
@@ -368,27 +356,26 @@ footer {
             nav ul {
                     @include flexStyle(flex, column, space-between, 0);
                     height: 100%;
+             }
+        }
+        .third li {
+            @include flexStyle(flex, row, space-between, 0);
+            .imageContainer {
+                width: calc(100% / 3);
+            }
+            .textContainer {
+                width: 75%;
+                padding-left: 1rem;
+                @include flexStyle(flex, column, space-evenly, 0);
+                .item {
+                    @include fontStyling($secondaryFont, 0.8rem, 600, 0, 0rem, 0);
+                }
+                .price {
+                    color: $plantGreen;
+                    font-weight: 600;
                 }
             }
         }
-        .third li {
-                @include flexStyle(flex, row, space-between, 0);
-                .imageContainer {
-                    width: calc(100% / 3);
-                    }
-                .textContainer {
-                    width: 75%;
-                    padding-left: 1rem;
-                    @include flexStyle(flex, column, space-evenly, 0);
-                    .item {
-                        @include fontStyling($secondaryFont, 0.8rem, 600, 0, 0rem, 0);
-                    }
-                    .price {
-                        color: $plantGreen;
-                        font-weight: 600;
-                    }
-                }
-            }
         .fourth {
             padding-left: 1.7rem;
             form {
@@ -408,6 +395,8 @@ footer {
                 color: $white;
             }
         }
+    }
+}
 
 
 
