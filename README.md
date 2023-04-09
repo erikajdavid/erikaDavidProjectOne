@@ -13,6 +13,7 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Box 7 in shop section disappears when resizing browser. 
 - Updated border for product containers but cannot close space between image container and product info container in shop. 
 - ~~Footer logo not given in the right color. Is there a way to change the color of a png?~~ SOLVED using CSS filter generator found at https://codepen.io/sosuke/pen/Pjoqqp and then tinkering with brightness value. 
+- ~~Bottom footer content alignment not perfect.~~ SOLVED by creating a container for col2-4 with a set height and leveraging flex properties. 
 
 ## Technical wins: 
 - Initial draft of desktop landing page completed in under 24hours.
