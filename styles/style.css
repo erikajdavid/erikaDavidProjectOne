@@ -534,21 +534,22 @@ header {
   width: 100%;
   font-size: 0;
 }
-.shop .wrapper .productGallery li .productInfoContainer {
+.shop .wrapper .productGallery li .textContainer {
+  width: 100%;
   padding: 0.75rem;
   border: 1.5px solid #EAEAEA;
   border-top: none;
 }
-.shop .wrapper .productGallery li .productInfoContainer p {
+.shop .wrapper .productGallery li .textContainer p {
   padding-top: 0.75rem;
 }
-.shop .wrapper .productGallery li .productInfoContainer .price {
+.shop .wrapper .productGallery li .textContainer .price {
   padding-bottom: 0.75rem;
 }
-.shop .wrapper .productGallery li .productInfoContainer .price span {
+.shop .wrapper .productGallery li .textContainer .price span {
   text-decoration: line-through;
 }
-.shop .wrapper .productGallery li .productInfoContainer button {
+.shop .wrapper .productGallery li .textContainer button {
   position: absolute;
 }
 .shop .wrapper .productGallery .shopBtn {
