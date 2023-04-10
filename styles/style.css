@@ -396,6 +396,13 @@ button {
   align-items: center;
 }
 
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 header nav {
   height: 10vh;
   position: relative;
@@ -498,22 +505,16 @@ header {
   margin: 0 0 0 2rem;
 }
 
-.shop .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-.shop .wrapper .productGallery li {
+.productGallery li {
   max-width: 24%;
   margin-bottom: 3rem;
   position: relative;
 }
-.shop .wrapper .productGallery li .imageContainer {
+.productGallery li .imageContainer {
   width: 100%;
   font-size: 0;
 }
-.shop .wrapper .productGallery li .textContainer {
+.productGallery li .textContainer {
   width: 100%;
   height: auto;
   padding: 0.75rem;
@@ -522,19 +523,20 @@ header {
   margin: none;
   border-top: none;
 }
-.shop .wrapper .productGallery li .textContainer p {
+.productGallery li .textContainer p {
   padding-top: 0.75rem;
 }
-.shop .wrapper .productGallery li .textContainer .price {
+.productGallery li .textContainer .price {
   padding-bottom: 0.75rem;
 }
-.shop .wrapper .productGallery li .textContainer .price span {
+.productGallery li .textContainer .price span {
   text-decoration: line-through;
 }
-.shop .wrapper .productGallery li .textContainer button {
+.productGallery li .textContainer button {
   position: absolute;
 }
-.shop .wrapper .shopBtn {
+
+.shopBtn {
   margin-top: 3rem;
 }
 
@@ -545,10 +547,6 @@ header {
   background-repeat: no-repeat;
 }
 .gallery .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
 .gallery .wrapper .mainGallery {
@@ -567,13 +565,7 @@ header {
   background-color: #207200;
   color: white;
 }
-.blog .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.blog .wrapper ul .blogPost {
+.blog .blogPost {
   background-color: #fff;
   color: #1A2428;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
@@ -584,14 +576,14 @@ header {
   border-radius: 6px;
   margin: none;
 }
-.blog .wrapper ul .blogPost .imageContainer {
+.blog .blogPost .imageContainer {
   width: 100%;
 }
-.blog .wrapper ul .blogPost .textContainer {
+.blog .blogPost .textContainer {
   padding: 1rem 0;
   width: 100%;
 }
-.blog .wrapper ul .blogPost .textContainer p {
+.blog .blogPost .textContainer p {
   padding: 1rem 0;
 }
 
@@ -602,10 +594,6 @@ footer {
   background-repeat: no-repeat;
 }
 footer .footerCol {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: 0;
   width: 25%;
   height: 42vh;
 }
@@ -617,27 +605,18 @@ footer .footerCol h3 {
   text-decoration: none;
 }
 footer .first {
+  background-color: red;
   padding-right: 2rem;
 }
 footer .first img {
   width: 40%;
   filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);
 }
-footer .first nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 65%;
-}
 footer .second {
   padding-left: 1rem;
 }
 footer .second nav ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: 0;
+  align-items: flex-start;
   height: 100%;
 }
 footer .third li .imageContainer {
@@ -646,10 +625,6 @@ footer .third li .imageContainer {
 footer .third li .textContainer {
   width: 75%;
   padding-left: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: 0;
 }
 footer .third li .textContainer .item {
   font-family: "Lora", serif;

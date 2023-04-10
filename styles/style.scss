@@ -160,6 +160,10 @@ button {
     @include flexStyle(flex, row, space-between, center);
 }
 
+.flexColumn {
+    @include flexStyle(flex, column, space-between, center);
+}
+
 //nagivation section//
 header nav {
     height: 10vh;
@@ -238,45 +242,41 @@ header {
 }
 
 //shop section//
-.shop .wrapper {
-        @include flexStyle(flex, column, space-between, center);
-        .productGallery li {
-                max-width: 24%;
-                margin-bottom: 3rem;
-                position: relative;
-                .imageContainer {
-                    width: 100%;
-                    font-size: 0;
-                }
-                .textContainer {
-                    @include boxModel(100%, auto, 0.75rem, 1.5px solid #EAEAEA, none, none);
-                    border-top: none;
-                    p {
-                        padding-top: 0.75rem;
-                    }
-                    .price {
-                        padding-bottom: 0.75rem;
-                        span {
-                            text-decoration: line-through;
-                        }
-                    }
-                    button {
-                        position: absolute;
-                    }
-                }   
-            }
-        .shopBtn {
-            margin-top: 3rem;
+.productGallery li {
+    max-width: 24%;
+    margin-bottom: 3rem;
+    position: relative;
+    .imageContainer {
+        width: 100%;
+        font-size: 0;
+    }
+    .textContainer {
+        @include boxModel(100%, auto, 0.75rem, 1.5px solid #EAEAEA, none, none);
+        border-top: none;
+        p {
+            padding-top: 0.75rem;
         }
+        .price {
+            padding-bottom: 0.75rem;
+            span {
+                text-decoration: line-through;
+            }
+        }
+        button {
+            position: absolute;
+        }
+    }
 }
 
+.shopBtn {
+    margin-top: 3rem;
+}
 
 //gallery section//
 .gallery {
     background-image: url(../assets/grass.jpg);
     @include bgImgStyling(bottom, contain, no-repeat);
     .wrapper {
-        @include flexStyle(flex, column, center, center);
         text-align: center;
         .mainGallery {
             padding: 2rem 0 4rem 0;
@@ -300,22 +300,17 @@ header {
 .blog {
     background-color: $plantGreen;
     color: white;
-    .wrapper {
-        @include flexStyle(flex, column, center, center);
-        ul {
-            .blogPost {
-                @include colors($white, $black, 0 5px 8px rgba(0, 0, 0, 0.3));
-                @include boxModel(32%, auto, 1rem, none, 6px, none);
-                .imageContainer {
-                    width: 100%;
-                }
-                .textContainer {
-                    padding: 1rem 0;
-                    width: 100%;
-                    p {
-                        padding: 1rem 0;
-                    }
-                }
+    .blogPost {
+        @include colors($white, $black, 0 5px 8px rgba(0, 0, 0, 0.3));
+        @include boxModel(32%, auto, 1rem, none, 6px, none);
+        .imageContainer {
+            width: 100%;
+        }
+        .textContainer {
+            padding: 1rem 0;
+            width: 100%;
+            p {
+                padding: 1rem 0;
             }
         }
     }
@@ -326,7 +321,6 @@ footer {
     background-image: url(../assets/cow.png);
     @include bgImgStyling(bottom, contain, no-repeat);
     .footerCol {
-        @include flexStyle(flex, column, space-between, 0);
         width: 25%;
         height: 42vh;
         h3 {
@@ -335,19 +329,17 @@ footer {
         }
     }
     .first {
+        background-color: red;
         padding-right: 2rem;
         img {
             width: 40%;
             filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);            
             }
-        nav ul {
-                @include flexStyle(flex, row, space-between, center);                    width: 65%;
-            }
     }
     .second {
         padding-left: 1rem;
         nav ul {
-                @include flexStyle(flex, column, space-between, 0);
+            align-items: flex-start;
                 height: 100%;
             }
         }
@@ -358,7 +350,6 @@ footer {
         .textContainer {
             width: 75%;
             padding-left: 1rem;
-            @include flexStyle(flex, column, space-evenly, 0);
             .item {
                 @include fontStyling($secondaryFont, 0.8rem, 600);
                 @include textStyling( 0, 0, 0rem, none);
@@ -385,6 +376,7 @@ footer {
         }
     }
 }
+
 
 
 
