@@ -26,23 +26,32 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
     align-items: $alignItems;
 }
 
-@mixin genStyling($bgColor, $color, $padding, $bRadius, $border, $margin, $boxShadow) {
+@mixin boxModel($width, $height, $padding, $border, $bRadius, $margin) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    border: $border;
+    border-radius: $bRadius;
+    margin: $margin;
+}
+
+@mixin colors($bgColor, $color, $boxShadow) {
     background-color: $bgColor;
     color: $color;
-    padding: $padding;
-    margin: $margin;
-    border-radius: $bRadius;
-    border: $border;
     box-shadow: $boxShadow;
 }
 
-@mixin fontStyling($fontFamily, $fontSize, $fontWeight, $letterSpacing, $lineHeight, $textTransform) {
+@mixin fontStyling($fontFamily, $fontSize, $fontWeight) {
     font-family: $fontFamily;
     font-size: $fontSize;
     font-weight: $fontWeight;
+}
+
+@mixin textStyling($letterSpacing, $lineHeight, $textTransform, $textDeco) {
     letter-spacing: $letterSpacing;
     line-height: $lineHeight;
     text-transform: $textTransform;
+    text-decoration: $textDeco
 }
 
 @mixin bgImgStyling($bgPosition, $bgSize, $bgRepeat) {
@@ -53,19 +62,15 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 //generic styles//
 html {
-    font-family: $primaryFont;
+    @include fontStyling($primaryFont, 125%, 400);
     color: $black;
-    font-size: 125%;
-    font-weight: 400;
 }
 
 //reusable code//
 
 .wrapper {
     max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    padding: 5rem 0;
+    @include boxModel(90%, auto, 5rem 0, none, none, 0 auto);
 }
 
 body, h1, h2, h3, h4, ul, p {
@@ -74,11 +79,13 @@ body, h1, h2, h3, h4, ul, p {
 }
 
 h2 {
-    @include fontStyling($secondaryFont, 1.75rem, 700, 0, 2rem, uppercase);
+    @include fontStyling($secondaryFont, 1.75rem, 700);
+    @include textStyling (0, 2rem, uppercase, none);
 }
 
 h3 {
-    @include fontStyling($secondaryFont, 1rem, 600, 0.025rem, 1.5rem, 0);
+    @include fontStyling($secondaryFont, 1.15rem, 600);
+    @include textStyling (0.025rem, 1.5rem, 0, none);
 }
 
 p {
@@ -100,9 +107,8 @@ img {
 }
 
 svg {
-    width: 1.75rem;
-    height: 1.75rem;
-    @include genStyling($plantGreen, 0, 0.5rem, 2rem, none, 0 1rem 0 0, none);
+    @include boxModel(1.75rem, 1.75rem, 0.5rem, none, 2rem, 0 2rem 0 0);
+    @include colors($plantGreen, 0, none);
 }
 
 .textContainer,
@@ -115,9 +121,7 @@ svg {
 }
 
 .sectionHeading p {
-    padding: 2.5rem;
-    margin: 0 auto;
-    width: 65%;
+    @include boxModel(65%, auto, 2.5rem, none, none, 0 auto);
 }
 
 .division {
@@ -127,32 +131,39 @@ svg {
 }
 
 button {
-    @include genStyling($plantGreen, $white, 1rem, 1rem, none, 0, (0 0 3px rgba(0, 0, 0, 0.3)));
-    @include fontStyling($primaryFont, 0.9rem, 500, 0.05rem, 0, uppercase);
+    @include colors($plantGreen, $white, 0 0 3px rgba(0, 0, 0, 0.3));
+    @include boxModel(auto, auto, 0.75rem, none, 0.75rem, none);
+    @include fontStyling($primaryFont, 0.8rem, 400);
+    @include textStyling(0.05rem, 0, capitalize, none);
 }
 
 .btnVar2 {
-    @include genStyling(0, 0, 0.75rem, 0.75rem, 0, 0, 0);
-    @include fontStyling(0, 0.8rem, 400, 0, 0, capitalize);
+    @include boxModel(auto, auto, 1rem, 0, 1rem, 0);
+    @include fontStyling($primaryFont, 0.9rem, 500);
+    @include textStyling (0, 0, uppercase, none);
 }
 
 .btnVar3 {
-    @include genStyling(0, 0, 1.25rem, 1.5rem, 0, 0 0.3rem, 0);
-    @include fontStyling(0, 0.9rem, 400, 0, 0, capitalize);
+    @include boxModel(auto, auto, 1.25rem, 0, 1.5rem, 0 0.3rem);
+    @include fontStyling(0, 0.9rem, 400);
 }
 
 .btnVar4 {
-    @include genStyling(0, 0, 1.6rem 2rem, 2.25rem, 0, 1rem 0 0 0, 0);
-    @include fontStyling(0, 0.9rem, 600, 0, 0, capitalize);
+    @include boxModel(auto, auto, 1.6rem 2rem, 0, 2.25rem, 1rem 0 0 0);
+    @include fontStyling(0, 0.9rem, 600);
+}
+
+.price {
+    color: $plantGreen;
+    font-weight: 600;
 }
 
 //nagivation section//
 
 header nav {
     height: 10vh;
-    color: $white;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
     position: relative;
+    @include colors($white, 0, 0 0 8px rgba(0, 0, 0, 0.25));
     @include flexStyle(flex, 0, 0, center);
     .wrapper {
         @include flexStyle(flex, 0, space-between, center);
@@ -189,7 +200,8 @@ header {
     .textContainer {
         padding-right: 2rem;
         h1 {
-            @include fontStyling($secondaryFont, 2.5rem, 900, 0.1rem, 3.5rem, capitalize);
+            @include fontStyling($secondaryFont, 2.5rem, 900);
+            @include textStyling(0.1rem, 3.5rem, capitalize, none);
         }
         p {
             padding: 2rem 0;
@@ -203,11 +215,13 @@ header {
     @include flexStyle(flex, 0, space-between, flex-start);
     .textContainer {
         h2 {
-            @include fontStyling(0, 1.25rem, 0, 0, 0, capitalize);
+            @include fontStyling(0, 1.25rem, 0);
+            @include textStyling( 0, 0, capitalize, none);
             padding-bottom: 0.5rem;
         }
         h3 {
-            @include fontStyling (0, 2rem, 0, 0, 2.5rem, capitalize);
+            @include fontStyling (0, 2rem, 0);
+            @include textStyling(0, 2.5rem, capitalize, none);
             padding: 1rem 0;
         }
         p {
@@ -221,8 +235,11 @@ header {
         padding-right: 3rem;
     }
     .textContainer .aboutFact {
-        @include fontStyling($secondaryFont, 1.5rem, 500, 0.075rem, 2rem, capitalize);
-        @include genStyling(#5EA85E, $white, 4rem, 2rem, none, 0 0 0 2rem, none);
+        @include fontStyling($secondaryFont, 1.5rem, 500);
+        @include textStyling(0.075rem, 2rem, capitalize, none);
+        @include colors(#5EA85E, $white, none);
+        @include boxModel(auto, auto, 4rem, none, 4rem, 0 0 0 2rem);
+        
     }
 }
 
@@ -244,12 +261,10 @@ header {
                     border: 1.5px solid #EAEAEA;
                     border-top: none;
                     p {
-                        padding: 0.75rem 0;
+                        padding-top: 0.75rem;
                     }
                     .price {
-                        padding: 0 0 0.75rem 0;
-                        color: $plantGreen;
-                        font-weight: 600;
+                        padding-bottom: 0.75rem;
                         span {
                             text-decoration: line-through;
                         }
@@ -257,13 +272,13 @@ header {
                     button {
                         position: absolute;
                     }
-                }
-            }   
-        }
+                }   
+            }
         .shopBtn {
             margin-top: 3rem;
         }
     }
+}
 
 //gallery section//
 .gallery {
@@ -273,7 +288,7 @@ header {
         @include flexStyle(flex, column, center, center);
         text-align: center;
         .mainGallery {
-            padding: 2rem 0;
+            padding: 2rem 0 4rem 0;
             .col2 {
                 @include flexStyle(flex, row, space-between, center);
                 li {
@@ -289,34 +304,26 @@ header {
                 }
             }
         }
-        .bottomGallery {
-            padding-top: 2rem; 
-        }
     }
 }
 
 //blog section//
 .blog {
     background-color: $plantGreen;
+    color: white;
     .wrapper {
         @include flexStyle(flex, column, center, center);
-        .sectionHeading {
-            color: $white;
-        }
         ul {
             @include flexStyle(flex, row, space-between, center);
             .blogPost {
-                width: 32%;
-                @include genStyling($white, 0, 1rem, 6px, 0, 0, 0 5px 8px rgba(0, 0, 0, 0.3));
+                @include colors($white, $black, 0 5px 8px rgba(0, 0, 0, 0.3));
+                @include boxModel(32%, auto, 1rem, none, 6px, none);
                 .imageContainer {
                     width: 100%;
                 }
                 .textContainer {
                     padding: 1rem 0;
                     width: 100%;
-                    h3 {
-                        font-size: 1.15rem;
-                    }
                     p {
                         padding: 1rem 0;
                     }
@@ -338,10 +345,11 @@ footer {
             height: 42vh;
             h3 {
                 padding-bottom: 2rem;
-                @include fontStyling($secondaryFont, 1.15rem, 700, 0.075rem, 1.5rem, 0);
+                @include textStyling(0.075rem, 1.5rem, 0, none);
             }
         }
         .first {
+            padding-right: 2rem;
             img {
                 width: 40%;
                 filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);            
@@ -368,11 +376,8 @@ footer {
                 padding-left: 1rem;
                 @include flexStyle(flex, column, space-evenly, 0);
                 .item {
-                    @include fontStyling($secondaryFont, 0.8rem, 600, 0, 0rem, 0);
-                }
-                .price {
-                    color: $plantGreen;
-                    font-weight: 600;
+                    @include fontStyling($secondaryFont, 0.8rem, 600);
+                    @include textStyling( 0, 0, 0rem, none);
                 }
             }
         }

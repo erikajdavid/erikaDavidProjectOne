@@ -228,16 +228,19 @@ template {
 
 html {
   font-family: "Barlow", sans-serif;
-  color: #1A2428;
   font-size: 125%;
   font-weight: 400;
+  color: #1A2428;
 }
 
 .wrapper {
   max-width: 1200px;
   width: 90%;
-  margin: 0 auto;
+  height: auto;
   padding: 5rem 0;
+  border: none;
+  border-radius: none;
+  margin: 0 auto;
 }
 
 body, h1, h2, h3, h4, ul, p {
@@ -252,15 +255,17 @@ h2 {
   letter-spacing: 0;
   line-height: 2rem;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 h3 {
   font-family: "Lora", serif;
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.025rem;
   line-height: 1.5rem;
   text-transform: 0;
+  text-decoration: none;
 }
 
 p {
@@ -285,12 +290,12 @@ img {
 svg {
   width: 1.75rem;
   height: 1.75rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2rem;
+  margin: 0 2rem 0 0;
   background-color: #207200;
   color: 0;
-  padding: 0.5rem;
-  margin: 0 1rem 0 0;
-  border-radius: 2rem;
-  border: none;
   box-shadow: none;
 }
 
@@ -304,9 +309,12 @@ svg {
 }
 
 .sectionHeading p {
-  padding: 2.5rem;
-  margin: 0 auto;
   width: 65%;
+  height: auto;
+  padding: 2.5rem;
+  border: none;
+  border-radius: none;
+  margin: 0 auto;
 }
 
 .division {
@@ -320,72 +328,73 @@ svg {
 button {
   background-color: #207200;
   color: #fff;
-  padding: 1rem;
-  margin: 0;
-  border-radius: 1rem;
-  border: none;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  width: auto;
+  height: auto;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  margin: none;
   font-family: "Barlow", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 400;
   letter-spacing: 0.05rem;
   line-height: 0;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  text-decoration: none;
 }
 
 .btnVar2 {
-  background-color: 0;
-  color: 0;
-  padding: 0.75rem;
-  margin: 0;
-  border-radius: 0.75rem;
+  width: auto;
+  height: auto;
+  padding: 1rem;
   border: 0;
-  box-shadow: 0;
-  font-family: 0;
-  font-size: 0.8rem;
-  font-weight: 400;
+  border-radius: 1rem;
+  margin: 0;
+  font-family: "Barlow", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
   letter-spacing: 0;
   line-height: 0;
-  text-transform: capitalize;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .btnVar3 {
-  background-color: 0;
-  color: 0;
+  width: auto;
+  height: auto;
   padding: 1.25rem;
-  margin: 0 0.3rem;
-  border-radius: 1.5rem;
   border: 0;
-  box-shadow: 0;
+  border-radius: 1.5rem;
+  margin: 0 0.3rem;
   font-family: 0;
   font-size: 0.9rem;
   font-weight: 400;
-  letter-spacing: 0;
-  line-height: 0;
-  text-transform: capitalize;
 }
 
 .btnVar4 {
-  background-color: 0;
-  color: 0;
+  width: auto;
+  height: auto;
   padding: 1.6rem 2rem;
-  margin: 1rem 0 0 0;
-  border-radius: 2.25rem;
   border: 0;
-  box-shadow: 0;
+  border-radius: 2.25rem;
+  margin: 1rem 0 0 0;
   font-family: 0;
   font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0;
-  line-height: 0;
-  text-transform: capitalize;
+}
+
+.price {
+  color: #207200;
+  font-weight: 600;
 }
 
 header nav {
   height: 10vh;
-  color: #fff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   position: relative;
+  background-color: #fff;
+  color: 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: 0;
   justify-content: 0;
@@ -444,6 +453,7 @@ header {
   letter-spacing: 0.1rem;
   line-height: 3.5rem;
   text-transform: capitalize;
+  text-decoration: none;
 }
 .hero .textContainer p {
   padding: 2rem 0;
@@ -462,6 +472,7 @@ header {
   letter-spacing: 0;
   line-height: 0;
   text-transform: capitalize;
+  text-decoration: none;
   padding-bottom: 0.5rem;
 }
 .about .wrapper .textContainer h3 {
@@ -471,6 +482,7 @@ header {
   letter-spacing: 0;
   line-height: 2.5rem;
   text-transform: capitalize;
+  text-decoration: none;
   padding: 1rem 0;
 }
 .about .wrapper .textContainer p {
@@ -489,13 +501,16 @@ header {
   letter-spacing: 0.075rem;
   line-height: 2rem;
   text-transform: capitalize;
+  text-decoration: none;
   background-color: #5EA85E;
   color: #fff;
-  padding: 4rem;
-  margin: 0 0 0 2rem;
-  border-radius: 2rem;
-  border: none;
   box-shadow: none;
+  width: auto;
+  height: auto;
+  padding: 4rem;
+  border: none;
+  border-radius: 4rem;
+  margin: 0 0 0 2rem;
 }
 
 .shop .wrapper {
@@ -525,12 +540,10 @@ header {
   border-top: none;
 }
 .shop .wrapper .productGallery li .productInfoContainer p {
-  padding: 0.75rem 0;
+  padding-top: 0.75rem;
 }
 .shop .wrapper .productGallery li .productInfoContainer .price {
-  padding: 0 0 0.75rem 0;
-  color: #207200;
-  font-weight: 600;
+  padding-bottom: 0.75rem;
 }
 .shop .wrapper .productGallery li .productInfoContainer .price span {
   text-decoration: line-through;
@@ -538,7 +551,7 @@ header {
 .shop .wrapper .productGallery li .productInfoContainer button {
   position: absolute;
 }
-.shop .wrapper .shopBtn {
+.shop .wrapper .productGallery .shopBtn {
   margin-top: 3rem;
 }
 
@@ -556,7 +569,7 @@ header {
   text-align: center;
 }
 .gallery .wrapper .mainGallery {
-  padding: 2rem 0;
+  padding: 2rem 0 4rem 0;
 }
 .gallery .wrapper .mainGallery .col2 {
   display: flex;
@@ -578,21 +591,16 @@ header {
   width: calc(33.3333333333% - 5px);
   margin: 0 5px;
 }
-.gallery .wrapper .bottomGallery {
-  padding-top: 2rem;
-}
 
 .blog {
   background-color: #207200;
+  color: white;
 }
 .blog .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.blog .wrapper .sectionHeading {
-  color: #fff;
 }
 .blog .wrapper ul {
   display: flex;
@@ -601,14 +609,15 @@ header {
   align-items: center;
 }
 .blog .wrapper ul .blogPost {
-  width: 32%;
   background-color: #fff;
-  color: 0;
-  padding: 1rem;
-  margin: 0;
-  border-radius: 6px;
-  border: 0;
+  color: #1A2428;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+  width: 32%;
+  height: auto;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  margin: none;
 }
 .blog .wrapper ul .blogPost .imageContainer {
   width: 100%;
@@ -616,9 +625,6 @@ header {
 .blog .wrapper ul .blogPost .textContainer {
   padding: 1rem 0;
   width: 100%;
-}
-.blog .wrapper ul .blogPost .textContainer h3 {
-  font-size: 1.15rem;
 }
 .blog .wrapper ul .blogPost .textContainer p {
   padding: 1rem 0;
@@ -646,12 +652,13 @@ footer .wrapper .footerCol {
 }
 footer .wrapper .footerCol h3 {
   padding-bottom: 2rem;
-  font-family: "Lora", serif;
-  font-size: 1.15rem;
-  font-weight: 700;
   letter-spacing: 0.075rem;
   line-height: 1.5rem;
   text-transform: 0;
+  text-decoration: none;
+}
+footer .wrapper .first {
+  padding-right: 2rem;
 }
 footer .wrapper .first img {
   width: 40%;
@@ -696,12 +703,9 @@ footer .wrapper .third li .textContainer .item {
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 0rem;
-  text-transform: 0;
-}
-footer .wrapper .third li .textContainer .price {
-  color: #207200;
-  font-weight: 600;
+  line-height: 0;
+  text-transform: 0rem;
+  text-decoration: none;
 }
 footer .wrapper .fourth {
   padding-left: 1.7rem;
