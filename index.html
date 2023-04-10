@@ -13,12 +13,12 @@
 <body>
     <!-- beginning of header section -->
     <header>
-        <nav>
-            <div class="wrapper">
+        <nav class="flexRow">
+            <div class="wrapper flexRow">
                 <a href="#">
                     <img src="./assets/logo.png" alt="#">
                 </a>
-                <ul>
+                <ul class="flexRow">
                     <li>
                         <a href="#">Home</a>
                     </li>
@@ -37,8 +37,8 @@
             </div>
             <!-- add FA hamburger menu here for tablet/mobile media queries -->
         </nav>
-        <div class="hero parallax">
-            <div class="wrapper">
+        <div class="hero parallax flexRow">
+            <div class="wrapper flexRow">
                 <div class="textContainer">
                     <h1>Providing Tasty & Healthy Food</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum alias provident quas beatae libero sint ducimus, possimus tenetur quis dolor ipsam voluptatem voluptas vel. Totam doloremque ullam magnam quidem! Fugit?</p>
@@ -56,7 +56,7 @@
     <main>
         <!-- beginning of about section -->
         <section id="about" class="about">
-            <div class="wrapper">
+            <div class="wrapper flexRow">
                 <div class="textContainer aboutText">
                     <h2>About us</h2>
                     <h3>Providing Best Organic Products.</h3>
@@ -78,7 +78,7 @@
                     <h2>Our products</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla amet exercitationem itaque est nihil mollitia.</p>
                 </div>
-                <ul class="productGallery">
+                <ul class="productGallery flexRow">
                     <li>
                         <div class="imageContainer">
                             <img src="./assets/product1.jpeg" alt="#">
@@ -124,7 +124,7 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="productGallery">
+                <ul class="productGallery flexRow">
                     <li>
                         <div class="imageContainer">
                             <img src="./assets/product5.jpeg" alt="#">                            
@@ -194,7 +194,7 @@
                 </div>
                 <div class="mainGallery">
                     <!-- is ul the right choice here or should you apply a div? -->
-                    <ul class="col3">
+                    <ul class="col3 flexRow">
                         <li>
                             <img src="./assets/gallery1.jpg" alt="">
                         </li>
@@ -205,7 +205,7 @@
                             <img src="./assets/gallery3.jpg" alt="">
                         </li>
                     </ul>
-                    <ul class="col2">
+                    <ul class="col2 flexRow">
                         <li>
                             <img src="./assets/gallery4.jpg" alt="">
                         </li>
@@ -213,7 +213,7 @@
                             <img src="./assets/gallery5.jpg" alt="">
                         </li>
                     </ul>
-                    <ul class="col3">
+                    <ul class="col3 flexRow">
                         <li>
                             <img src="./assets/gallery6.jpg" alt="">
                         </li>
@@ -239,7 +239,7 @@
                     <h2>Latest news</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi maxime deserunt quas debitis consequuntur, unde molestiae natus totam nemo qui.</p>
                 </div>
-                <ul>
+                <ul class="flexRow">
                     <li class="blogPost">
                         <div class="imageContainer">
                             <img src="./assets/blog1.jpg">
@@ -279,7 +279,7 @@
 
     <!-- beginning of footer section -->
     <footer>
-        <div class="wrapper">
+        <div class="wrapper flexRow">
             <div class="footerCol first">
                 <!-- is this the logo you're supposed to use? color does not match PSD -->
                 <img src="./assets/logo-white.png">
@@ -288,7 +288,7 @@
                     <!-- SVGS not loading anymore, insert them again -->
                     <!-- need to figure out styling for social media icons and proper svg indentation-->
                     <!-- consider using FA icons as well, to keep the HTML shorter and easier to read-->
-                    <ul>
+                    <ul class="flexRow">
                         <li>
                             <a href="#">
                                 <svg viewBox="0 0 25 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Facebook</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-1" stroke="#207200" stroke-width="1" fill="#207200" fill-rule="evenodd"><g id="Social-Icons---Isolated" transform="translate(-176.000000, -55.000000)" fill="#4460A0"><path d="M200.78439,55.3395122 L200.78439,62.9141463 L196.28878,62.9258537 C192.764878,62.9258537 192.085854,64.6 192.085854,67.0468293 L192.085854,72.4673171 L200.48,72.4673171 L199.39122,80.9434146 L192.085854,80.9434146 L192.085854,103 L183.329951,103 L183.329951,80.9434146 L176,80.9434146 L176,72.4673171 L183.329951,72.4673171 L183.329951,66.2156098 C183.329951,58.9570732 187.754146,55 194.24,55 C197.331902,55 200,55.2341463 200.78439,55.3395122 Z" id="Facebook" style="fill: rgb(255, 255, 255);"></path></g></g></svg>
@@ -342,7 +342,7 @@
                 <h3>Recent products</h3>
                 <!-- rename class .division -->
                 <ul class="division">
-                    <li>
+                    <li class="flexRow">
                         <div class="imageContainer">
                             <img src="./assets/product8.jpeg" alt="#">
                         </div>
@@ -351,7 +351,7 @@
                             <p class="price">$13</p>
                         </div>
                     </li>
-                    <li>
+                    <li class="flexRow">
                         <div class="imageContainer">
                             <img src="./assets/product7.jpeg" alt="#">
                         </div>
@@ -360,7 +360,7 @@
                             <p class="price">$13</p>
                         </div>
                     </li>
-                    <li>
+                    <li class="flexRow">
                         <div class="imageContainer">
                             <img src="./assets/product5.jpeg" alt="#">
                         </div>
