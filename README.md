@@ -31,14 +31,16 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Time permitting, create a branch to see how you would go about the project the second time around. 
 
 ## To do:
+- Create parallax effect in gallery section. 
 - Create contact page, but finalize the landing page before proceeding.
 - Media queries for multiple devices, all the way down to 320px. 
-- Seperated SCSS into partials. 
+- Seperate SCSS into partials. 
 - Experiment with animations and transitions in a seperate branch. 
 
 ## Design liberties taken: 
 
 - Centered text in right container element of about section. Initial text-align: left looks weird and unfinished. 
+- Created parallax effect in header section to create fluidity. 
 
 ## Design liberties to consider:
 
