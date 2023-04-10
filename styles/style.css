@@ -463,7 +463,7 @@ header {
   display: flex;
   flex-direction: 0;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: 0;
 }
 .about .wrapper .textContainer h2 {
   font-family: 0;
@@ -516,7 +516,7 @@ header {
 .shop .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .shop .wrapper .productGallery {
@@ -536,8 +536,11 @@ header {
 }
 .shop .wrapper .productGallery li .textContainer {
   width: 100%;
+  height: auto;
   padding: 0.75rem;
   border: 1.5px solid #EAEAEA;
+  border-radius: none;
+  margin: none;
   border-top: none;
 }
 .shop .wrapper .productGallery li .textContainer p {
