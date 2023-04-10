@@ -109,7 +109,7 @@ img {
 }
 
 svg {
-    @include boxModel(1.75rem, 1.75rem, 0.5rem, none, 2rem, 0 2rem 0 0);
+    @include boxModel(1.75rem, 1.75rem, 0.5rem, none, 2rem, none);
     @include colors($plantGreen, 0, none);
 }
 
@@ -191,11 +191,16 @@ header {
     height: 100vh;
 }
 
+.parallax {
+    background-image: url(../assets/header/background.png);
+    height: 100%;
+    background-attachment: fixed;
+    @include bgImgStyling(center, cover, no-repeat);
+}
+
 .hero {
     @include flexStyle(flex, row, space-between, center);
     height: 90vh;
-    background-image: url(../assets/header/background.png);
-    @include bgImgStyling(center, cover, no-repeat);
     .wrapper {
         @include flexStyle(flex, row, space-between, center);
     }
@@ -210,6 +215,8 @@ header {
         }
     }
 }
+
+
 
 //about section//
 
