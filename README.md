@@ -21,9 +21,9 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - All technical challenges (seen above) that were solved. 
 
 ## To improve:
-- Reassess btn styling mixins and determine if there is another way to create DRYer code. 
+- ~~Reassess btn styling mixins and determine if there is another way to create DRYer code.~~ 
 - Refine details of overall landing page. 
-- Create more consistency with font styling. 
+- ~~Create more consistency with font styling.~~ 
 - Look over mixins and look for new mixin and/or resuseable code opportunities. 
 - ~~Revisit SVGs. Make sure you can figure it out how to use them before using FA fonts. Using FA fonts would only be to keep the HTML code shorter.~~
 - ~~Revisit bottom of footer alignment issue.~~
