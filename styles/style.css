@@ -424,6 +424,7 @@ header nav .wrapper ul li svg {
 
 header {
   height: 100vh;
+  overflow: hidden;
 }
 
 .parallax {
@@ -454,6 +455,21 @@ header {
   padding: 2rem 0;
 }
 
+.animate {
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-right: 100%;
+    width: 300%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 .about .wrapper {
   align-items: flex-start;
 }

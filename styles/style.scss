@@ -185,6 +185,7 @@ header nav {
 //header section//
 header {
     height: 100vh;
+    overflow: hidden;
 }
 
 .parallax {
@@ -205,6 +206,25 @@ header {
         p {
             padding: 2rem 0;
         }
+    }
+}
+
+    //animation for hero
+
+.animate {
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-right: 100%;
+        width: 300%
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
     }
 }
 
