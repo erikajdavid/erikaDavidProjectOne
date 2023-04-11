@@ -179,7 +179,12 @@ header nav {
                 width: 1.75rem;
             }
         }
-    } 
+    }
+    .hamburger {
+        font-size: 1.5rem;
+        color: $black;
+        display: none;
+    }
 }
 
 //header section//
