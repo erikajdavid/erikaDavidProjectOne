@@ -687,7 +687,18 @@ footer .fourth form {
 }
 footer .fourth form input[type=text] {
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
+  border: 0.5px solid lightgray;
+  border-radius: 4px;
+  outline: none;
+}
+footer .fourth form input::-moz-placeholder {
+  color: #1A2428;
+  font-size: 0.9rem;
+}
+footer .fourth form input::placeholder {
+  color: #1A2428;
+  font-size: 0.9rem;
 }
 footer .copyright {
   color: #fff;
@@ -696,4 +707,22 @@ footer .copyright {
 }
 footer .copyright a {
   color: #fff;
+}
+
+.contactBanner {
+  background-image: url(../assets/contact.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+}
+.contactBanner h2 {
+  color: #fff;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 2rem;
 }
