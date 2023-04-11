@@ -572,10 +572,20 @@ header {
 .gallery .wrapper .mainGallery .col2 li {
   width: calc(50% - 5px);
   margin: 5px;
+  overflow: hidden;
 }
 .gallery .wrapper .mainGallery .col3 li {
   width: calc(33.3333333333% - 5px);
   margin: 0 5px;
+  overflow: hidden;
+}
+
+.mainGallery img {
+  transition: all 1s ease;
+}
+
+.mainGallery img:hover {
+  transform: scale(1.1);
 }
 
 .blog {

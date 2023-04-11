@@ -305,16 +305,28 @@ header {
                 li {
                     width: calc(50% - 5px);
                     margin: 5px;
+                    overflow: hidden;
                 }
             }
             .col3 {
                 li {
                     width: calc((100% / 3) - 5px);
                     margin: 0 5px;
+                    overflow: hidden;
                 }
             }
         }
     }
+}
+
+    //zoom in and out effect on hover//
+
+.mainGallery img {
+    transition: all 1s ease;
+}
+
+.mainGallery img:hover {
+    transform: scale(1.1);
 }
 
 //blog section//
