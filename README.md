@@ -32,8 +32,11 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Time permitting, create a branch to see how you would go about the project the second time around. 
 
 ## To do:
+- Organize your animations.
+- Create hover effects for links. 
+- Add alt text to images. 
+- Insert FA script to head and add FA hamburger menu (for mediaQs). 
 - Create contact page, but finalize the landing page before proceeding.
-- Organize your animations. 
 - Media queries for multiple devices, all the way down to 320px. 
 - Seperate SCSS into partials. 
 - Experiment with animations and transitions in a seperate branch. 
