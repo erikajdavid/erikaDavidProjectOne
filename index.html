@@ -281,16 +281,12 @@
     <footer>
         <div class="wrapper flexRow">
             <div class="footerCol first">
-                <!-- is this the logo you're supposed to use? color does not match PSD -->
                 <div class="imageContainer">
                     <img src="./assets/logo-white.png">
                 </div>
                 <div class="division">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum amet a non sapiente perspiciatis. Dignissimos amet quidem modi sapiente!</p>
                     <nav>
-                        <!-- SVGS not loading anymore, insert them again -->
-                        <!-- need to figure out styling for social media icons and proper svg indentation-->
-                        <!-- consider using FA icons as well, to keep the HTML shorter and easier to read-->
                         <ul class="flexRow">
                             <li>
                                 <a href="#">
@@ -318,7 +314,6 @@
             </div>
             <div class="footerCol second">
                 <h3>Quick links</h3>
-                <!-- rename class .division -->
                 <nav class="division">
                     <ul class="flexColumn">
                         <li>
@@ -344,7 +339,6 @@
             </div>
             <div class="footerCol third">
                 <h3>Recent products</h3>
-                <!-- rename class .division -->
                 <ul class="division">
                     <li class="flexRow">
                         <div class="imageContainer">
@@ -376,18 +370,15 @@
                 </ul>
             </div>
             <div class="footerCol fourth">
-                <!-- should you use an address tag in this column? -->
                 <h3>Subscribe</h3>
-                <!-- rename class .division -->
                 <div class="division">
                     <h4>Address:</h4>
-                    <!-- comma in this address suggests <br> should be applied? -->
+                    <!-- comma in this address suggests <br> should be applied. -->
                     <p>5919 Trussville Crossings Pkwy, <br> Birmingham AL 35235</p>
                     <h4>Phone</h4>
                     <p>+88016888005654</p>
                     <form action="#" method="#" name="subscribeForm">
-                        <!-- look up sr-only for blank label -->
-                        <label for="email"></label>
+                        <label for="email" class="sr-only">Enter email to subscribe</label>
                         <input type="text" id="email" class="email" name="email" placeholder="Enter Email...">
                     </form>
                 </div>
