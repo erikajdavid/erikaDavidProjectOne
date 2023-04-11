@@ -669,6 +669,9 @@ footer .third li .textContainer {
   width: 75%;
   padding-left: 1rem;
 }
+footer .third li .textContainer p {
+  padding: 0.5rem 0;
+}
 footer .third li .textContainer .item {
   font-family: "Lora", serif;
   font-size: 0.8rem;
@@ -687,9 +690,11 @@ footer .fourth form {
 }
 footer .fourth form input[type=text] {
   width: 100%;
-  padding: 1rem 1rem;
-  border: 0.5px solid lightgray;
+  height: auto;
+  padding: 1rem;
+  border: 0.5px solid #BBBBBB;
   border-radius: 4px;
+  margin: none;
   outline: none;
 }
 footer .fourth form input::-moz-placeholder {

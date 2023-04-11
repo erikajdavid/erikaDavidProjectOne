@@ -401,6 +401,9 @@ footer {
         .textContainer {
             width: 75%;
             padding-left: 1rem;
+            p {
+                padding: 0.5rem 0;
+            }
             .item {
                 @include fontStyling($secondaryFont, 0.8rem, 600);
                 @include textStyling( 0, 0, 0rem, none);
@@ -413,10 +416,7 @@ footer {
             padding-top: 0.5rem;
             width: 100%;
             input[type=text] {
-                width: 100%;
-                padding: 1rem 1rem;
-                border: 0.5px solid lightgray;
-                border-radius: 4px;
+                @include boxModel(100%, auto, 1rem, 0.5px solid #BBBBBB, 4px, none);
                 outline: none;
             }
             input::placeholder {
