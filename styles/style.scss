@@ -82,7 +82,7 @@ h2 {
 }
 
 h3 {
-    @include fontStyling($secondaryFont, 1.15rem, 600);
+    @include fontStyling($secondaryFont, 1.1rem, 600);
     @include textStyling (0.025rem, 1.5rem, 0, none);
 }
 
@@ -236,7 +236,7 @@ header {
         @include fontStyling($secondaryFont, 1.5rem, 500);
         @include textStyling(0.075rem, 2rem, capitalize, none);
         @include colors(#5EA85E, $white, none);
-        @include boxModel(auto, auto, 4rem, none, 4rem, 0 0 0 2rem);
+        @include boxModel(auto, auto, 5rem, none, 4rem, 0 0 0 2rem);
         
     }
 }
