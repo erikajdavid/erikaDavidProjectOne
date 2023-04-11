@@ -228,7 +228,7 @@ template {
 
 html {
   font-family: "Barlow", sans-serif;
-  font-size: 125%;
+  font-size: 18px;
   font-weight: 400;
   color: #1A2428;
 }
@@ -293,7 +293,7 @@ svg {
   padding: 0.5rem;
   border: none;
   border-radius: 2rem;
-  margin: none;
+  margin: 0 0 1rem 0;
   background-color: #207200;
   color: 0;
   box-shadow: none;
@@ -309,7 +309,7 @@ svg {
 }
 
 .sectionHeading p {
-  width: 65%;
+  width: 60%;
   height: auto;
   padding: 2.5rem;
   border: none;
@@ -537,7 +537,8 @@ header {
 }
 
 .shopBtn {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
+  text-align: center;
 }
 
 .gallery {
@@ -605,12 +606,19 @@ footer .footerCol h3 {
   text-decoration: none;
 }
 footer .first {
-  background-color: red;
   padding-right: 2rem;
 }
-footer .first img {
-  width: 40%;
+footer .first .imageContainer {
+  height: 30%;
+}
+footer .first .imageContainer img {
   filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);
+}
+footer .first .division {
+  height: 70%;
+}
+footer .first .division nav ul li {
+  margin-right: 1rem;
 }
 footer .second {
   padding-left: 1rem;

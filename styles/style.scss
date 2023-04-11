@@ -61,7 +61,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 //generic styles//
 html {
-    @include fontStyling($primaryFont, 125%, 400);
+    @include fontStyling($primaryFont, 18px, 400);
     color: $black;
 }
 
@@ -105,7 +105,7 @@ img {
 }
 
 svg {
-    @include boxModel(1.75rem, 1.75rem, 0.5rem, none, 2rem, none);
+    @include boxModel(1.75rem, 1.75rem, 0.5rem, none, 2rem, 0 0 1rem 0);
     @include colors($plantGreen, 0, none);
 }
 
@@ -119,7 +119,7 @@ svg {
 }
 
 .sectionHeading p {
-    @include boxModel(65%, auto, 2.5rem, none, none, 0 auto);
+    @include boxModel(60%, auto, 2.5rem, none, none, 0 auto);
 }
 
 .division {
@@ -269,7 +269,8 @@ header {
 }
 
 .shopBtn {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
+    text-align: center;
 }
 
 //gallery section//
@@ -329,12 +330,19 @@ footer {
         }
     }
     .first {
-        background-color: red;
         padding-right: 2rem;
-        img {
-            width: 40%;
+        .imageContainer {
+            height: 30%;
+            img {
             filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);            
             }
+        }
+        .division {
+            height: 70%;
+            nav ul li {
+                margin-right: 1rem;
+            }
+        }
     }
     .second {
         padding-left: 1rem;
