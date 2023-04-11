@@ -470,6 +470,14 @@ header {
     width: 100%;
   }
 }
+.hero img {
+  transition: all 1s ease;
+}
+
+.hero img:hover {
+  transform: scale(1.2);
+}
+
 .about .wrapper {
   align-items: flex-start;
 }
@@ -537,6 +545,7 @@ header {
   border: 1.5px solid #EAEAEA;
   border-radius: none;
   margin: none;
+  background-color: #fff;
   border-top: none;
 }
 .productGallery li .textContainer p {

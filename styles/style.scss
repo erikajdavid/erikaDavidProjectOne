@@ -228,6 +228,16 @@ header {
     }
 }
 
+    //hover for hero
+
+    .hero img {
+        transition: all 1s ease;
+    }
+
+    .hero img:hover {
+        transform: scale(1.2);
+    }
+
 //about section//
 .about .wrapper {
     align-items: flex-start;
@@ -272,6 +282,7 @@ header {
     }
     .textContainer {
         @include boxModel(100%, auto, 0.75rem, 1.5px solid #EAEAEA, none, none);
+        background-color: $white;
         border-top: none;
         p {
             padding-top: 0.75rem;
