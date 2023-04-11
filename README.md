@@ -19,6 +19,7 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Both HTML and CSS for initial draft of desktop landing page completed in under 24hours.
 - Leveraged mixins to keep SCSS short and sweet.  
 - Learned how to apply a parallax effect.
+- Learned how to create movement for static images with zoom in and out hover effect. 
 - All technical challenges (seen above) that were solved. 
 
 ## To improve:
