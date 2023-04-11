@@ -19,7 +19,7 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Both HTML and CSS for initial draft of desktop landing page completed in under 24hours.
 - Leveraged mixins to keep SCSS short and sweet.  
 - Learned how to apply a parallax effect.
-- Learned how to create movement for static images with zoom in and out hover effect. 
+- Learned how to create movement for static images with zoom-in-and-out hover effect. 
 - All technical challenges (seen above) that were solved. 
 
 ## To improve:
@@ -32,8 +32,8 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Time permitting, create a branch to see how you would go about the project the second time around. 
 
 ## To do:
-- Create parallax effect in gallery section. 
 - Create contact page, but finalize the landing page before proceeding.
+- Organize your animations. 
 - Media queries for multiple devices, all the way down to 320px. 
 - Seperate SCSS into partials. 
 - Experiment with animations and transitions in a seperate branch. 
@@ -42,10 +42,11 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 
 - Centered text in right container element of about section. Initial text-align: left looks weird and unfinished. 
 - Created parallax effect in header section to create fluidity. 
+- Added zoom-in-zoom-out hover effect to gallery images to make section less static. 
 
 ## Design liberties to consider:
 
-- Consider adding a background color similar to header image to shop section to break up the sections. All white feels like a never-ending scroll. 
+- Consider adding a background color similar to header image or another image to shop section to break up the sections. All white feels like a never-ending scroll. 
 - Add to Card btn placement on container border is very strange. Was it designed this way on purpose? Maybe consider putting it inside the text container with everything else. 
 - Consider adding more spacing between footer image and footer content. On larger screens, the content spills into the image footer and makes the text unlegible. 
 
