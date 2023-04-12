@@ -719,7 +719,10 @@ footer .copyright a {
   color: #fff;
 }
 
-.contactBanner {
+.headerContact {
+  height: 100%;
+}
+.headerContact .contactBanner {
   background-image: url(../assets/contact.jpg);
   background-position: center;
   background-size: cover;
@@ -730,9 +733,42 @@ footer .copyright a {
   align-items: center;
   height: 45vh;
 }
-.contactBanner h2 {
+.headerContact .contactBanner h2 {
   color: #fff;
   text-transform: capitalize;
   font-weight: 500;
   font-size: 2rem;
+}
+
+.contact {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.contact .wrapper {
+  height: 100%;
+}
+.contact .wrapper .textContainer {
+  width: 47.5%;
+  height: 80%;
+}
+.contact .wrapper .textContainer .contactInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contact .wrapper .textContainer li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 2.5rem 0 2.5rem 3rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  border-left: 10px solid #207200;
+}
+.contact .wrapper .textContainer .contactForm {
+  background-color: green;
+  border: 1px solid #1A2428;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
 }
