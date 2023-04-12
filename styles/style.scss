@@ -125,7 +125,6 @@ svg {
 .division {
     @include flexStyle(flex, column, space-between, flex-start);
     height: 80%;
-
 }
 
 button {
@@ -214,8 +213,16 @@ header {
     }
 }
 
-    //animation for hero
+    //zoom-in-zoom-out hover
+.hero img {
+    transition: all 1s ease;
+}
 
+.hero img:hover {
+        transform: scale(1.2);
+    }
+
+    //animation for hero//
 .animate {
     animation-duration: 2s;
     animation-name: slidein;
@@ -226,22 +233,11 @@ header {
         margin-right: 100%;
         width: 300%
     }
-
     to {
         margin-left: 0%;
         width: 100%;
     }
 }
-
-    //hover for hero
-
-    .hero img {
-        transition: all 1s ease;
-    }
-
-    .hero img:hover {
-        transform: scale(1.2);
-    }
 
 //about section//
 .about .wrapper {
@@ -335,8 +331,7 @@ header {
     }
 }
 
-    //zoom in and out effect on hover//
-
+    //zoom-in-and-out on hover//
 .mainGallery img {
     transition: all 1s ease;
 }
@@ -441,6 +436,8 @@ footer {
 }
 
 ///////////////////CONTACT PAGE/////////////////////
+
+//header section//
 .headerContact {
     height: 100%;
     .contactBanner {
@@ -451,12 +448,12 @@ footer {
         h2 {
             color: $white;
             text-transform: capitalize;
-            font-weight: 500;
-            font-size: 2rem;
+            @include fontStyling(0, 2rem, 500);
         }
     }
 }
 
+//contact section//
 .contact {
     height: 100vh;
     display: flex;
@@ -465,30 +462,24 @@ footer {
 
 .contact .wrapper {
     height: 100%;
-    .textContainer {
-        width: 47.5%;
+    align-items: flex-start;
+    .contactContainer {
+        width: 48%;
         height: 80%;
-        .contactInfo {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
         li {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-bottom: 3rem;
-            padding: 2.5rem 0 2.5rem 3rem; 
-            box-shadow: 0 0 3px (rgba(0, 0, 0, 0.25));         
+            @include flexStyle(flex, column, center, flex-start);
+            @include boxModel(auto, auto, 2.5rem 0 2.5rem 3.5rem, none, none, 0 0 3rem 0);
+            box-shadow: 0 0 15px (rgba(121, 121, 121, 0.4));         
             border-left: 10px solid $plantGreen;
         }
-        .contactForm {
-            background-color: green;
-            border: 1px solid $black;
-            box-shadow: 0 0 3px (rgba(0, 0, 0, 0.25));  
-        }       
     }
 }
+   
+    
+
+
+
+
 
 
 

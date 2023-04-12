@@ -460,6 +460,14 @@ header {
   padding: 2rem 0;
 }
 
+.hero img {
+  transition: all 1s ease;
+}
+
+.hero img:hover {
+  transform: scale(1.2);
+}
+
 .animate {
   animation-duration: 2s;
   animation-name: slidein;
@@ -475,14 +483,6 @@ header {
     width: 100%;
   }
 }
-.hero img {
-  transition: all 1s ease;
-}
-
-.hero img:hover {
-  transform: scale(1.2);
-}
-
 .about .wrapper {
   align-items: flex-start;
 }
@@ -736,8 +736,9 @@ footer .copyright a {
 .headerContact .contactBanner h2 {
   color: #fff;
   text-transform: capitalize;
-  font-weight: 500;
+  font-family: 0;
   font-size: 2rem;
+  font-weight: 500;
 }
 
 .contact {
@@ -748,27 +749,23 @@ footer .copyright a {
 
 .contact .wrapper {
   height: 100%;
-}
-.contact .wrapper .textContainer {
-  width: 47.5%;
-  height: 80%;
-}
-.contact .wrapper .textContainer .contactInfo {
-  display: flex;
-  justify-content: space-between;
   align-items: flex-start;
 }
-.contact .wrapper .textContainer li {
+.contact .wrapper .contactContainer {
+  width: 48%;
+  height: 80%;
+}
+.contact .wrapper .contactContainer li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 3rem;
-  padding: 2.5rem 0 2.5rem 3rem;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  padding: 2.5rem 0 2.5rem 3.5rem;
+  border: none;
+  border-radius: none;
+  margin: 0 0 3rem 0;
+  box-shadow: 0 0 15px rgba(121, 121, 121, 0.4);
   border-left: 10px solid #207200;
-}
-.contact .wrapper .textContainer .contactForm {
-  background-color: green;
-  border: 1px solid #1A2428;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
 }
