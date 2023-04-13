@@ -35,7 +35,9 @@
                         </a>
                     </li>
                 </ul>
-                <i class="fa-solid fa-bars hamburger"></i>        
+                <a class="hamburgerContainer" href="#">
+                    <i class="fa-solid fa-bars hamburger"></i>
+                </a>     
             </div>
         </nav>
         <div class="contactBanner">
@@ -62,15 +64,13 @@
                     <p>4cfdx9dye9e@temporary-mail.net</p>
                 </li>
             </ul>
-            <div class="textContainer formContainer">
+            <div class="textContainer">
                 <form action="#" method="#" name="contactForm">
-                    <div class="row1">
+                    <div class="row1and2 flexRow">
                         <label for="name" class="sr-only">Enter your name</label>
                         <input type="text" id="name" class="name" name="name" placeholder="Your full name*" required>
                         <label for="email" class="sr-only">Enter yout email</label>
                         <input type="text" id="email" class="email" name="email" placeholder="Your email address*" required>
-                    </div>
-                    <div class="row2">
                         <label for="phone" class="sr-only">Enter your phone number</label>
                         <input type="text" id="phone" class="phone" name="phone" placeholder="Your phone number">
                         <label for="website" class="sr-only">Enter your website</label>
@@ -82,12 +82,11 @@
                     </div>
                     <div class="row4">
                         <label for="mesages" class="sr-only">Enter message</label>
-                        <textarea name="userMessage" id="message" class="message" cols="55" rows="8" placeholder="Your message" required></textarea>
+                        <textarea name="userMessage" id="message" class="message" cols="55" rows="8" placeholder="Your message..." required></textarea>
                     </div>
+                    <button type="submit">Send message</button>
                 </form>
             <div>
-                <button type="submit">Send message</button>
-            </div>
         </div>
     </section>
     <!-- end of contact section -->
