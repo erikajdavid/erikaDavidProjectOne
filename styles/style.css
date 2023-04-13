@@ -421,10 +421,12 @@ header nav .wrapper ul li svg {
   all: revert;
   width: 1.75rem;
 }
-header nav .hamburger {
+header nav .hamburgerContainer {
+  display: none;
+}
+header nav .hamburgerContainer .hamburger {
   font-size: 1.5rem;
   color: #1A2428;
-  display: none;
 }
 
 header {
@@ -667,24 +669,21 @@ footer .second nav ul {
   align-items: flex-start;
   height: 100%;
 }
-footer .third li .imageContainer {
+footer .third .imageContainer {
   width: 33.3333333333%;
 }
-footer .third li .textContainer {
+footer .textContainer {
   width: 75%;
   padding-left: 1rem;
 }
-footer .third li .textContainer p {
+footer .textContainer p {
   padding: 0.5rem 0;
 }
-footer .third li .textContainer .item {
+footer .textContainer .item {
   font-family: "Lora", serif;
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0;
-  line-height: 0;
-  text-transform: 0rem;
-  text-decoration: none;
+  padding: 0;
 }
 footer .fourth {
   padding-left: 1.7rem;
@@ -697,7 +696,7 @@ footer .fourth form input[type=text] {
   width: 100%;
   height: auto;
   padding: 1rem;
-  border: 0.5px solid #BBBBBB;
+  border: 1.5px solid #EAEAEA;
   border-radius: 4px;
   margin: none;
   outline: none;
@@ -743,29 +742,70 @@ footer .copyright a {
 
 .contact {
   height: 100vh;
-  display: flex;
-  align-items: center;
 }
-
 .contact .wrapper {
   height: 100%;
   align-items: flex-start;
 }
-.contact .wrapper .contactContainer {
-  width: 48%;
-  height: 80%;
+.contact .wrapper .textContainer {
+  height: 100%;
+  width: 47.5%;
 }
 .contact .wrapper .contactContainer li {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   width: auto;
   height: auto;
-  padding: 2.5rem 0 2.5rem 3.5rem;
+  padding: 2.75rem 0 2.75rem 3rem;
   border: none;
   border-radius: none;
   margin: 0 0 3rem 0;
-  box-shadow: 0 0 15px rgba(121, 121, 121, 0.4);
   border-left: 10px solid #207200;
+  box-shadow: 0 0 15px rgba(189, 189, 189, 0.4);
+}
+.contact .wrapper .contactContainer li h3 {
+  padding-bottom: 0.5rem;
+}
+.contact .wrapper form {
+  text-align: center;
+  padding: 3rem;
+  box-shadow: 0 0 15px rgba(189, 189, 189, 0.4);
+}
+.contact .wrapper form .row1and2 {
+  flex-wrap: wrap;
+}
+.contact .wrapper form .row1and2 input {
+  width: 48%;
+  height: auto;
+  padding: 1rem;
+  border: 1.5px solid #EAEAEA;
+  border-radius: 6px;
+  margin: 0 0 2rem 0;
+}
+.contact .wrapper form .row3 input,
+.contact .wrapper form textarea {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  border: 1.5px solid #EAEAEA;
+  border-radius: 6px;
+  margin: 0 0 2rem 0;
+}
+.contact .wrapper form input[type=text]::-moz-placeholder, .contact .wrapper form textarea::-moz-placeholder {
+  font-size: 0.85rem;
+}
+.contact .wrapper form input[type=text]::placeholder,
+.contact .wrapper form textarea::placeholder {
+  font-size: 0.85rem;
+}
+.contact .wrapper button {
+  width: auto;
+  height: auto;
+  padding: 1.75rem 2.25rem;
+  border: none;
+  border-radius: 2.25rem;
+  margin: none;
+  font-size: 1rem;
 }
