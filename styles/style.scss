@@ -191,6 +191,31 @@ header nav {
     }
 }
 
+.navHover {
+    position: relative;
+}
+
+.navHover a:hover {
+    color: $plantGreen;
+}
+
+.navHover::after {
+    content: '';
+    height: 5px;
+    width: 100%;
+    background-color: #5EA85E;
+    position: absolute;
+    left: 0;
+    bottom: -1rem; //fix this so that it always stays in the position when resizing browser
+    opacity: 0;
+    transition: all 0.25s;
+    pointer-events: none;
+}
+
+.navHover:hover::after {
+    opacity: 1;
+}
+
 
 //header section//
 header {
@@ -237,7 +262,7 @@ header {
 @keyframes slidein {
     from {
         margin-right: 100%;
-        width: 300%
+        width: 200%;
     }
     to {
         margin-left: 0%;
@@ -279,6 +304,7 @@ header {
 }
 
 //shop section//
+
 .productGallery li {
     max-width: 24%;
     margin-bottom: 3rem;
