@@ -17,6 +17,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
     $white: #fff;
     $black: #1A2428;
     $lightgrey: #EAEAEA;
+    $lightgreen: #5EA85E;
     $boxShadow: 0 0 15px (rgba(189, 189, 189, 0.4));
     $borderInput: 1.5px solid $lightgrey;
 
@@ -143,6 +144,12 @@ button {
     @include textStyling(0.05rem, 0, capitalize, none);
 }
 
+button:hover {
+    background-color: $lightgreen;
+    transition: all 0.25s;
+    cursor: pointer;
+}
+
 .btnVar2 {
     @include boxModel(auto, auto, 1rem, 0, 1rem, 0);
     @include fontStyling($primaryFont, 0.9rem, 500);
@@ -209,7 +216,7 @@ header nav {
     content: '';
     height: 5px;
     width: 100%;
-    background-color: #5EA85E;
+    background-color: $lightgreen;
     position: absolute;
     left: 0;
     bottom: -1rem; //fix this so that it always stays in the position when resizing browser
@@ -303,7 +310,7 @@ header {
     .textContainer .aboutFact {
         @include fontStyling($secondaryFont, 1.5rem, 500);
         @include textStyling(0.075rem, 2rem, capitalize, none);
-        @include colors(#5EA85E, $white, none);
+        @include colors($lightgreen, $white, none);
         @include boxModel(auto, auto, 5rem, none, 4rem, 0 0 0 2rem);
         
     }
@@ -320,7 +327,7 @@ header {
         font-size: 0;
     }
     .textContainer {
-        @include boxModel(100%, auto, 0.75rem, 1.5px solid #EAEAEA, none, none);
+        @include boxModel(100%, auto, 0.75rem, 1.5px solid $lightgrey, none, none);
         background-color: $white;
         border-top: none;
         p {

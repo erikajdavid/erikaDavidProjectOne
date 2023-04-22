@@ -350,6 +350,12 @@ button {
   text-decoration: none;
 }
 
+button:hover {
+  background-color: #5EA85E;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
 .btnVar2 {
   width: auto;
   height: auto;
