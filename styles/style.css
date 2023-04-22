@@ -757,6 +757,8 @@ footer .copyright a {
 
 .headerContact {
   height: 100%;
+  position: relative;
+  z-index: -1;
 }
 .headerContact .contactBanner {
   background-image: url(../assets/contact.jpg);
@@ -767,14 +769,20 @@ footer .copyright a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  filter: brightness(70%);
   height: 45vh;
 }
-.headerContact .contactBanner h2 {
+.headerContact h2 {
   color: #fff;
   text-transform: capitalize;
   font-family: 0;
   font-size: 2rem;
   font-weight: 500;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  z-index: 1;
 }
 
 .contact {

@@ -483,16 +483,24 @@ footer {
 //header section//
 .headerContact {
     height: 100%;
+    position: relative;
+    z-index: -1;
     .contactBanner {
     background-image: url(../assets/contact.jpg);
     @include bgImgStyling(center, cover, no-repeat);
     @include flexStyle(flex, row, center, center);
+    filter: brightness(70%);
     height: 45vh;
-        h2 {
-            color: $white;
-            text-transform: capitalize;
-            @include fontStyling(0, 2rem, 500);
-        }
+    }
+    h2 {
+        color: $white;
+        text-transform: capitalize;
+        @include fontStyling(0, 2rem, 500);
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        z-index: 1;
     }
 }
 
