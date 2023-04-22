@@ -74,7 +74,13 @@ html {
     @include boxModel(90%, auto, 5rem 0, none, none, 0 auto);
 }
 
-body, h1, h2, h3, h4, ul, p {
+body, 
+h1, 
+h2, 
+h3, 
+h4, 
+ul, 
+p {
     padding: 0;
     margin: 0;
 }
@@ -345,14 +351,14 @@ header {
         text-align: center;
         .mainGallery {
             padding: 2rem 0 4rem 0;
-            .col2 {
+            .row2 {
                 li {
                     width: calc(50% - 5px);
                     margin: 5px;
                     overflow: hidden;
                 }
             }
-            .col3 {
+            .row3 {
                 li {
                     width: calc((100% / 3) - 5px);
                     margin: 0 5px;
@@ -506,13 +512,13 @@ footer {
             text-align: center;
             padding: 3rem;
             box-shadow: $boxShadow;         
-            .row1and2 {
+            .line1and2 {
                 flex-wrap: wrap;
                 input {
                     @include boxModel(48%, auto, 1rem, $borderInput, 6px, 0 0 2rem 0);
                 }
             }
-            .row3 input,
+            .line3 input,
             textarea {
                 @include boxModel(100%, auto, 1rem, $borderInput, 6px, 0 0 2rem 0);
             }

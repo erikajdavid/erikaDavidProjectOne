@@ -243,7 +243,13 @@ html {
   margin: 0 auto;
 }
 
-body, h1, h2, h3, h4, ul, p {
+body,
+h1,
+h2,
+h3,
+h4,
+ul,
+p {
   padding: 0;
   margin: 0;
 }
@@ -610,12 +616,12 @@ header {
 .gallery .wrapper .mainGallery {
   padding: 2rem 0 4rem 0;
 }
-.gallery .wrapper .mainGallery .col2 li {
+.gallery .wrapper .mainGallery .row2 li {
   width: calc(50% - 5px);
   margin: 5px;
   overflow: hidden;
 }
-.gallery .wrapper .mainGallery .col3 li {
+.gallery .wrapper .mainGallery .row3 li {
   width: calc(33.3333333333% - 5px);
   margin: 0 5px;
   overflow: hidden;
@@ -798,10 +804,10 @@ footer .copyright a {
   padding: 3rem;
   box-shadow: 0 0 15px rgba(189, 189, 189, 0.4);
 }
-.contact .wrapper form .row1and2 {
+.contact .wrapper form .line1and2 {
   flex-wrap: wrap;
 }
-.contact .wrapper form .row1and2 input {
+.contact .wrapper form .line1and2 input {
   width: 48%;
   height: auto;
   padding: 1rem;
@@ -809,7 +815,7 @@ footer .copyright a {
   border-radius: 6px;
   margin: 0 0 2rem 0;
 }
-.contact .wrapper form .row3 input,
+.contact .wrapper form .line3 input,
 .contact .wrapper form textarea {
   width: 100%;
   height: auto;
