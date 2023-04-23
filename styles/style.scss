@@ -117,6 +117,7 @@ img {
 svg {
     @include boxModel(1.75rem, 1.75rem, 0.5rem, none, 2rem, 0 0 1rem 0);
     @include colors($plantGreen, 0, none);
+    transition: all 0.25s;
 }
 
 .textContainer,
@@ -437,15 +438,25 @@ footer {
             nav ul li {
                 margin-right: 1rem;
             }
+            nav svg:hover {
+                background-color: $lightgreen;
+            }
         }
     }
     .second {
         padding-left: 1rem;
         nav ul {
             align-items: flex-start;
-                height: 100%;
+            height: 100%;
+            a {
+                transition: all 0.25s;
             }
         }
+        nav a:hover {
+            color: $lightgreen;
+            font-weight: 600;
+        }
+    }
     .third .imageContainer {
         width: calc(100% / 3);
         }

@@ -303,6 +303,7 @@ svg {
   background-color: #207200;
   color: 0;
   box-shadow: none;
+  transition: all 0.25s;
 }
 
 .textContainer,
@@ -708,12 +709,22 @@ footer .first .division {
 footer .first .division nav ul li {
   margin-right: 1rem;
 }
+footer .first .division nav svg:hover {
+  background-color: #5EA85E;
+}
 footer .second {
   padding-left: 1rem;
 }
 footer .second nav ul {
   align-items: flex-start;
   height: 100%;
+}
+footer .second nav ul a {
+  transition: all 0.25s;
+}
+footer .second nav a:hover {
+  color: #5EA85E;
+  font-weight: 600;
 }
 footer .third .imageContainer {
   width: 33.3333333333%;
