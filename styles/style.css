@@ -378,7 +378,7 @@ button:hover {
   padding: 1.25rem;
   border: 0;
   border-radius: 1.5rem;
-  margin: 0 0.3rem;
+  margin: 0.3rem;
   font-family: 0;
   font-size: 0.9rem;
   font-weight: 400;
@@ -507,21 +507,23 @@ header {
   transform: scale(1.2);
 }
 
+/*   //animation for hero//
 .animate {
-  animation-duration: 2s;
-  animation-name: slidein;
+    animation-duration: 2s;
+    animation-name: slidein;
 }
 
 @keyframes slidein {
-  from {
-    margin-right: 100%;
-    width: 200%;
-  }
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
+    from {
+        margin-right: 100%;
+        width: 200%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
 }
+*/
 .about .wrapper {
   align-items: flex-start;
 }
@@ -567,10 +569,14 @@ header {
   box-shadow: none;
   width: auto;
   height: auto;
-  padding: 5rem;
+  padding: 5rem 2rem;
   border: none;
   border-radius: 4rem;
   margin: 0 0 0 2rem;
+}
+
+.productGallery {
+  flex-wrap: wrap;
 }
 
 .productGallery li {
@@ -659,6 +665,9 @@ header {
 .blog .blogPost .imageContainer {
   width: 100%;
 }
+.blog .blogPost .imageContainer img {
+  border-radius: 4px;
+}
 .blog .blogPost .textContainer {
   padding: 1rem 0;
   width: 100%;
@@ -688,13 +697,13 @@ footer .first {
   padding-right: 2rem;
 }
 footer .first .imageContainer {
-  height: 30%;
+  height: 20%;
 }
 footer .first .imageContainer img {
   filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);
 }
 footer .first .division {
-  height: 70%;
+  justify-content: space-evenly;
 }
 footer .first .division nav ul li {
   margin-right: 1rem;
@@ -853,4 +862,151 @@ footer .copyright a {
   border-radius: 2.25rem;
   margin: none;
   font-size: 1rem;
+}
+
+@media (max-width: 940px) {
+  .sectionHeading p {
+    width: 85%;
+  }
+  .productGallery li {
+    max-width: 32%;
+  }
+  .hide {
+    display: none;
+  }
+  footer .wrapper {
+    flex-wrap: wrap;
+  }
+  footer .footerCol {
+    width: 32%;
+  }
+  footer .fourth {
+    width: 100%;
+    padding: 0;
+    margin-top: 3rem;
+    text-align: center;
+  }
+  footer .fourth h3 {
+    border-top: 4px solid #5EA85E;
+    padding-top: 3.5rem;
+  }
+  footer .fourth .division {
+    align-items: center;
+  }
+  footer .fourth form {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+  footer input::-moz-placeholder {
+    text-align: center;
+  }
+  footer input::placeholder {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  header .wrapper ul {
+    display: none;
+  }
+  header nav .hamburgerContainer {
+    display: block;
+  }
+  .hero .wrapper {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+  .hero .wrapper .textContainer {
+    width: 100%;
+    padding: 0;
+    padding-top: 1.5rem;
+    margin: 0;
+    text-align: center;
+  }
+  .hero .wrapper .textContainer h1 {
+    font-size: 2rem;
+  }
+  .hero .wrapper .imageContainer {
+    margin: 0 auto;
+    width: 60%;
+    order: -1;
+  }
+  .hero .wrapper .imageContainer img {
+    width: 100%;
+  }
+  .about .wrapper {
+    flex-direction: column;
+  }
+  .about .wrapper .textContainer {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .about .wrapper .aboutText {
+    order: 1;
+    padding-top: 5rem;
+  }
+  .about .wrapper .textContainer .aboutFact {
+    margin: 0;
+  }
+  .sectionHeading p {
+    width: 100%;
+    padding: 1rem 1rem 2rem 1rem;
+  }
+  .productGallery li {
+    max-width: 48%;
+  }
+  .blog .wrapper ul {
+    flex-direction: column;
+  }
+  .blog .wrapper ul li {
+    width: 95%;
+    margin: 1rem 0;
+  }
+  footer .footerCol {
+    width: 100%;
+  }
+  .hide768px {
+    display: none;
+  }
+  footer .first {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    margin: 0;
+  }
+  footer .first .imageContainer {
+    margin: 0 auto;
+  }
+  footer .first img {
+    width: 60%;
+  }
+  footer .first .division {
+    align-items: center;
+  }
+  footer .second {
+    text-align: center;
+    height: 60%;
+    padding: 0;
+  }
+  footer .second h3 {
+    border-top: 4px solid #5EA85E;
+    padding-top: 3.5rem;
+  }
+  footer .second nav ul {
+    align-items: center;
+  }
+  footer .second nav ul li {
+    padding: 0.5rem 0;
+  }
+  footer .second .division {
+    align-items: center;
+  }
+}
+@media (max-width: 480px) {
+  .productGallery li {
+    max-width: 90%;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+  }
 }
