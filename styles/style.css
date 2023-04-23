@@ -293,7 +293,7 @@ img {
      object-fit: cover;
 }
 
-svg {
+.svg {
   width: 1.75rem;
   height: 1.75rem;
   padding: 0.5rem;
@@ -922,11 +922,15 @@ footer .copyright a {
   }
 }
 @media (max-width: 768px) {
-  header .wrapper ul {
+  header .wrapper ul .navHide {
     display: none;
+  }
+  header nav .wrapper ul li {
+    margin: 0;
   }
   header nav .hamburgerContainer {
     display: block;
+    order: -1;
   }
   .hero .wrapper {
     flex-direction: column;

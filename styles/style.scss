@@ -114,7 +114,7 @@ img {
     object-fit: cover;
 }
 
-svg {
+.svg {
     @include boxModel(1.75rem, 1.75rem, 0.5rem, none, 2rem, 0 0 1rem 0);
     @include colors($plantGreen, 0, none);
     transition: all 0.25s;
@@ -609,14 +609,17 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header .wrapper ul {
+    header .wrapper ul .navHide{
         display: none;
+    }
+     header nav .wrapper ul li {
+        margin: 0;
     }
 
     header nav .hamburgerContainer {
         display: block;
-    }
-
+        order: -1;  
+    }   
     .hero .wrapper {
         flex-direction: column;
         height: auto;
