@@ -232,7 +232,6 @@ header nav {
     opacity: 1;
 }
 
-
 //header section//
 header {
     height: 100vh;
@@ -266,26 +265,8 @@ header {
 }
 
 .hero img:hover {
-        transform: scale(1.2);
-    }
-
- /*   //animation for hero//
-.animate {
-    animation-duration: 2s;
-    animation-name: slidein;
+    transform: scale(1.2);
 }
-
-@keyframes slidein {
-    from {
-        margin-right: 100%;
-        width: 200%;
-    }
-    to {
-        margin-left: 0%;
-        width: 100%;
-    }
-}
-*/
 
 //about section//
 .about .wrapper {
@@ -592,11 +573,17 @@ footer {
             width: 32%;
         }
         .fourth {
-            @include boxModel(100%, auto, 0, none, none, 3rem 0 0 0);
+            background-color: $plantGreen;
+            color: $white;
+            @include boxModel(100%, auto, 2rem, none, 4px, 3rem 0 0 0);
             text-align: center;
             h3 {
-                border-top: 4px solid $lightgreen;
-                padding-top: 3.5rem;
+                border-bottom: 1px solid $white;
+                padding-bottom: 1rem;
+            }
+            .division {
+                padding-top: 1rem;
+            }
             }
             p {
                 padding: 1rem 0;
@@ -613,7 +600,6 @@ footer {
             }
         }
     }
-}
 
 @media (max-width: 768px) {
     header .wrapper ul .navHide{
@@ -727,7 +713,6 @@ footer {
     .contact .wrapper form .line1and2 input {
         width: 100%;
     }
-
 }
 
 @media (max-width: 480px) {
