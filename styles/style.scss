@@ -111,6 +111,7 @@ a {
 
 img {
     width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -118,6 +119,7 @@ img {
     @include boxModel(1.75rem, 1.75rem, 0.5rem, none, 2rem, 0 0 1rem 0);
     @include colors($plantGreen, 0, none);
     transition: all 0.25s;
+    object-fit: contain;
 }
 
 .textContainer,
@@ -635,9 +637,6 @@ footer {
             margin: 0 auto;
             width: 60%;
             order: -1;
-            img {
-                width: 100%;
-            }
         }
     }
 
@@ -653,6 +652,10 @@ footer {
         .textContainer .aboutFact {
             margin: 0;
         }
+    }
+
+    h2 {
+        font-size: 1.5rem;
     }
 
     .sectionHeading p {
@@ -687,9 +690,6 @@ footer {
         .imageContainer {
             margin: 0 auto;
         }
-        img {
-            width: 60%;
-        } 
         .division {
             align-items: center;
         }
