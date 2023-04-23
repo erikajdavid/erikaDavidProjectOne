@@ -504,11 +504,11 @@ footer {
     position: relative;
     z-index: -1;
     .contactBanner {
-    background-image: url(../assets/contact.jpg);
-    @include bgImgStyling(center, cover, no-repeat);
-    @include flexStyle(flex, row, center, center);
-    filter: brightness(70%);
-    height: 45vh;
+        background-image: url(../assets/contact.jpg);
+        @include bgImgStyling(center, cover, no-repeat);
+        @include flexStyle(flex, row, center, center);
+        filter: brightness(70%);
+        height: 45vh;
     }
     h2 {
         color: $white;
@@ -523,51 +523,49 @@ footer {
 }
 
 //contact section//
-.contact {
-    height: 100vh;
-    .wrapper {
+.contact .wrapper {
+    height: 100%;
+    align-items: flex-start;
+    .textContainer {
         height: 100%;
-        align-items: flex-start;
-        .textContainer {
-            height: 100%;
-            width: 47.5%;
+        width: 47.5%;
+    }
+    .contactContainer li {
+        @include flexStyle(flex, column, space-between, flex-start);
+        @include boxModel(auto, auto, 2.75rem 0 2.75rem 3rem, none, none, 0 0 3rem 0);
+        border-left: 10px solid $plantGreen;
+        box-shadow: $boxShadow;         
+        h3 {
+            padding-bottom: 0.5rem;
         }
-        .contactContainer li {
-            @include flexStyle(flex, column, space-between, flex-start);
-            @include boxModel(auto, auto, 2.75rem 0 2.75rem 3rem, none, none, 0 0 3rem 0);
-            border-left: 10px solid $plantGreen;
-            box-shadow: $boxShadow;         
-            h3 {
-                padding-bottom: 0.5rem;
+    }
+    form {
+        text-align: center;
+        padding: 3rem;
+        box-shadow: $boxShadow;         
+        .line1and2 {
+            flex-wrap: wrap;
+            input {
+                @include boxModel(48%, auto, 1rem, $borderInput, 6px, 0 0 2rem 0);
             }
         }
-        form {
-            text-align: center;
-            padding: 3rem;
-            box-shadow: $boxShadow;         
-            .line1and2 {
-                flex-wrap: wrap;
-                input {
-                    @include boxModel(48%, auto, 1rem, $borderInput, 6px, 0 0 2rem 0);
-                }
-            }
-            .line3 input,
-            textarea {
-                @include boxModel(100%, auto, 1rem, $borderInput, 6px, 0 0 2rem 0);
-            }
-            input[type=text]::placeholder,
-            textarea::placeholder {
-                font-size: 0.85rem;
-            }
+        .line3 input,
+        textarea {
+            @include boxModel(100%, auto, 1rem, $borderInput, 6px, 0 0 2rem 0);
         }
-        button {
-            @include boxModel(auto, auto, 1.75rem 2.25rem, none, 2.25rem, none);
-            font-size: 1rem;
+        input[type=text]::placeholder,
+        textarea::placeholder {
+            font-size: 0.85rem;
         }
+    }
+    button {
+        @include boxModel(auto, auto, 1.75rem 2.25rem, none, 2.25rem, none);
+        font-size: 1rem;
     }
 }
 
-//media queries laading page
+
+//media queries
 
 @media (max-width: 940px) {
     .sectionHeading p {
@@ -578,6 +576,15 @@ footer {
     }
     .hide {
         display: none;
+    }
+
+    .contact .wrapper {
+        height: 100%;
+        flex-direction: column;
+        .textContainer {
+            width: 80%;
+            margin: 0 auto;
+        }
     }
     footer .wrapper {
         flex-wrap: wrap;
@@ -665,7 +672,7 @@ footer {
         max-width: 48%;
     }
 
-    .blog .wrapper ul {
+  .blog .wrapper ul {
         flex-direction: column;
         li {
             width: 95%;
@@ -712,15 +719,37 @@ footer {
             align-items: center;            
         }
     }
+
+    .line1and2 {
+        flex-direction: column;
+    }
+
+    .contact .wrapper form .line1and2 input {
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 480px) {
     .productGallery li {
         max-width: 90%;
         margin: 0 auto;
-        padding-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .contact .wrapper .contactContainer li {
+        padding: 1rem;
+    }
+
+    .contact .wrapper form {
+        padding: 1.5rem;
+    }
+    .contact .wrapper button {
+        padding: 1rem 1.5rem;
+        font-size: 0.75rem;
     }
 }
+
     
 
 
