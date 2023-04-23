@@ -877,30 +877,36 @@ footer .copyright a {
   footer .wrapper {
     flex-wrap: wrap;
   }
-  footer .footerCol {
+  footer .wrapper .footerCol {
     width: 32%;
   }
-  footer .fourth {
+  footer .wrapper .fourth {
     width: 100%;
+    height: auto;
     padding: 0;
-    margin-top: 3rem;
+    border: none;
+    border-radius: none;
+    margin: 3rem 0 0 0;
     text-align: center;
   }
-  footer .fourth h3 {
+  footer .wrapper .fourth h3 {
     border-top: 4px solid #5EA85E;
     padding-top: 3.5rem;
   }
-  footer .fourth .division {
+  footer .wrapper .fourth p {
+    padding: 1rem 0;
+  }
+  footer .wrapper .fourth .division {
     align-items: center;
   }
-  footer .fourth form {
+  footer .wrapper .fourth form {
     width: 80%;
     margin-bottom: 1rem;
   }
-  footer input::-moz-placeholder {
+  footer .wrapper .fourth input::-moz-placeholder {
     text-align: center;
   }
-  footer input::placeholder {
+  footer .wrapper .fourth input::placeholder {
     text-align: center;
   }
 }
@@ -918,8 +924,10 @@ footer .copyright a {
   }
   .hero .wrapper .textContainer {
     width: 100%;
-    padding: 0;
-    padding-top: 1.5rem;
+    height: auto;
+    padding: 1.5rem 0 0 0;
+    border: none;
+    border-radius: none;
     margin: 0;
     text-align: center;
   }
@@ -939,7 +947,10 @@ footer .copyright a {
   }
   .about .wrapper .textContainer {
     width: 100%;
+    height: auto;
     padding: 0;
+    border: none;
+    border-radius: none;
     margin: 0;
   }
   .about .wrapper .aboutText {
@@ -963,7 +974,7 @@ footer .copyright a {
     width: 95%;
     margin: 1rem 0;
   }
-  footer .footerCol {
+  footer .wrapper .footerCol {
     width: 100%;
   }
   .hide768px {
@@ -973,7 +984,6 @@ footer .copyright a {
     text-align: center;
     margin: 0 auto;
     padding: 0;
-    margin: 0;
   }
   footer .first .imageContainer {
     margin: 0 auto;

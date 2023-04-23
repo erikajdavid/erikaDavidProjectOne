@@ -568,35 +568,32 @@ footer {
     .hide {
         display: none;
     }
-
     footer .wrapper {
         flex-wrap: wrap;
-    }
-
-    footer .footerCol {
-        width: 32%;
-    }
-
-    footer .fourth {
-        width: 100%;
-        padding: 0;
-        margin-top: 3rem;
-        text-align: center;
-        h3 {
-            border-top: 4px solid $lightgreen;
-            padding-top: 3.5rem;
+        .footerCol {
+            width: 32%;
         }
-        .division {
-            align-items: center;
+        .fourth {
+            @include boxModel(100%, auto, 0, none, none, 3rem 0 0 0);
+            text-align: center;
+            h3 {
+                border-top: 4px solid $lightgreen;
+                padding-top: 3.5rem;
+            }
+            p {
+                padding: 1rem 0;
+            }
+            .division {
+                align-items: center;
+            }
+            form {
+                width: 80%;
+                margin-bottom: 1rem;
+            }
+            input::placeholder {
+                text-align: center;
+            }
         }
-        form {
-            width: 80%;
-            margin-bottom: 1rem;
-        }
-    }
-
-    footer input::placeholder {
-        text-align: center;
     }
 }
 
@@ -614,10 +611,7 @@ footer {
         height: auto;
         padding: 1rem;
         .textContainer {
-            width: 100%;
-            padding: 0;
-            padding-top: 1.5rem;
-            margin: 0;
+            @include boxModel(100%, auto, 1.5rem 0 0 0, none, none, 0);
             text-align: center;
             h1 {
                 font-size: 2rem;
@@ -633,19 +627,15 @@ footer {
         }
     }
 
-
     .about .wrapper {
         flex-direction: column;
         .textContainer {
-            width: 100%;
-            padding: 0;
-            margin: 0;
+            @include boxModel(100%, auto, 0, none, none, 0);
         }
         .aboutText {
             order: 1;
             padding-top: 5rem;
         }
-
         .textContainer .aboutFact {
             margin: 0;
         }
@@ -668,7 +658,7 @@ footer {
         }
     }
 
-    footer .footerCol {
+    footer .wrapper .footerCol {
         width: 100%;
     }
 
@@ -680,7 +670,6 @@ footer {
         text-align: center;
         margin: 0 auto;
         padding: 0;
-        margin: 0;
         .imageContainer {
             margin: 0 auto;
         }
@@ -689,9 +678,7 @@ footer {
         } 
         .division {
             align-items: center;
-
         }
-        
     }
 
     footer .second {
@@ -714,14 +701,12 @@ footer {
     }
 }
 
-
 @media (max-width: 480px) {
     .productGallery li {
         max-width: 90%;
         margin: 0 auto;
         padding-bottom: 1.5rem;
     }
-
 }
 
     
