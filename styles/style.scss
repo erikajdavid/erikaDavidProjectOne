@@ -417,8 +417,6 @@ header {
 
 //footer section//
 footer {
-    background-image: url(../assets/cow.png);
-    @include bgImgStyling(bottom, contain, no-repeat);
     .footerCol {
         width: 25%;
         height: 42vh;
@@ -429,8 +427,7 @@ footer {
     }
     .first {
         padding-right: 2rem;
-        .imageContainer {
-            img {
+        .imageContainer img {
             filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);            
             }
         }
@@ -439,11 +436,10 @@ footer {
             nav ul li {
                 margin-right: 1rem;
             }
-            nav svg:hover {
+            nav .svg:hover {
                 background-color: $lightgreen;
             }
         }
-    }
     .second {
         padding-left: 1rem;
         nav ul {
@@ -487,8 +483,11 @@ footer {
             }
         }
     }
+    .footerImage {
+        font-size: 0;
+    }
     .copyright {
-        color: $white;
+        @include colors($plantGreen, $white, none);
         font-size: 0.75rem;
         text-align: center;
         a {
@@ -722,7 +721,6 @@ footer {
         padding-bottom: 1.5rem;
     }
 }
-
     
 
 
