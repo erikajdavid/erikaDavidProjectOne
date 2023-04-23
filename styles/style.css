@@ -430,7 +430,7 @@ header nav .wrapper ul {
 header nav .wrapper ul li {
   margin-left: 2rem;
 }
-header nav .wrapper ul li svg {
+header nav .wrapper ul li .svg {
   all: revert;
   width: 1.75rem;
 }
