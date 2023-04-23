@@ -430,7 +430,6 @@ footer {
     .first {
         padding-right: 2rem;
         .imageContainer {
-            height: 20%;
             img {
             filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);            
             }
@@ -689,6 +688,7 @@ footer {
         padding: 0;
         .imageContainer {
             margin: 0 auto;
+            width: 25%;
         }
         .division {
             align-items: center;
