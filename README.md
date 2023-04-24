@@ -1,7 +1,5 @@
 # Juno College Cohort 49 - Project 1
 
-View live repo: (https://ubiquitous-sherbet-78c6bf.netlify.app/)
-
 ## The objective: 
 
 Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessible, responsive and pixel-perfect website for desktop and mobile. Site must responsive all the way down to 320px, and mobile view should provide good user experience.  
