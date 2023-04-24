@@ -187,6 +187,9 @@ header nav {
     height: 10vh;
     position: relative;
     @include colors($white, 0, 0 0 8px rgba(0, 0, 0, 0.25));
+    img {
+        filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);            
+    }
     .wrapper ul {
         text-transform: uppercase;
         font-weight: 600;      
@@ -708,7 +711,7 @@ footer {
 
     .hide768px {
         display: none;
-    }
+    } 
 
     footer .first {
         text-align: center;

@@ -426,6 +426,9 @@ header nav {
   color: 0;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
+header nav img {
+  filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);
+}
 header nav .wrapper ul {
   text-transform: uppercase;
   font-weight: 600;
