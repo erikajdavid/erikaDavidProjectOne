@@ -757,12 +757,10 @@ footer .copyright a {
   color: #fff;
 }
 
-.headerContact {
+.contactHeader {
   height: 100%;
-  position: relative;
-  z-index: -1;
 }
-.headerContact .contactBanner {
+.contactHeader .contactBanner {
   background-image: url(../assets/contact.jpg);
   background-position: center;
   background-size: cover;
@@ -773,17 +771,19 @@ footer .copyright a {
   align-items: center;
   filter: brightness(70%);
   height: 45vh;
+  position: relative;
+  z-index: -1;
 }
-.headerContact h2 {
+.contactHeader h2 {
   color: #fff;
   text-transform: capitalize;
   font-family: 0;
   font-size: 2rem;
   font-weight: 500;
   position: absolute;
-  top: 60%;
+  top: 33%;
   left: 50%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -32%);
   z-index: 1;
 }
 
@@ -881,6 +881,7 @@ footer .copyright a {
   footer .wrapper .fourth {
     background-color: #207200;
     color: #fff;
+    box-shadow: none;
     width: 100%;
     height: auto;
     padding: 2rem;
@@ -1005,7 +1006,7 @@ footer .copyright a {
     padding: 0;
   }
   footer .second h3 {
-    border-top: 4px solid #5EA85E;
+    border-top: 4px solid #207200;
     padding-top: 3.5rem;
   }
   footer .second nav ul {

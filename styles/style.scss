@@ -480,25 +480,25 @@ footer {
 ///////////////////CONTACT PAGE/////////////////////
 
 //header section//
-.headerContact {
+.contactHeader {
     height: 100%;
-    position: relative;
-    z-index: -1;
     .contactBanner {
         background-image: url(../assets/contact.jpg);
         @include bgImgStyling(center, cover, no-repeat);
         @include flexStyle(flex, row, center, center);
         filter: brightness(70%);
         height: 45vh;
+        position: relative;
+        z-index: -1;
     }
     h2 {
         color: $white;
         text-transform: capitalize;
         @include fontStyling(0, 2rem, 500);
         position: absolute;
-        top: 60%;
+        top: 33%;
         left: 50%;
-        transform: translate(-50%, -60%);
+        transform: translate(-50%, -32%);
         z-index: 1;
     }
 }
@@ -545,7 +545,6 @@ footer {
     }
 }
 
-
 //media queries
 
 @media (max-width: 940px) {
@@ -573,17 +572,16 @@ footer {
             width: 32%;
         }
         .fourth {
-            background-color: $plantGreen;
-            color: $white;
+            @include colors($plantGreen, $white, none);
             @include boxModel(100%, auto, 2rem, none, 4px, 3rem 0 0 0);
             text-align: center;
-            h3 {
-                border-bottom: 1px solid $white;
-                padding-bottom: 1rem;
-            }
-            .division {
-                padding-top: 1rem;
-            }
+                h3 {
+                    border-bottom: 1px solid $white;
+                    padding-bottom: 1rem;
+                }
+                .division {
+                    padding-top: 1rem;
+                }
             }
             p {
                 padding: 1rem 0;
@@ -692,7 +690,7 @@ footer {
         height: 60%;
         padding: 0;
         h3 {
-            border-top: 4px solid $lightgreen;
+            border-top: 4px solid $plantGreen;
             padding-top: 3.5rem;
         }
         nav ul {
