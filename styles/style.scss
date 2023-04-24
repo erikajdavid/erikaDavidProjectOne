@@ -211,8 +211,14 @@ header nav {
     position: relative;
 }
 
-.navHover a:hover {
+.navHover a:hover,
+.navHover a:focus {
     color: $plantGreen;
+}
+
+.navHover a.active {
+    color: $lightgreen;
+    font-weight: 700;
 }
 
 .navHover::after {
@@ -222,7 +228,7 @@ header nav {
     background-color: $lightgreen;
     position: absolute;
     left: 0;
-    bottom: -1rem; //fix this so that it always stays in the position when resizing browser
+    bottom: -1rem; 
     opacity: 0;
     transition: all 0.25s;
     pointer-events: none;
@@ -562,6 +568,7 @@ footer {
     .sectionHeading p {
         width: 85%;
     }
+
     .productGallery li {
         max-width: 32%;
     }
@@ -651,6 +658,8 @@ footer {
         }
         .textContainer .aboutFact {
             margin: 0;
+            width: 90%;
+            margin: 0 auto;
         }
     }
 
@@ -663,9 +672,27 @@ footer {
         padding: 1rem 1rem 2rem 1rem;
     }
 
+    /*
+
+    .shop {
+        background-color: $lightgreen;
+        .sectionHeading {
+            color: $white;
+        }
+    }
+
     .productGallery li {
         max-width: 48%;
+        border-radius: 10px;
+        img {
+            border-radius: 6px 6px 0 0;
+        }
+        .textContainer {
+            border-radius: 0 0 6px 6px;
+        }
     }
+
+    */
 
   .blog .wrapper ul {
         flex-direction: column;
@@ -728,7 +755,7 @@ footer {
     .productGallery li {
         max-width: 90%;
         margin: 0 auto;
-        padding-bottom: 1rem;
+        padding-bottom: 2rem;
     }
 
     .contact .wrapper .contactContainer li {

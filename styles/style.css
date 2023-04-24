@@ -449,8 +449,14 @@ header nav .hamburgerContainer .hamburger {
   position: relative;
 }
 
-.navHover a:hover {
+.navHover a:hover,
+.navHover a:focus {
   color: #207200;
+}
+
+.navHover a.active {
+  color: #5EA85E;
+  font-weight: 700;
 }
 
 .navHover::after {
@@ -975,6 +981,8 @@ footer .copyright a {
   }
   .about .wrapper .textContainer .aboutFact {
     margin: 0;
+    width: 90%;
+    margin: 0 auto;
   }
   h2 {
     font-size: 1.5rem;
@@ -983,9 +991,27 @@ footer .copyright a {
     width: 100%;
     padding: 1rem 1rem 2rem 1rem;
   }
-  .productGallery li {
-    max-width: 48%;
+  /*
+
+  .shop {
+      background-color: $lightgreen;
+      .sectionHeading {
+          color: $white;
+      }
   }
+
+  .productGallery li {
+      max-width: 48%;
+      border-radius: 10px;
+      img {
+          border-radius: 6px 6px 0 0;
+      }
+      .textContainer {
+          border-radius: 0 0 6px 6px;
+      }
+  }
+
+  */
   .blog .wrapper ul {
     flex-direction: column;
   }
@@ -1040,7 +1066,7 @@ footer .copyright a {
   .productGallery li {
     max-width: 90%;
     margin: 0 auto;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
   }
   .contact .wrapper .contactContainer li {
     padding: 1rem;
