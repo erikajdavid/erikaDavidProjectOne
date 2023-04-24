@@ -462,6 +462,9 @@ footer {
                 color: $black;
                 font-size: 0.9rem;
             }
+            input[type=text]:focus {
+                border: 2px solid $lightgreen;
+            }
         }
     }
     .footerImage {
@@ -533,6 +536,14 @@ footer {
         .line3 input,
         textarea {
             @include boxModel(100%, auto, 1rem, $borderInput, 6px, 0 0 2rem 0);
+        }
+        input[type=text],
+        textarea {
+            outline: none;
+        }
+        input[type=text]:focus,
+        textarea:focus {
+            border: 2px solid $lightgreen;
         }
         input[type=text]::placeholder,
         textarea::placeholder {

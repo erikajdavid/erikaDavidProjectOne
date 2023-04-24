@@ -743,6 +743,9 @@ footer .fourth form input::placeholder {
   color: #1A2428;
   font-size: 0.9rem;
 }
+footer .fourth form input[type=text]:focus {
+  border: 2px solid #5EA85E;
+}
 footer .footerImage {
   font-size: 0;
 }
@@ -836,6 +839,14 @@ footer .copyright a {
   border: 1.5px solid #EAEAEA;
   border-radius: 6px;
   margin: 0 0 2rem 0;
+}
+.contact .wrapper form input[type=text],
+.contact .wrapper form textarea {
+  outline: none;
+}
+.contact .wrapper form input[type=text]:focus,
+.contact .wrapper form textarea:focus {
+  border: 2px solid #5EA85E;
 }
 .contact .wrapper form input[type=text]::-moz-placeholder, .contact .wrapper form textarea::-moz-placeholder {
   font-size: 0.85rem;
