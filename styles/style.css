@@ -308,6 +308,9 @@ img {
   -o-object-fit: contain;
      object-fit: contain;
 }
+.svg:hover {
+  background-color: #5EA85E;
+}
 
 .textContainer,
 .imageContainer {
@@ -358,6 +361,10 @@ button:hover {
   background-color: #5EA85E;
   transition: all 0.25s;
   cursor: pointer;
+}
+
+.logo {
+  filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);
 }
 
 .btnVar2 {
@@ -426,9 +433,6 @@ header nav {
   color: 0;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
-header nav img {
-  filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);
-}
 header nav .wrapper ul {
   text-transform: uppercase;
   font-weight: 600;
@@ -440,29 +444,18 @@ header nav .wrapper ul li .svg {
   all: revert;
   width: 1.75rem;
 }
-header nav .hamburgerContainer {
-  display: none;
-}
-header nav .hamburgerContainer .hamburger {
-  font-size: 1.5rem;
-  color: #1A2428;
-}
-
-.navHover {
+header nav .wrapper ul .navHover {
   position: relative;
 }
-
-.navHover a:hover,
-.navHover a:focus {
+header nav .wrapper ul .navHover a:hover,
+header nav .wrapper ul .navHover a:focus {
   color: #207200;
 }
-
-.navHover a.active {
+header nav .wrapper ul .navHover a.active {
   color: #5EA85E;
   font-weight: 700;
 }
-
-.navHover::after {
+header nav .wrapper ul .navHover::after {
   content: "";
   height: 5px;
   width: 100%;
@@ -474,9 +467,15 @@ header nav .hamburgerContainer .hamburger {
   transition: all 0.25s;
   pointer-events: none;
 }
-
-.navHover:hover::after {
+header nav .wrapper ul .navHover:hover::after {
   opacity: 1;
+}
+header nav .hamburgerContainer {
+  display: none;
+}
+header nav .hamburgerContainer .hamburger {
+  font-size: 1.5rem;
+  color: #1A2428;
 }
 
 header {
@@ -515,7 +514,6 @@ header {
 .hero img {
   transition: all 1s ease;
 }
-
 .hero img:hover {
   transform: scale(1.2);
 }
@@ -574,7 +572,6 @@ header {
 .productGallery {
   flex-wrap: wrap;
 }
-
 .productGallery li {
   max-width: 24%;
   margin-bottom: 3rem;
@@ -638,14 +635,14 @@ header {
 .mainGallery img {
   transition: all 1s ease;
 }
-
 .mainGallery img:hover {
   transform: scale(1.1);
 }
 
 .blog {
   background-color: #207200;
-  color: white;
+  color: #fff;
+  box-shadow: none;
 }
 .blog .blogPost {
   background-color: #fff;
@@ -665,77 +662,89 @@ header {
   border-radius: 4px;
 }
 .blog .blogPost .textContainer {
-  padding: 1rem 0;
   width: 100%;
+  height: auto;
+  padding: 1rem 0;
+  border: none;
+  border-radius: none;
+  margin: none;
 }
 .blog .blogPost .textContainer p {
   padding: 1rem 0;
 }
 
-footer .footerCol {
+.footerCol {
   width: 25%;
   height: 42vh;
+  padding: none;
+  border: none;
+  border-radius: none;
+  margin: none;
 }
-footer .footerCol h3 {
+.footerCol h3 {
   padding-bottom: 2rem;
   letter-spacing: 0.075rem;
   line-height: 1.5rem;
   text-transform: 0;
   text-decoration: none;
 }
-footer .first {
+
+.first {
   padding-right: 2rem;
 }
-footer .first .imageContainer img {
-  filter: invert(24%) sepia(77%) saturate(4208%) hue-rotate(79deg) brightness(50%) contrast(101%);
-}
-footer .division {
+
+.division {
   justify-content: space-evenly;
 }
-footer .division nav ul li {
+.division nav ul li {
   margin-right: 1rem;
 }
-footer .division nav .svg:hover {
-  background-color: #5EA85E;
-}
-footer .second {
+
+.second {
   padding-left: 1rem;
 }
-footer .second nav ul {
+.second nav ul {
   align-items: flex-start;
   height: 100%;
 }
-footer .second nav ul a {
+.second nav ul a {
   transition: all 0.25s;
 }
-footer .second nav a:hover {
+.second nav ul a:hover {
   color: #5EA85E;
   font-weight: 600;
 }
-footer .third .imageContainer {
+
+.third .imageContainer {
   width: 33.3333333333%;
 }
-footer .textContainer {
+
+.textContainer {
   width: 75%;
-  padding-left: 1rem;
+  height: auto;
+  padding: 0 0 0 1rem;
+  border: none;
+  border-radius: none;
+  margin: none;
 }
-footer .textContainer p {
+.textContainer p {
   padding: 0.5rem 0;
 }
-footer .textContainer .item {
+.textContainer .item {
   font-family: "Lora", serif;
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0;
 }
-footer .fourth {
+
+.fourth {
   padding-left: 1.7rem;
 }
-footer .fourth form {
+.fourth form {
   padding-top: 0.5rem;
   width: 100%;
 }
-footer .fourth form input[type=text] {
+.fourth form input[type=text] {
   width: 100%;
   height: auto;
   padding: 1rem;
@@ -744,28 +753,31 @@ footer .fourth form input[type=text] {
   margin: none;
   outline: none;
 }
-footer .fourth form input::-moz-placeholder {
-  color: #1A2428;
-  font-size: 0.9rem;
-}
-footer .fourth form input::placeholder {
-  color: #1A2428;
-  font-size: 0.9rem;
-}
-footer .fourth form input[type=text]:focus {
+.fourth form input[type=text]:focus {
   border: 2px solid #5EA85E;
+  font-size: 0.9rem;
 }
-footer .footerImage {
+.fourth form input[type=text]::-moz-placeholder {
+  color: #1A2428;
+  font-size: 0.9rem;
+}
+.fourth form input[type=text]::placeholder {
+  color: #1A2428;
+  font-size: 0.9rem;
+}
+
+.footerImage {
   font-size: 0;
 }
-footer .copyright {
+
+.copyright {
   background-color: #207200;
   color: #fff;
   box-shadow: none;
   font-size: 0.75rem;
   text-align: center;
 }
-footer .copyright a {
+.copyright a {
   color: #fff;
 }
 
@@ -793,10 +805,10 @@ footer .copyright a {
   font-size: 2rem;
   font-weight: 500;
   position: absolute;
+  z-index: 1;
   top: 33%;
   left: 50%;
   transform: translate(-50%, -32%);
-  z-index: 1;
 }
 
 .contact .wrapper {
@@ -832,7 +844,7 @@ footer .copyright a {
 .contact .wrapper form .line1and2 {
   flex-wrap: wrap;
 }
-.contact .wrapper form .line1and2 input {
+.contact .wrapper form .line1and2 input[type=text] {
   width: 48%;
   height: auto;
   padding: 1rem;
@@ -840,7 +852,7 @@ footer .copyright a {
   border-radius: 6px;
   margin: 0 0 2rem 0;
 }
-.contact .wrapper form .line3 input,
+.contact .wrapper form .line3 input[type=text],
 .contact .wrapper form textarea {
   width: 100%;
   height: auto;
