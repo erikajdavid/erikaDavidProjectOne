@@ -32,21 +32,21 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - Time permitting, create a branch to see how you would go about the project the second time around. 
 
 ## To do:
-- Organize your animations.
-- Create hover effects for links. 
-- Fix copyright.
+- ~~Organize your animations.~~
+- ~~Create hover effects for links.~~ 
+- ~~Fix copyright.~~
 - ~~Create hover effect for buttons.~~ 
 - ~~Add alt text to images.~~
 - ~~Insert FA script to head and add FA hamburger menu (for mediaQs).~~ 
 - ~~Create contact page, but finalize the landing page before proceeding.~~
 - ~~Landing page media queries for multiple devices, all the way down to 320px.~~ 
-- Contact page media queries for multiple devices, all the way down to 320px.
+- ~~Contact page media queries for multiple devices, all the way down to 320px.~~
+- ~~Upload to Netlify.~~
 - Seperate SCSS into partials. 
-- Experiment with animations and transitions in a seperate branch.~~
+- Experiment with animations and transitions in a seperate branch.
 
 ## Design liberties taken: 
 
-- Centered text in right container element of about section. Initial text-align: left looks weird and unfinished. 
 - Created parallax effect in header section to create fluidity. 
 - Added zoom-in-zoom-out hover effect to gallery images to make section less static. 
 
