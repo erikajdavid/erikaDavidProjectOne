@@ -1,6 +1,6 @@
 # Juno College Cohort 49 - Project 1
 
-["View live repo" (https://ubiquitous-sherbet-78c6bf.netlify.app/)]
+View live repo: (https://ubiquitous-sherbet-78c6bf.netlify.app/)
 
 ## The objective: 
 
