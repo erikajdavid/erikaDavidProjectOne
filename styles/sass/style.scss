@@ -110,14 +110,11 @@ header {
             margin-top: 1rem;
         }
     }
-    .aboutText {
-        padding-right: 3rem;
-    }
     .textContainer .aboutFact {
         @include fontStyling($secondaryFont, 1.5rem, 500);
         @include textStyling(0.075rem, 2rem, capitalize, none);
         @include colors($lightgreen, $white, none);
-        @include boxModel(auto, auto, 5rem 2rem, none, 4rem, 0 0 0 2rem);
+        @include boxModel(auto, auto, 5rem 2rem, none, 4rem, none);
     }
 }
 

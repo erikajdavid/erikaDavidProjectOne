@@ -535,7 +535,7 @@ button:hover {
   .sectionHeading p {
     width: 85%;
   }
-  .productGallery li {
+  .shop .productGallery li {
     max-width: 32%;
   }
   .hide {
@@ -595,16 +595,13 @@ button:hover {
   }
 }
 @media (max-width: 768px) {
-  header nav .wrapper ul li {
-    margin: 0;
-  }
-  header nav .wrapper ul li .navHide {
-    display: none;
-  }
   header .navHide {
     display: none;
   }
-  header nav .hamburgerContainer {
+  header nav .wrapper ul li {
+    margin: 0;
+  }
+  header nav .wrapper .hamburgerContainer {
     display: block;
     order: -1;
   }
@@ -652,7 +649,7 @@ button:hover {
     width: 100%;
     padding: 1rem 1rem 2rem 1rem;
   }
-  .productGallery li {
+  .shop .productGallery li {
     max-width: 48%;
   }
   .blog .wrapper ul {
@@ -711,7 +708,7 @@ button:hover {
   }
 }
 @media (max-width: 480px) {
-  .productGallery li {
+  .shop .productGallery li {
     max-width: 90%;
     margin: 0 auto;
     padding-bottom: 2rem;
@@ -847,9 +844,6 @@ header .hero img:hover {
 .about .wrapper .textContainer button {
   margin-top: 1rem;
 }
-.about .wrapper .aboutText {
-  padding-right: 3rem;
-}
 .about .wrapper .textContainer .aboutFact {
   font-family: "Lora", serif;
   font-size: 1.5rem;
@@ -866,7 +860,7 @@ header .hero img:hover {
   padding: 5rem 2rem;
   border: none;
   border-radius: 4rem;
-  margin: 0 0 0 2rem;
+  margin: none;
 }
 
 .productGallery {

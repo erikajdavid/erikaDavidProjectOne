@@ -5,7 +5,7 @@
     .sectionHeading p {
         width: 85%;
     }
-    .productGallery li {
+    .shop .productGallery li {
         max-width: 32%;
     }
     .hide {
@@ -51,18 +51,15 @@
     }
 
 @media (max-width: 768px) {
-    header nav .wrapper ul li {
-        margin: 0;
-        .navHide {
-            display: none;
-        }
-    }
-
     header .navHide{
         display: none;
     }
-    
-    header nav .hamburgerContainer {
+
+    header nav .wrapper ul li {
+        margin: 0;
+    }
+
+    header nav .wrapper .hamburgerContainer {
         display: block;
         order: -1;  
     }   
@@ -105,7 +102,7 @@
         padding: 1rem 1rem 2rem 1rem;
     }
 
-    .productGallery li {
+    .shop .productGallery li {
         max-width: 48%;
     }
 
@@ -172,7 +169,7 @@
 }
 
 @media (max-width: 480px) {
-    .productGallery li {
+    .shop .productGallery li {
         max-width: 90%;
         margin: 0 auto;
         padding-bottom: 2rem;
