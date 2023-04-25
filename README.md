@@ -42,7 +42,7 @@ Convert a static multi-page PSD* using HTML and CSS into a well-tested, accessib
 - ~~Landing page media queries for multiple devices, all the way down to 320px.~~ 
 - ~~Contact page media queries for multiple devices, all the way down to 320px.~~
 - ~~Upload to Netlify.~~
-- Seperate SCSS into partials. 
+- ~~Seperate SCSS into partials.~~ 
 - Experiment with animations and transitions in a seperate branch.
 
 ## Design liberties taken: 
