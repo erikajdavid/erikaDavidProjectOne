@@ -92,7 +92,7 @@ header {
 
 //about section//
 .aboutText {
-    width: 48%;
+    width: 45%;
     h2 {
     @include fontStyling(0, 1.25rem, 0);
     @include textStyling( 0, 0, capitalize, none);
@@ -111,7 +111,7 @@ header {
     }
 }
 .factContainer {
-    width: 48%;
+    width: 45%;
     align-self: flex-start;
     .aboutFact {
         @include fontStyling($secondaryFont, 1.5rem, 500);

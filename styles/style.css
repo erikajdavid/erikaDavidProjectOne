@@ -803,7 +803,7 @@ header .hero .imageContainer img:hover {
 }
 
 .aboutText {
-  width: 48%;
+  width: 45%;
 }
 .aboutText h2 {
   font-family: 0;
@@ -833,7 +833,7 @@ header .hero .imageContainer img:hover {
 }
 
 .factContainer {
-  width: 48%;
+  width: 45%;
   align-self: flex-start;
 }
 .factContainer .aboutFact {
