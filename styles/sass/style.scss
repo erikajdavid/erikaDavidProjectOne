@@ -82,7 +82,7 @@ header {
         }
     }
 }
-
+// reference for parallax: https://www.w3schools.com/howto/howto_css_parallax.asp
 .parallax {
     background-image: url(../assets/header/background.png);
     height: 100%;
@@ -112,6 +112,7 @@ header {
 }
 .factContainer {
     width: 48%;
+    align-self: flex-start;
     .aboutFact {
         @include fontStyling($secondaryFont, 1.5rem, 500);
         @include textStyling(0.075rem, 2rem, capitalize, none);

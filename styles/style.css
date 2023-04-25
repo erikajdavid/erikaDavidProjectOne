@@ -834,6 +834,7 @@ header .hero .imageContainer img:hover {
 
 .factContainer {
   width: 48%;
+  align-self: flex-start;
 }
 .factContainer .aboutFact {
   font-family: "Lora", serif;
