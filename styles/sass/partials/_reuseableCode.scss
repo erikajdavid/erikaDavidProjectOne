@@ -1,6 +1,12 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+//generic styles//
+html {
+    @include fontStyling($primaryFont, 18px, 400);
+    color: $black;
+}
+
 //reusable code//
 .wrapper {
     max-width: 1200px;
