@@ -226,13 +226,6 @@ template {
   overflow: hidden;
 }
 
-html {
-  font-family: "Barlow", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: #1A2428;
-}
-
 .wrapper {
   max-width: 1200px;
   width: 90%;
