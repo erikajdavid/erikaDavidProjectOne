@@ -13,14 +13,13 @@ header nav {
     .wrapper ul {
         text-transform: uppercase;
         font-weight: 600;      
-        li {
-            margin-left: 2rem;
-            .svg {
+        li .svg {
                 all: revert;
                 width: 1.75rem;
             }
         }
         .navHover {
+            margin-right: 2rem;
             position: relative;
             a:hover,
             a:focus {
@@ -54,7 +53,6 @@ header nav {
             color: $black;
         }
     }
-}
 
 //header section//
 header {
@@ -241,7 +239,7 @@ header {
 .third .imageContainer {
     width: calc(100% / 3);
     }
-    .textContainer {
+.third .textContainer {
         @include boxModel(75%, auto, 0 0 0 1rem, none, none, none);
         p {
             padding: 0.5rem 0;
