@@ -551,14 +551,12 @@ header {
     .sectionHeading p {
         width: 85%;
     }
-
     .productGallery li {
         max-width: 32%;
     }
     .hide {
         display: none;
     }
-
     .contact .wrapper {
         height: 100%;
         flex-direction: column;
@@ -575,46 +573,43 @@ header {
         .fourth {
             @include colors($plantGreen, $white, none);
             @include boxModel(100%, auto, 2rem, none, 4px, 3rem 0 0 0);
-            text-align: center;
                 h3 {
                     border-bottom: 1px solid $white;
                     padding-bottom: 1rem;
+                    text-align: center;
                 }
                 .division {
                     padding-top: 1rem;
+                    align-items: center;
+                    p {
+                    padding: 1rem 0;
+                    text-align: center;
+                    }
+                    form {
+                    width: 80%;
+                    margin-bottom: 1rem;
+                        input::placeholder {
+                            text-align: center;
+                        }
+                    }
                 }
-            }
-            p {
-                padding: 1rem 0;
-            }
-            .division {
-                align-items: center;
-            }
-            form {
-                width: 80%;
-                margin-bottom: 1rem;
-            }
-            input::placeholder {
-                text-align: center;
-            }
+            }   
         }
     }
 
 @media (max-width: 768px) {
-    header .wrapper ul .navHide{
+    header .navHide{
         display: none;
     }
      header nav .wrapper ul li {
         margin: 0;
     }
-
     header nav .hamburgerContainer {
         display: block;
         order: -1;  
     }   
     .hero .wrapper {
         flex-direction: column;
-        height: auto;
         padding: 1rem;
         .textContainer {
             @include boxModel(100%, auto, 1.5rem 0 0 0, none, none, 0);
@@ -640,9 +635,7 @@ header {
             padding-top: 5rem;
         }
         .textContainer .aboutFact {
-            margin: 0;
             width: 90%;
-            margin: 0 auto;
         }
     }
 
@@ -654,28 +647,6 @@ header {
         width: 100%;
         padding: 1rem 1rem 2rem 1rem;
     }
-
-    /*
-
-    .shop {
-        background-color: $lightgreen;
-        .sectionHeading {
-            color: $white;
-        }
-    }
-
-    .productGallery li {
-        max-width: 48%;
-        border-radius: 10px;
-        img {
-            border-radius: 6px 6px 0 0;
-        }
-        .textContainer {
-            border-radius: 0 0 6px 6px;
-        }
-    }
-
-    */
 
   .blog .wrapper ul {
         flex-direction: column;
@@ -729,7 +700,7 @@ header {
         flex-direction: column;
     }
 
-    .contact .wrapper form .line1and2 input {
+    .contact .wrapper form .line1and2 input[type=text] {
         width: 100%;
     }
 }
@@ -747,10 +718,10 @@ header {
 
     .contact .wrapper form {
         padding: 1.5rem;
-    }
-    .contact .wrapper button {
-        padding: 1rem 1.5rem;
-        font-size: 0.75rem;
+        button {
+            padding: 1rem 1.5rem;
+            font-size: 0.75rem;
+        }
     }
 }
 

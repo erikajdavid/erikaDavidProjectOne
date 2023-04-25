@@ -920,34 +920,33 @@ header {
     border: none;
     border-radius: 4px;
     margin: 3rem 0 0 0;
-    text-align: center;
   }
   footer .wrapper .fourth h3 {
     border-bottom: 1px solid #fff;
     padding-bottom: 1rem;
+    text-align: center;
   }
   footer .wrapper .fourth .division {
     padding-top: 1rem;
-  }
-  footer .wrapper p {
-    padding: 1rem 0;
-  }
-  footer .wrapper .division {
     align-items: center;
   }
-  footer .wrapper form {
+  footer .wrapper .fourth .division p {
+    padding: 1rem 0;
+    text-align: center;
+  }
+  footer .wrapper .fourth .division form {
     width: 80%;
     margin-bottom: 1rem;
   }
-  footer .wrapper input::-moz-placeholder {
+  footer .wrapper .fourth .division form input::-moz-placeholder {
     text-align: center;
   }
-  footer .wrapper input::placeholder {
+  footer .wrapper .fourth .division form input::placeholder {
     text-align: center;
   }
 }
 @media (max-width: 768px) {
-  header .wrapper ul .navHide {
+  header .navHide {
     display: none;
   }
   header nav .wrapper ul li {
@@ -959,7 +958,6 @@ header {
   }
   .hero .wrapper {
     flex-direction: column;
-    height: auto;
     padding: 1rem;
   }
   .hero .wrapper .textContainer {
@@ -995,9 +993,7 @@ header {
     padding-top: 5rem;
   }
   .about .wrapper .textContainer .aboutFact {
-    margin: 0;
     width: 90%;
-    margin: 0 auto;
   }
   h2 {
     font-size: 1.5rem;
@@ -1006,27 +1002,6 @@ header {
     width: 100%;
     padding: 1rem 1rem 2rem 1rem;
   }
-  /*
-
-  .shop {
-      background-color: $lightgreen;
-      .sectionHeading {
-          color: $white;
-      }
-  }
-
-  .productGallery li {
-      max-width: 48%;
-      border-radius: 10px;
-      img {
-          border-radius: 6px 6px 0 0;
-      }
-      .textContainer {
-          border-radius: 0 0 6px 6px;
-      }
-  }
-
-  */
   .blog .wrapper ul {
     flex-direction: column;
   }
@@ -1073,7 +1048,7 @@ header {
   .line1and2 {
     flex-direction: column;
   }
-  .contact .wrapper form .line1and2 input {
+  .contact .wrapper form .line1and2 input[type=text] {
     width: 100%;
   }
 }
@@ -1089,7 +1064,7 @@ header {
   .contact .wrapper form {
     padding: 1.5rem;
   }
-  .contact .wrapper button {
+  .contact .wrapper form button {
     padding: 1rem 1.5rem;
     font-size: 0.75rem;
   }
