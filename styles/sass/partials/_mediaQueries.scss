@@ -61,7 +61,7 @@
     }   
 
     .hero .wrapper {
-        flex-direction: column;
+        flex-direction: column;        
         padding: 1rem;
         .textContainer {
             @include boxModel(100%, auto, 1.5rem 0 0 0, none, none, 0);
@@ -77,15 +77,13 @@
 
     .about .wrapper {
         flex-direction: column;
-        .textContainer {
-            @include boxModel(100%, auto, 0, none, none, 0);
+        .aboutText,
+        .factContainer {
+            width: 100%;
         }
         .aboutText {
             order: 1;
             padding-top: 5rem;
-        }
-        .textContainer .aboutFact {
-            width: 90%;
         }
     }
 

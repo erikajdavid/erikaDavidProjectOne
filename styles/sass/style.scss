@@ -71,10 +71,13 @@ header {
                 padding: 2rem 0;
             }
         }
-        img {
-            transition: all 1s ease;
-            &:hover {
-                transform: scale(1.2);
+        .imageContainer {
+            width: 50%;
+            img {
+                transition: all 1s ease;
+                &:hover {
+                    transform: scale(1.2);
+                }
             }
         }
     }
@@ -88,27 +91,28 @@ header {
 }
 
 //about section//
-.about .wrapper {
-    align-items: flex-start;
-    .textContainer {
-        h2 {
-            @include fontStyling(0, 1.25rem, 0);
-            @include textStyling( 0, 0, capitalize, none);
-            padding-bottom: 0.5rem;
-        }
-        h3 {
-            @include fontStyling (0, 2rem, 0);
-            @include textStyling(0, 2.5rem, capitalize, none);
-            padding: 1rem 0;
-        }
-        p {
-            padding: 0.5rem 0;
-        }
-        button {
-            margin-top: 1rem;
-        }
+.aboutText {
+    width: 48%;
+    h2 {
+    @include fontStyling(0, 1.25rem, 0);
+    @include textStyling( 0, 0, capitalize, none);
+    padding-bottom: 0.5rem;
+}
+    h3 {
+        @include fontStyling (0, 2rem, 0);
+        @include textStyling(0, 2.5rem, capitalize, none);
+        padding: 1rem 0;
     }
-    .textContainer .aboutFact {
+    p {
+        padding: 0.5rem 0;
+    }
+    button {
+        margin-top: 1rem;
+    }
+}
+.factContainer {
+    width: 48%;
+    .aboutFact {
         @include fontStyling($secondaryFont, 1.5rem, 500);
         @include textStyling(0.075rem, 2rem, capitalize, none);
         @include colors($lightgreen, $white, none);
@@ -216,6 +220,9 @@ header {
 .first {
     padding-right: 2rem;
     }
+    .imageContainer {
+        width: 60%;
+    } 
     .division {
         justify-content: space-evenly;
         nav ul li {

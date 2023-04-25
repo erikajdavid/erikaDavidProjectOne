@@ -312,11 +312,6 @@ img {
   background-color: #5EA85E;
 }
 
-.textContainer,
-.imageContainer {
-  width: 50%;
-}
-
 .sectionHeading {
   text-align: center;
 }
@@ -624,20 +619,13 @@ button:hover {
   .about .wrapper {
     flex-direction: column;
   }
-  .about .wrapper .textContainer {
+  .about .wrapper .aboutText,
+  .about .wrapper .factContainer {
     width: 100%;
-    height: auto;
-    padding: 0;
-    border: none;
-    border-radius: none;
-    margin: 0;
   }
   .about .wrapper .aboutText {
     order: 1;
     padding-top: 5rem;
-  }
-  .about .wrapper .textContainer .aboutFact {
-    width: 90%;
   }
   h2 {
     font-size: 1.5rem;
@@ -795,10 +783,13 @@ header .hero .textContainer h1 {
 header .hero .textContainer p {
   padding: 2rem 0;
 }
-header .hero img {
+header .hero .imageContainer {
+  width: 50%;
+}
+header .hero .imageContainer img {
   transition: all 1s ease;
 }
-header .hero img:hover {
+header .hero .imageContainer img:hover {
   transform: scale(1.2);
 }
 
@@ -811,10 +802,10 @@ header .hero img:hover {
   background-repeat: no-repeat;
 }
 
-.about .wrapper {
-  align-items: flex-start;
+.aboutText {
+  width: 48%;
 }
-.about .wrapper .textContainer h2 {
+.aboutText h2 {
   font-family: 0;
   font-size: 1.25rem;
   font-weight: 0;
@@ -824,7 +815,7 @@ header .hero img:hover {
   text-decoration: none;
   padding-bottom: 0.5rem;
 }
-.about .wrapper .textContainer h3 {
+.aboutText h3 {
   font-family: 0;
   font-size: 2rem;
   font-weight: 0;
@@ -834,13 +825,17 @@ header .hero img:hover {
   text-decoration: none;
   padding: 1rem 0;
 }
-.about .wrapper .textContainer p {
+.aboutText p {
   padding: 0.5rem 0;
 }
-.about .wrapper .textContainer button {
+.aboutText button {
   margin-top: 1rem;
 }
-.about .wrapper .textContainer .aboutFact {
+
+.factContainer {
+  width: 48%;
+}
+.factContainer .aboutFact {
   font-family: "Lora", serif;
   font-size: 1.5rem;
   font-weight: 500;
@@ -980,6 +975,10 @@ header .hero img:hover {
 
 .first {
   padding-right: 2rem;
+}
+
+.imageContainer {
+  width: 60%;
 }
 
 .division {
