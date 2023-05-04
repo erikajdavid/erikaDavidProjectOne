@@ -56,6 +56,7 @@
     }
 
     //.hamburger menu needs more specificity than what was written in the original SCSS in order for the media query styles to apply
+    //clean code below
     header nav .hamburger { 
         all: revert;
         position: relative;
@@ -63,14 +64,15 @@
         width: 35px;
         cursor: pointer;
         appearance: none;
-        background-color: white;
+        background-color: $white;
         outline: none;
         border: none;
         order: -1;
+        z-index: 3;
     }
 
     .hamburger:hover {
-        background-color: white;
+        background-color: $white;
     }
 
     .hamburger .bar, .hamburger:after, .hamburger:before {
@@ -82,6 +84,7 @@
         margin: 6px 0px;
         transition: 0.4s;
     }
+    //clean code above
 
     .hamburger.activated:before {
         transform: rotate(-45deg) translate(-8px, 6px);
@@ -95,6 +98,41 @@
         opacity: 0;
     }
 
+    .mobileNav {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 100%;
+        min-width: 50%;
+        height: 100%;
+        z-index: 2;
+        background-color: $plantGreen;
+        opacity: 0.9;
+        padding-top: 12vh;
+        transition: 0.5s;
+    }
+
+    .mobileNav.activated {
+        right: 50%;
+    }
+        
+    .mobileNav a {
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            padding: 2.5rem;
+            text-transform: uppercase;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 0.5rem;
+            //having issues with transition for hover, it's not working
+        }
+
+    .mobileNav a:hover {
+        color: black;
+        
+    }
     .hero .wrapper {
         flex-direction: column;        
         padding: 1rem;

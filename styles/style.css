@@ -602,13 +602,14 @@ button:hover {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
-    background-color: white;
+    background-color: #fff;
     outline: none;
     border: none;
     order: -1;
+    z-index: 3;
   }
   .hamburger:hover {
-    background-color: white;
+    background-color: #fff;
   }
   .hamburger .bar, .hamburger:after, .hamburger:before {
     content: "";
@@ -627,6 +628,36 @@ button:hover {
   }
   .hamburger.activated .bar {
     opacity: 0;
+  }
+  .mobileNav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 100%;
+    min-width: 50%;
+    height: 100%;
+    z-index: 2;
+    background-color: #207200;
+    opacity: 0.9;
+    padding-top: 12vh;
+    transition: 0.5s;
+  }
+  .mobileNav.activated {
+    right: 50%;
+  }
+  .mobileNav a {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 2.5rem;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+  }
+  .mobileNav a:hover {
+    color: black;
   }
   .hero .wrapper {
     flex-direction: column;
