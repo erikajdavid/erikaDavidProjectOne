@@ -450,6 +450,9 @@ button:hover {
   left: 50%;
   transform: translate(-50%, -32%);
 }
+.contactHeader .mobileNav {
+  display: none;
+}
 
 .contact .wrapper {
   height: 100%;
