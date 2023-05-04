@@ -632,7 +632,7 @@ button:hover {
   .hamburger.activated .bar {
     opacity: 0;
   }
-  .mobileNav {
+  .contactHeader .mobileNav {
     display: block;
     position: fixed;
     top: 0;
