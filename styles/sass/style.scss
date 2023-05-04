@@ -46,12 +46,43 @@ header nav {
             opacity: 1;
         }
     }
-    .hamburgerContainer {
-        display: none;
-        .hamburger {
-            font-size: 1.5rem;
-            color: $black;
-        }
+
+    .hamburger {
+        all: revert;
+        position: relative;
+        display: block;
+        width: 35px;
+        cursor: pointer;
+        appearance: none;
+        background-color: white;
+        outline: none;
+        border: none;
+    }
+
+    .hamburger:hover {
+        background-color: white;
+    }
+
+    .hamburger .bar, .hamburger:after, .hamburger:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        margin: 6px 0px;
+        transition: 0.4s;
+    }
+
+    .hamburger.activated:before {
+        transform: rotate(-45deg) translate(-8px, 6px);
+    }
+
+    .hamburger.activated:after {
+        transform: rotate(45deg) translate(-6px, -5px);
+    }
+
+    .hamburger.activated .bar {
+        opacity: 0;
     }
 
 //header section//

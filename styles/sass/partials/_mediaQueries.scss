@@ -53,12 +53,7 @@
 @media (max-width: 768px) {
     header .navHide{
         display: none;
-    }
-
-    header nav .wrapper .hamburgerContainer {
-        display: block;
-        order: -1;  
-    }   
+    } 
 
     .hero .wrapper {
         flex-direction: column;        
