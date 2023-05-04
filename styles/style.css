@@ -450,9 +450,6 @@ button:hover {
   left: 50%;
   transform: translate(-50%, -32%);
 }
-.contactHeader .mobileNav {
-  display: none;
-}
 
 .contact .wrapper {
   height: 100%;
@@ -605,21 +602,21 @@ button:hover {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
-    background-color: #fff;
+    background: none;
     outline: none;
     border: none;
     order: -1;
-    z-index: 3;
+    z-index: 100;
   }
   .hamburger:hover {
-    background-color: #fff;
+    background: none;
   }
   .hamburger .bar, .hamburger:after, .hamburger:before {
     content: "";
     display: block;
     width: 100%;
     height: 3px;
-    background-color: black;
+    background-color: #1A2428;
     margin: 6px 0px;
     transition: 0.4s;
   }
@@ -632,35 +629,37 @@ button:hover {
   .hamburger.activated .bar {
     opacity: 0;
   }
-  .contactHeader .mobileNav {
+  .mobileNav {
     display: block;
     position: fixed;
     top: 0;
     right: 100%;
     min-width: 50%;
     height: 100%;
-    z-index: 2;
-    background-color: #207200;
-    opacity: 0.9;
+    z-index: 98;
+    background-color: #5EA85E;
+    opacity: 0.95;
     padding-top: 12vh;
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
   }
   .mobileNav.activated {
     right: 50%;
   }
   .mobileNav a {
     display: block;
+    width: 70%;
     text-align: center;
     margin: 0 auto;
-    padding: 2.5rem;
+    padding: 2rem 2.5rem;
     text-transform: uppercase;
-    color: white;
+    color: #fff;
     font-weight: 700;
     font-size: 1.5rem;
     letter-spacing: 0.5rem;
+    transition: all 0.25s;
   }
   .mobileNav a:hover {
-    color: black;
+    color: #1A2428;
   }
   .hero .wrapper {
     flex-direction: column;
@@ -758,6 +757,16 @@ button:hover {
   }
 }
 @media (max-width: 480px) {
+  .mobileNav,
+  .contactHeader .mobileNav {
+    min-width: 100%;
+  }
+  .mobileNav a {
+    padding: 2rem 0;
+  }
+  .mobileNav.activated {
+    right: 0;
+  }
   .shop .productGallery li {
     max-width: 90%;
     margin: 0 auto;
