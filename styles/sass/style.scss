@@ -8,7 +8,9 @@
 //nagivation section//
 header nav {
     height: 10vh;
-    position: relative;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
     @include colors($white, 0, 0 0 8px rgba(0, 0, 0, 0.25));
     .wrapper ul {
         text-transform: uppercase;
@@ -145,14 +147,20 @@ header {
         max-width: 24%;
         margin-bottom: 3rem;
         position: relative;
+        border: 1.5px solid $lightgrey;
+        border-radius: 10px;
         .imageContainer {
             width: 100%;
             font-size: 0;
+            img {
+                border-radius: 10px 10px 0 0;
+            }
         }
         .textContainer {
-            @include boxModel(100%, auto, 0.75rem, 1.5px solid $lightgrey, none, none);
+            @include boxModel(100%, auto, none, none, none, none);
             background-color: $white;
             border-top: none;
+            border-radius: 0 0 10px 10px;
             p {
                 padding-top: 0.75rem;
             }
@@ -166,7 +174,7 @@ header {
     }
 }
 
-.addToCartBtn {
+/*.addToCartBtn {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
@@ -177,6 +185,40 @@ header {
     font-size: 1.15rem;
     padding: 0;
     margin: 0;
+}
+
+.addToCartBtn:active {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.1rem;
+}
+*/
+.infoContainer {
+    background-color: $white;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+}
+
+.shopButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid $lightgrey;
+    border-radius: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.shopButtons button {
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 1.15rem;
+
+}
+
+.quantity {
+    margin: 0 1.25rem;
 }
 
 .shopBtn {

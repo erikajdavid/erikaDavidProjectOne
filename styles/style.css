@@ -781,7 +781,9 @@ button:hover {
 }
 header nav {
   height: 10vh;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
   background-color: #fff;
   color: 0;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
@@ -948,20 +950,26 @@ header .hero .imageContainer img:hover {
   max-width: 24%;
   margin-bottom: 3rem;
   position: relative;
+  border: 1.5px solid #EAEAEA;
+  border-radius: 10px;
 }
 .productGallery li .imageContainer {
   width: 100%;
   font-size: 0;
 }
+.productGallery li .imageContainer img {
+  border-radius: 10px 10px 0 0;
+}
 .productGallery li .textContainer {
   width: 100%;
   height: auto;
-  padding: 0.75rem;
-  border: 1.5px solid #EAEAEA;
+  padding: none;
+  border: none;
   border-radius: none;
   margin: none;
   background-color: #fff;
   border-top: none;
+  border-radius: 0 0 10px 10px;
 }
 .productGallery li .textContainer p {
   padding-top: 0.75rem;
@@ -973,17 +981,50 @@ header .hero .imageContainer img:hover {
   text-decoration: line-through;
 }
 
-.addToCartBtn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+/*.addToCartBtn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 1.15rem;
+    background-color: $plantGreen;
+    font-size: 1.15rem;
+    padding: 0;
+    margin: 0;
+}
+
+.addToCartBtn:active {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.1rem;
+}
+*/
+.infoContainer {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0 0 10px 10px;
+}
+
+.shopButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid #EAEAEA;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.shopButtons button {
   width: 2.3rem;
   height: 2.3rem;
   border-radius: 1.15rem;
-  background-color: #207200;
-  font-size: 1.15rem;
-  padding: 0;
-  margin: 0;
+}
+
+.quantity {
+  margin: 0 1.25rem;
 }
 
 .shopBtn {
