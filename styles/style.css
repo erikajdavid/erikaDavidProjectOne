@@ -973,7 +973,7 @@ header .hero .imageContainer img:hover {
   text-decoration: line-through;
 }
 
-.plusIcon {
+.addToCartBtn {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
