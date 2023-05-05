@@ -757,12 +757,8 @@ button:hover {
   }
 }
 @media (max-width: 480px) {
-  .mobileNav,
-  .contactHeader .mobileNav {
+  body .mobileNav {
     min-width: 100%;
-  }
-  .mobileNav a {
-    padding: 2rem 0;
   }
   .mobileNav.activated {
     right: 0;
