@@ -826,7 +826,8 @@ header nav .navHover:hover::after {
   opacity: 1;
 }
 
-.hamburger {
+.hamburger,
+.mobileNav {
   display: none;
 }
 
@@ -956,8 +957,18 @@ header .hero .imageContainer img:hover {
 .productGallery li .textContainer .price span {
   text-decoration: line-through;
 }
-.productGallery li .textContainer button {
+
+.plusIcon {
   position: absolute;
+  top: 11.5rem;
+  right: 0.75rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  background-color: #207200;
+  font-size: 1.15rem;
+  padding: 0;
+  margin: 0;
 }
 
 .shopBtn {
