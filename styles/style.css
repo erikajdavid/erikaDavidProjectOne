@@ -782,8 +782,8 @@ button:hover {
 header nav {
   height: 10vh;
   position: fixed;
-  width: 100%;
   z-index: 100;
+  width: 100%;
   background-color: #fff;
   color: 0;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
@@ -853,6 +853,7 @@ header {
   overflow: hidden;
 }
 header .hero {
+  margin-top: 10vh;
   height: 90vh;
 }
 header .hero .textContainer {
@@ -1010,7 +1011,7 @@ header .hero .imageContainer img:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60%;
+  width: 55%;
   margin: 0 auto;
   border: 1px solid #EAEAEA;
   border-radius: 1.5rem;
@@ -1018,9 +1019,22 @@ header .hero .imageContainer img:hover {
 }
 
 .shopButtons button {
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 1.15rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  padding: 0 0 0.2rem 0;
+  background-color: #5EA85E;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.shopButtons button:hover {
+  background-color: #207200;
+}
+
+.shopButtons button:active {
+  width: 1.95rem;
+  height: 1.95rem;
 }
 
 .quantity {
