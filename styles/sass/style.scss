@@ -177,9 +177,9 @@ header {
         position: relative;
         border: 1.5px solid $lightgrey;
         border-radius: 10px;
-        transition: 0.4s;
+        transition: 0.4s ease-in-out;
         &:hover {
-            border: 2px $lightgreen solid;
+            border: 2.5px $lightgreen solid;
         }
         .imageContainer {
             width: 100%;

@@ -981,10 +981,10 @@ header .hero .imageContainer img:hover {
   position: relative;
   border: 1.5px solid #EAEAEA;
   border-radius: 10px;
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
 }
 .productGallery li:hover {
-  border: 2px #5EA85E solid;
+  border: 2.5px #5EA85E solid;
 }
 .productGallery li .imageContainer {
   width: 100%;
