@@ -177,6 +177,10 @@ header {
         position: relative;
         border: 1.5px solid $lightgrey;
         border-radius: 10px;
+        transition: 0.4s;
+        &:hover {
+            border: 2px $lightgreen solid;
+        }
         .imageContainer {
             width: 100%;
             font-size: 0;
@@ -236,6 +240,11 @@ header {
     border: 1px solid $lightgrey;
     border-radius: 1.5rem;
     font-size: 0.9rem;
+    transition: all 0.5s;
+}
+
+.shopButtons:hover {
+    background-color: $lightgrey;
 }
 
 .shopButtons button {
@@ -397,7 +406,6 @@ header {
 
 
     
-
 
 
 
