@@ -66,8 +66,12 @@
         </ul>
     </nav>
     <div class="reviewCart">
-        <p>Delete all items</p>
-        <i class="fa-solid fa-trash-can trashCan"></i>
+        <p class="yourCart">Your Cart</p>
+        <ul class="orderItems"></ul>
+        <div class="subTotal"></div>
+        <div class="tax"></div>
+        <div class="finalTotal"></div>
+        <button class="checkoutBtn">Go to Checkout</button>
     </div>
     <!-- end of header section -->
 
@@ -97,144 +101,7 @@
                     <h2>Our products</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla amet exercitationem itaque est nihil mollitia.</p>
                 </div>
-                <ul class="productGallery flexRow">
-                    <li>
-                        <div class="imageContainer">
-                            <img src="./assets/product1.jpeg" alt="Assorted fresh organic vegetables.">
-                        </div>
-                        <div class="infoContainer">
-                            <div class="textContainer">
-                                <h3>Mix Vegetables</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="price">$370 <span>$350</span></p>
-                            </div>
-                            <div class="shopButtons">
-                                <button class="minus">-</button>
-                                <p class="quantity">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="imageContainer">
-                            <img src="./assets/product2.jpeg" alt="Organic limes.">
-                        </div>
-                        <div class="infoContainer">
-                            <div class="textContainer">
-                                <h3>Mix Vegetables</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="price">$370 <span>$350</span></p>
-                            </div>
-                            <div class="shopButtons">
-                                <button class="minus">-</button>
-                                <p class="quantity">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="imageContainer">
-                            <img src="./assets/product3.jpeg" alt="Organic green eggplant.">
-                        </div>
-                        <div class="infoContainer">
-                            <div class="textContainer">
-                                <h3>Mix Vegetables</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="price">$370 <span>$350</span></p>
-                            </div>
-                            <div class="shopButtons">
-                                <button class="minus">-</button>
-                                <p class="quantity">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="imageContainer">
-                            <img src="./assets/product4.jpeg" alt="Organic zucchini.">
-                        </div>
-                        <div class="infoContainer">
-                            <div class="textContainer">
-                                <h3>Mix Vegetables</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="price">$370 <span>$350</span></p>
-                            </div>
-                            <div class="shopButtons">
-                                <button class="minus">-</button>
-                                <p class="quantity">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="imageContainer">
-                            <img src="./assets/product5.jpeg" alt="Organic snap peas.">                            
-                        </div>
-                        <div class="infoContainer">
-                            <div class="textContainer">
-                                <h3>Mix Vegetables</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="price">$370 <span>$350</span></p>
-                            </div>
-                            <div class="shopButtons">
-                                <button class="minus">-</button>
-                                <p class="quantity">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="imageContainer">
-                            <img src="./assets/product6.jpeg" alt="Organic green olives.">
-                        </div>
-                        <div class="infoContainer">
-                            <div class="textContainer">
-                                <h3>Mix Vegetables</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="price">$370 <span>$350</span></p>
-                            </div>
-                            <div class="shopButtons">
-                                <button class="minus">-</button>
-                                <p class="quantity">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="hide">
-                        <div class="imageContainer">
-                            <img src="./assets/product7.jpeg" alt="Organic green cabbage.">
-                        </div>
-                        <div class="infoContainer">
-                            <div class="textContainer">
-                                <h3>Mix Vegetables</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="price">$370 <span>$350</span></p>
-                            </div>
-                            <div class="shopButtons">
-                                <button class="minus">-</button>
-                                <p class="quantity">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="hide">
-                        <div class="imageContainer">
-                            <img src="./assets/product8.jpeg" alt="Organic Boston lettuce.">
-                        </div>
-                        <div class="infoContainer">
-                            <div class="textContainer">
-                                <h3>Mix Vegetables</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="price">$370 <span>$350</span></p>                                
-                            </div>
-                            <div class="shopButtons">
-                                <button class="minus">-</button>
-                                <p class="quantity">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="productGallery flexRow"></ul>
                 <div class="shopBtn">
                     <button class="btnVar2">Load more</button>
                 </div>
@@ -243,7 +110,7 @@
         <!-- end of about section -->
 
         <!-- beginning of gallery section -->
-        <section id="gallery" class="gallery">
+        <section id="gallery" class="gallery"> 
             <div class="wrapper">
                 <div class="sectionHeading">
                     <h2>Our gallery</h2>
@@ -454,6 +321,7 @@
     </footer>
     <!-- end of footer section -->
 
+    <script src="./script.js"></script>
     <script src="./products.js"></script>
     <script src="./app.js"></script>
 </body>

@@ -76,30 +76,157 @@ header nav {
 
     .reviewCart {
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: column;
         align-items: center;
-        height: 10vh;
-        min-width: 12rem;
-        padding: 0 1rem;
+        height: 90vh;
+        overflow-y: scroll;
+        min-width: 25%;
         border-radius: 0 0 10px 10px;
         position: fixed;
-        top: 0;
-        right: 0;
+        top: 10vh;
+        left: 100%;
         z-index: 98;
-        background-color: $black;
-        color: $white;
+        background-color: $white;
+        color: $black;
+        font-size: 0.8rem;
         transition: 0.5s ease-in-out;
-        cursor: pointer;
+        padding: 1rem;
+
     }
 
     .reviewCart.activated {
-        top: 10vh;
+        left: 75%;
     }
 
-    body .reviewCart:hover {
-        background-color: $plantGreen;
-        cursor: pointer;
+    .reviewCart .yourCart {
+        padding: 1rem 0;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-weight: 500;
+        background-color: $lightgreen;
+        width: 100%;
+        text-align: center;
+        color: $white;
     }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(205, 205, 205, 0.695);
+        display: none;
+        transition: 0.4s;
+      }
+      
+      .overlay.activated {
+        display: block;
+      }
+
+    .orderInfo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .cartItemName {
+            width: 45%;
+        }
+    }
+
+    .cartItemInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid $lightgrey;
+        border-bottom: 1px solid $lightgrey;
+        padding: 0.5rem 0;
+        .cartItemProduct {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            img {
+                width: 25%;
+            }
+            .productName {
+                width: 55%;
+                height: 100%;
+                padding: 0 0.5rem;
+            }
+            .productPrice {
+                width: 20%;
+                text-align: right;
+            }
+        }
+    }
+
+    .cartItemControls {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-top: 0.5rem;
+        font-size: 0.7rem;
+        .cartItemRemove {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            p {
+                padding: 0 0.5rem;
+            }
+        }
+        .cartItemQuantity {
+            display: flex;
+            align-items:center;
+            border: 1px solid white;
+            p {
+                width: 2rem;
+                text-align: center;
+            }
+            button {
+                all: revert;
+                appearance: none;
+                background: none;
+                border: none;
+                color: $white;
+                padding: 0 0.25rem;
+                width: 1.2rem;
+                height: 1.2rem;
+                border-radius: 0.6rem;
+                background-color: $black;
+            }
+        }
+    }
+    .subTotal,
+    .tax,
+    .finalTotal {
+        width: 100%;
+        text-align: right;
+        padding: 1rem 0 0 0;
+    }
+
+    .subTotal {
+        padding-top: 2rem;
+    }
+    .tax {
+        padding-bottom: 1rem; 
+    }
+
+    .finalTotal {
+        padding-bottom: 2rem;
+    }
+
+    .checkoutBtn {
+        all: revert;
+        bottom: 1rem;
+        width: 100%;
+        padding: 1rem 0;
+        border-radius: 4px;
+        border: none;
+        background-color: $black;
+        color: $white;
+    }
+
+
 //header section//
 header {
     height: 100vh;
@@ -189,15 +316,17 @@ header {
             }
         }
         .textContainer {
-            @include boxModel(100%, auto, none, none, none, none);
+            @include boxModel(100%, 160px, none, none, none, none);
             background-color: $white;
             border-top: none;
             border-radius: 0 0 10px 10px;
             p {
                 padding-top: 0.75rem;
+                height: 70px;
             }
             .price {
                 padding-bottom: 0.75rem;
+                align-self: flex-end;
                 span {
                     text-decoration: line-through;
                 }
@@ -206,25 +335,6 @@ header {
     }
 }
 
-/*.addToCartBtn {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 2.3rem;
-    height: 2.3rem;
-    border-radius: 1.15rem;
-    background-color: $plantGreen;
-    font-size: 1.15rem;
-    padding: 0;
-    margin: 0;
-}
-
-.addToCartBtn:active {
-    width: 2.2rem;
-    height: 2.2rem;
-    font-size: 1.1rem;
-}
-*/
 .infoContainer {
     background-color: $white;
     padding: 1rem;
