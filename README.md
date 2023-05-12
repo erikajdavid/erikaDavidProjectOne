@@ -7,14 +7,16 @@ Add JS functionality* to desktop, tablet and mobile versions of a previously con
 *The design and assets were provided by Juno College. 
 *JS functionality is up to the student. 
 
-## Technical wins: 
+## To-do:
+- Only the first element in the product section acts exactly the way it should. Method forEach() needs to be implemented to iterated over every item in the shop. 
+
+## Technical wins/challenges: 
 - Created a mobile navigation that slides in when the hamburger menu is click on. 
-- Created a dropdown feature for the top nav cart that resets the cart number to 0. User is asked to confirm before cart is set to 0.
-- Created a quantity field for each shop product that updates both the product quantity count and the top nav cart whenever the + and - buttons are pressed.  
+- Created a full functioning shopping cart app
 
 ## Design liberties taken: 
 
-- redesigned shop buttons in shop product containers
+- redesigned shop buttons and containers in the shop product section. 
 
 
 
