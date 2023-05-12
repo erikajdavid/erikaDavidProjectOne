@@ -1,10 +1,10 @@
-const product = [
+const products = [
 
     {
     id: 0,
     name: "Mixed salad",
     price: 19.99, 
-    description: "Organic tomatoe, lettuce and cucumber.",
+    description: "Organic tomato, lettuce and cucumber.",
     imgSrc: "./assets/product1.jpeg",
     },
 

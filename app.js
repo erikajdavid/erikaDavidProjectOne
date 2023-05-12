@@ -1,116 +1,150 @@
-// select elements
-
-const productEl = document.querySelector(".productGallery");
-const cartItemsEl = document.querySelector(".orderItems");
+//SELECT ELEMENTS
+const productsEl = document.querySelector('.productGallery');
+const cartItemsEl = document.querySelector('.orderItems');
 const subTotalEl = document.querySelector('.subTotal');
-const theCart = document.querySelector('.cartItemNumber');
+const itemsInCartEl = document.querySelector('.cartItemNumber');
 const taxEl = document.querySelector('.tax');
 const finalTotalEl = document.querySelector('.finalTotal');
 
-// create product elements
-function createProductElements(product) {
-    const li = document.createElement("li");
-    const imageContainer = document.createElement("div");
-    const image = document.createElement("img");
-    const infoContainer = document.createElement("div");
-    const textContainer = document.createElement("div");
-    const name = document.createElement("h3");
-    const description = document.createElement("p");
-    const price = document.createElement("p");
-    const shopButtons = document.createElement("div");
-    const minus = document.createElement("button");
-    const quantity = document.createElement("p");
-    const plus = document.createElement("button");
-  
-    // set class names
-    li.className = "product";
-    imageContainer.className = "imageContainer";
-    infoContainer.className = "infoContainer";
-    textContainer.className = "textContainer";
-    name.className = "name";
-    description.className = "description";
-    price.className = "price";
-    shopButtons.className = "shopButtons";
-    minus.className = "minus";
-    quantity.className = "quantity";
-    plus.className = "plus";
-  
-    // set attributes and text content
-    image.src = product.imgSrc;
-    image.alt = product.name;
-    name.textContent = product.name;
-    description.textContent = product.description;
-    price.textContent = product.price + " each";
-    minus.textContent = "-";
-    quantity.textContent = "0";
-    plus.textContent = "+";
-  
-    // add event listeners
-    minus.addEventListener("click", () => changeNumberOfUnits("minus", product.id));
-    plus.addEventListener("click", () => addToCart(product.id));
-  
-    // append child elements
-    imageContainer.appendChild(image);
-    textContainer.appendChild(name);
-    textContainer.appendChild(description);
-    textContainer.appendChild(price);
-    shopButtons.appendChild(minus);
-    shopButtons.appendChild(quantity);
-    shopButtons.appendChild(plus);
-    infoContainer.appendChild(textContainer);
-    infoContainer.appendChild(shopButtons);
-    li.appendChild(imageContainer);
-    li.appendChild(infoContainer);
-  
-    return li;
-  }
-  
-  //render products
-  function renderProducts() {
-    const fragment = document.createDocumentFragment();
-    product.forEach((product) => {
-      fragment.appendChild(createProductElements(product));
-    });
-    productEl.appendChild(fragment);
-  }
-  
-  renderProducts();
 
-// cart array
+//RENDER SHOP PRODUCTS ON PRODUCT PAGE WITH INNERHTML
+//ADDING TO THE PAGE DYNAMICALLY
+function renderProducts() {
+  products.forEach((product) => {
+    productsEl.innerHTML += `
+    <li>
+      <div class="imageContainer">
+        <img src="${product.imgSrc}" alt="${product.name}">
+      </div>
+      <div class="infoContainer">
+        <div class="textContainer">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <p class="price">${product.price} each</p>
+        </div>
+        <div class="shopButtons">
+          <button class="minus" onclick="removeFromCart(${product.id})">-</button>
+          <p class="quantity">0</p>
+          <button class="plus" onclick="addToCart(${product.id})">+</button>
+        </div>
+      </div>
+    </li>
+    `;
+  });
+}
 
-let myCart = [];
+renderProducts(); //call the function to display the shop items
 
-//this changes the value in the shop quantity and the cart icon, but without it, the products don't render in the cart. 
 
+//CART ARRAY FOR SAVING ALL THE ITEMS BEING ADDED TO THE CART
+let myCart = []
+
+//ADD TO CART FROM SHOPPING PRODUCT PAGE
 function addToCart(id) {
     if (myCart.some((item) => item.id === id)) {
-      changeNumberOfUnits("plus", id);
+    changeNumberOfUnits("plus", id); // this line right here updates the total cart number when the quantities of the products already in the cart are being modified. 
     } else {
-      const item = product.find((product) => product.id === id);
+      const item = products.find((product) => product.id === id);
   
       // update product quantity
       item.quantity -= 1;
   
       myCart.push({
-        ...item,
+        ...item, ///... is a spread operator to copy all properties of the item object
         numberOfUnits: 1,
       });
     }
     updateCart();
-    removeItemFromCart();
+    trashIt();
   }
 
-//updates cart with the products and the subtotal
 
-function updateCart() {
-    renderCartItems();
-    renderSubTotal();
-    renderTax();
-    renderFinalTotal();
+  //REMOVE ITEM FROM CART FROM SHOPPING PRODUCT PAGE
+  function removeFromCart(id) {
+    if (myCart.some((item) => item.id === id)) {
+    changeNumberOfUnits("minus", id); // this line right here updates the total cart number when the quantities of the products already in the cart are being modified. 
+    } else {
+        const index = myCart.findIndex((item) => item.id === id);
+        if (index !== -1) {
+          myCart.splice(index, 1);
+        }
+        
+      };
+    updateCart();
+    trashIt();
+  };
+
+
+//RENDER CART ITEMS WITH INNERHTML
+//ADDING TO THE PAGE DYNAMICALLY
+function renderCartItems() {
+    cartItemsEl.innerHTML = ""; //clear cart element
+    myCart.forEach((item) => {
+        cartItemsEl.innerHTML += `
+        <li class="cartItemInfo">
+            <div class="cartItemProduct">
+                <img src="${item.imgSrc}" alt="${item.name}">
+                <p class="productName">${item.name}</p>
+                <p class="productPrice">${item.price}</p>
+            </div>
+            <div class="cartItemControls">
+                <div class="cartItemRemove" onclick="trashIt(${item.id})">
+                    <i class="fa-solid fa-trash-can trashCan"></i>
+                    <p>Remove</p>
+                </div>
+                <div class="cartItemQuantity">
+                    <button class="minusBtn" onclick="changeNumberOfUnits('minus', ${item.id})">-</button>
+                    <p>${item.numberOfUnits}</p>
+                    <button class="plusBtn" onclick="changeNumberOfUnits('plus', ${item.id})">+</button>
+                </div>
+            </div>
+        </li>
+        `
+    });
 };
 
-//calculate and render subtotal in app
+renderCartItems();
 
+
+//THIS CHANGES THE NUMBER OF UNITS FOR AN ITEM IN THE CART APP
+function changeNumberOfUnits(action, id) {
+    myCart = myCart.map((item) => { //you're making a new array in the cart with this
+        const shopQuantity = document.querySelector('.quantity'); // this here allows the quantity in the shop to change if the quantity in the cart is adjusted BUT THIS ONLY WORKS FOR THE FIRST ELEMENT IN THE SHOP. YOU NEED TO ITERATE OVER EVERY ITEM IN THE SHOP. 
+        let numberOfUnits = item.numberOfUnits
+        if(item.id === id) {
+            if(action === "minus" && numberOfUnits > 0){ // this line is to prevent the number from going below 0
+                numberOfUnits--;
+                shopQuantity.textContent = numberOfUnits;
+              } else if (action === "plus"){
+                numberOfUnits++;
+                shopQuantity.textContent = numberOfUnits;
+              }
+        }
+        return { // need to return to see the array because of the map method
+            ...item, //this restrures the item
+            numberOfUnits,
+        };
+    });
+    updateCart();
+}
+
+
+//THIS GIVES THE TRASH CAN IN THE APP FUNCTIONALITY
+function trashIt(id) {
+    myCart = myCart.filter((item) => item.id !== id);
+    
+    const shopQuantity = document.querySelector('.quantity');
+    let totalQuantity = 0;
+    myCart.forEach((item) => {
+      totalQuantity += item.numberOfUnits;
+    });
+    shopQuantity.innerHTML = totalQuantity;
+  
+    updateCart();
+  }
+  
+
+//CALCULATE THE SUBTOTAL IN APP
 function renderSubTotal(){
     let totalPrice = 0, totalItems = 0;
 
@@ -120,14 +154,14 @@ function renderSubTotal(){
     });
 
     subTotalEl.innerHTML = `
-        Sub-Total (${totalItems} items): $${totalPrice.toFixed(2)}
+        Sub-Total (${totalItems} items): $${totalPrice.toFixed(2)} 
         `;
     
-    theCart.innerHTML = totalItems;
+    itemsInCartEl.innerHTML = totalItems; // this is what is responsible for displaying the number of items in cart in the cart icon in top nav
 };
 
-//calculate and render tax in app
 
+//CALCULATE TAX IN APP
 function renderTax() {
   let taxRate = 0.13;
   let totalPrice = 0;
@@ -144,8 +178,8 @@ function renderTax() {
   `;
 };
 
-//calculate final total
 
+//CALCULATE FINAL TAX IN APP
 function renderFinalTotal() {
   let taxRate = 0.13;
   let totalPrice = 0;
@@ -165,158 +199,11 @@ function renderFinalTotal() {
   finalTotalEl.style.borderTop = "1px solid black";
 }
 
-//renders the products in the app
-function renderCartItems() {
-    while (cartItemsEl.firstChild) {
-        cartItemsEl.removeChild(cartItemsEl.firstChild);
-    } // clear cart element
 
-    myCart.forEach((item) => {
-        const li = document.createElement('li');
-        li.classList.add('cartItemInfo');
-
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('cartItemProduct');
-        li.appendChild(productDiv);
-
-        const img = document.createElement('img');
-        img.src = item.imgSrc;
-        img.alt = item.name;
-        productDiv.appendChild(img);
-
-        const nameP = document.createElement('p');
-        nameP.classList.add('productName');
-        nameP.textContent = item.name;
-        productDiv.appendChild(nameP);
-
-        const priceP = document.createElement('p');
-        priceP.classList.add('productPrice');
-        priceP.textContent = (item.price *  item.numberOfUnits).toFixed(2);
-        productDiv.appendChild(priceP);
-
-        const controlsDiv = document.createElement('div');
-        controlsDiv.classList.add('cartItemControls');
-        li.appendChild(controlsDiv);
-
-        const removeDiv = document.createElement('div');
-        removeDiv.classList.add('cartItemRemove');
-        removeDiv.onclick = () => removeItemFromCart(item.id);
-        controlsDiv.appendChild(removeDiv);
-
-        const trashIcon = document.createElement('i');
-        trashIcon.classList.add('fa-solid', 'fa-trash-can', 'trashCan');
-        removeDiv.appendChild(trashIcon);
-
-        const removeP = document.createElement('p');
-        removeP.textContent = 'Remove';
-        removeDiv.appendChild(removeP);
-
-        const quantityDiv = document.createElement('div');
-        quantityDiv.classList.add('cartItemQuantity');
-        controlsDiv.appendChild(quantityDiv);
-
-        const minusBtn = document.createElement('button');
-        minusBtn.classList.add('minusBtn');
-        minusBtn.onclick = () => changeNumberOfUnits('minus', item.id);
-        minusBtn.textContent = '-';
-        quantityDiv.appendChild(minusBtn);
-
-        const quantityP = document.createElement('p');
-        quantityDiv.classList.add('cartQuantity');
-        quantityP.textContent = item.numberOfUnits;
-        quantityDiv.appendChild(quantityP);
-
-        const plusBtn = document.createElement('button');
-        plusBtn.classList.add('plusBtn');
-        plusBtn.onclick = () => changeNumberOfUnits('plus', item.id);
-        plusBtn.textContent = '+';
-        quantityDiv.appendChild(plusBtn);
-
-        cartItemsEl.appendChild(li);
-    });
+//UPDATE THE CART
+function updateCart() {
+    renderCartItems(); //this renders the products to the cart 
+    renderSubTotal(); //this renders sub-total in app
+    renderTax(); //this renders tax in app
+    renderFinalTotal(); //this renders final total in app
 };
-
-
-//this changes the number of units for an item in the cart app. 
-
-function changeNumberOfUnits(action, id) {
-    myCart = myCart.map((item) => {
-
-        let numberOfUnits = item.numberOfUnits
-        if(item.id === id) {
-            if(action === "minus" && numberOfUnits > 1){
-                numberOfUnits--;
-              } else if (action === "plus"){
-                numberOfUnits++;
-              }
-        }
-        return {
-            ...item,
-            numberOfUnits,
-        };
-    });
-    updateCart();
-}
-
-//this removes the item completely from teh cart app by pressing on the trashCan. 
-
-function removeItemFromCart(id) {
-    myCart = myCart.filter((item) => {
-      if (item.id === id) {
-        // update product quantity
-        const productIndex = product.findIndex((product) => product.id === id);
-        product[productIndex].quantity += item.numberOfUnits;
-  
-        return false;
-      }
-      return true;
-    });
-  
-    updateCart();
-  } 
-
-//
-
-//add/remove quantity from shop product
-
-//Get cart count element and default count
-let defaultNumber = 0;
-
-// this increases the quantity in the shop product. 
-function increaseShopNumber() {
-  defaultNumber++;
-  theCart.textContent = defaultNumber;
-}
-
-// Add click event listeners to plus buttons
-const shopIncrement = document.querySelectorAll('.plus');
-shopIncrement.forEach(function(element) {
-  element.addEventListener('click', function() {
-    increaseShopNumber();
-    const quantityElement = element.previousElementSibling; //this target the quantity, element before plus button
-    quantityElement.textContent = Number(quantityElement.textContent) + 1;
-  });
-});
-
-// this decreases the quanity in the shop product. 
-function decreaseShopNumber() {
-  defaultNumber--;
-  if (defaultNumber < 0) {
-    defaultNumber = 0;
-  }
-  theCart.textContent = defaultNumber;
-}
-
-// Add click event listeners to minus buttons
-const shopDecrement = document.querySelectorAll('.minus');
-shopDecrement.forEach(function(element) {
-  element.addEventListener('click', function() {
-    const quantityElement = element.nextElementSibling; // this targets the quantity, element next to the minus button
-    const currentQuantity = Number(quantityElement.textContent); //number here is a built in JS features than converts value to a number
-    if (currentQuantity > 0) {
-      decreaseShopNumber();
-      quantityElement.textContent = currentQuantity - 1;
-    }
-  });
-});
-
