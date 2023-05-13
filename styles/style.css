@@ -836,7 +836,7 @@ header nav .navHover:hover::after {
 
 .cartItemNumber {
   position: absolute;
-  top: -0.3rem;
+  top: 1rem;
   right: -0.3rem;
   background-color: #5EA85E;
   color: #fff;
@@ -1121,9 +1121,32 @@ header .hero .imageContainer img:hover {
 .productGallery li .imageContainer img {
   border-radius: 10px 10px 0 0;
 }
+.productGallery li .plus {
+  all: revert;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0.6rem;
+  border: none;
+  background-color: #5EA85E;
+  border-radius: 1.3rem;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.productGallery li .plus:hover {
+  background-color: #1A2428;
+}
+.productGallery li .plus img {
+  filter: brightness(0) invert(1);
+  padding-right: 0.15rem;
+  padding-top: 0.1rem;
+}
 .productGallery li .textContainer {
   width: 100%;
-  height: 160px;
+  height: 140px;
   padding: none;
   border: none;
   border-radius: none;
@@ -1148,45 +1171,6 @@ header .hero .imageContainer img:hover {
   background-color: #fff;
   padding: 1rem;
   border-radius: 0 0 10px 10px;
-}
-
-.shopButtons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 8.5rem;
-  margin: 0 auto;
-  border: 1px solid #EAEAEA;
-  border-radius: 1.5rem;
-  font-size: 0.9rem;
-  transition: all 0.5s;
-}
-
-.shopButtons:hover {
-  background-color: #EAEAEA;
-}
-
-.shopButtons button {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 1rem;
-  padding: 0 0 0.2rem 0;
-  background-color: #5EA85E;
-  color: #fff;
-  font-size: 1.5rem;
-}
-
-.shopButtons button:hover {
-  background-color: #207200;
-}
-
-.shopButtons button:active {
-  width: 1.95rem;
-  height: 1.95rem;
-}
-
-.quantity {
-  margin: 0 1.25rem;
 }
 
 .shopBtn {
