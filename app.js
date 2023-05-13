@@ -16,16 +16,14 @@ function renderProducts() {
       <div class="imageContainer">
         <img src="${product.imgSrc}" alt="${product.name}">
       </div>
+      <button class="plus" onclick="addToCart(${product.id})">
+        <img src="./assets/icons/cart.svg">
+      </button>
       <div class="infoContainer">
         <div class="textContainer">
           <h3>${product.name}</h3>
           <p>${product.description}</p>
           <p class="price">${product.price} each</p>
-        </div>
-        <div class="shopButtons">
-          <button class="minus" onclick="removeFromCart(${product.id})">-</button>
-          <p class="quantity">0</p>
-          <button class="plus" onclick="addToCart(${product.id})">+</button>
         </div>
       </div>
     </li>
@@ -57,23 +55,6 @@ function addToCart(id) {
     updateCart();
     trashIt();
   }
-
-
-  //REMOVE ITEM FROM CART FROM SHOPPING PRODUCT PAGE
-  function removeFromCart(id) {
-    if (myCart.some((item) => item.id === id)) {
-    changeNumberOfUnits("minus", id); // this line right here updates the total cart number when the quantities of the products already in the cart are being modified. 
-    } else {
-        const index = myCart.findIndex((item) => item.id === id);
-        if (index !== -1) {
-          myCart.splice(index, 1);
-        }
-        
-      };
-    updateCart();
-    trashIt();
-  };
-
 
 //RENDER CART ITEMS WITH INNERHTML
 //ADDING TO THE PAGE DYNAMICALLY
@@ -109,16 +90,12 @@ renderCartItems();
 //THIS CHANGES THE NUMBER OF UNITS FOR AN ITEM IN THE CART APP
 function changeNumberOfUnits(action, id) {
   myCart = myCart.map((item) => { //you're making a new array in the cart with this
-      const shopQuantity = document.querySelector('.quantity'); // this here allows the quantity in the shop to change if the quantity in the cart is adjusted BUT THIS ONLY WORKS FOR THE FIRST ELEMENT IN THE SHOP. YOU NEED TO ITERATE OVER EVERY ITEM QUANITY IN THE SHOP. 
-      //also whenever you click on other items, instead of updating their own quantities, they add/decrease the quantity of the first element only. 
       let numberOfUnits = item.numberOfUnits
       if(item.id === id) {
           if(action === "minus" && numberOfUnits > 0){ // this line is to prevent the number from going below 0
               numberOfUnits--;
-              shopQuantity.textContent = numberOfUnits;
             } else if (action === "plus"){
               numberOfUnits++;
-              shopQuantity.textContent = numberOfUnits;
             }
       }
       return { // need to return to see the array because of the map method
@@ -213,3 +190,23 @@ function updateCart() {
     renderTax(); //this renders tax in app
     renderFinalTotal(); //this renders final total in app
 };
+
+
+
+//CODE REMOVED TO SIMPLIFY PROJECT
+/*
+  //REMOVE ITEM FROM CART FROM SHOPPING PRODUCT PAGE
+  function removeFromCart(id) {
+    if (myCart.some((item) => item.id === id)) {
+    changeNumberOfUnits("minus", id); // this line right here updates the total cart number when the quantities of the products already in the cart are being modified. 
+    } else {
+        const index = myCart.findIndex((item) => item.id === id);
+        if (index !== -1) {
+          myCart.splice(index, 1);
+        }
+        
+      };
+    updateCart();
+    trashIt();
+  };
+*/
