@@ -108,40 +108,46 @@ renderCartItems();
 
 //THIS CHANGES THE NUMBER OF UNITS FOR AN ITEM IN THE CART APP
 function changeNumberOfUnits(action, id) {
-    myCart = myCart.map((item) => { //you're making a new array in the cart with this
-        const shopQuantity = document.querySelector('.quantity'); // this here allows the quantity in the shop to change if the quantity in the cart is adjusted BUT THIS ONLY WORKS FOR THE FIRST ELEMENT IN THE SHOP. YOU NEED TO ITERATE OVER EVERY ITEM IN THE SHOP. 
-        let numberOfUnits = item.numberOfUnits
-        if(item.id === id) {
-            if(action === "minus" && numberOfUnits > 0){ // this line is to prevent the number from going below 0
-                numberOfUnits--;
-                shopQuantity.textContent = numberOfUnits;
-              } else if (action === "plus"){
-                numberOfUnits++;
-                shopQuantity.textContent = numberOfUnits;
-              }
-        }
-        return { // need to return to see the array because of the map method
-            ...item, //this restrures the item
-            numberOfUnits,
-        };
-    });
-    updateCart();
+  myCart = myCart.map((item) => { //you're making a new array in the cart with this
+      const shopQuantity = document.querySelector('.quantity'); // this here allows the quantity in the shop to change if the quantity in the cart is adjusted BUT THIS ONLY WORKS FOR THE FIRST ELEMENT IN THE SHOP. YOU NEED TO ITERATE OVER EVERY ITEM QUANITY IN THE SHOP. 
+      //also whenever you click on other items, instead of updating their own quantities, they add/decrease the quantity of the first element only. 
+      let numberOfUnits = item.numberOfUnits
+      if(item.id === id) {
+          if(action === "minus" && numberOfUnits > 0){ // this line is to prevent the number from going below 0
+              numberOfUnits--;
+              shopQuantity.textContent = numberOfUnits;
+            } else if (action === "plus"){
+              numberOfUnits++;
+              shopQuantity.textContent = numberOfUnits;
+            }
+      }
+      return { // need to return to see the array because of the map method
+          ...item, //this restructures the item
+          numberOfUnits,
+      };
+      
+  });
+  updateCart();
 }
-
 
 //THIS GIVES THE TRASH CAN IN THE APP FUNCTIONALITY
 function trashIt(id) {
-    myCart = myCart.filter((item) => item.id !== id);
-    
-    const shopQuantity = document.querySelector('.quantity');
-    let totalQuantity = 0;
-    myCart.forEach((item) => {
-      totalQuantity += item.numberOfUnits;
-    });
-    shopQuantity.innerHTML = totalQuantity;
-  
-    updateCart();
-  }
+  myCart = myCart.filter((item) => item.id !== id);
+
+  const shopQuantities = document.querySelectorAll('.quantity');
+  let totalQuantity = 0;
+
+  myCart.forEach((item) => {
+    totalQuantity += item.numberOfUnits;
+  });
+
+  shopQuantities.forEach((quantity) => {
+    quantity.innerHTML = totalQuantity;
+  });
+
+  updateCart();
+}
+
   
 
 //CALCULATE THE SUBTOTAL IN APP
@@ -163,7 +169,7 @@ function renderSubTotal(){
 
 //CALCULATE TAX IN APP
 function renderTax() {
-  let taxRate = 0.13;
+  const taxRate = 0.13;
   let totalPrice = 0;
   let totalTax = 0; // Initialize totalTax to 0
 
@@ -181,7 +187,7 @@ function renderTax() {
 
 //CALCULATE FINAL TAX IN APP
 function renderFinalTotal() {
-  let taxRate = 0.13;
+  const taxRate = 0.13;
   let totalPrice = 0;
   let totalTax = 0;
   let finalTotal = 0;
