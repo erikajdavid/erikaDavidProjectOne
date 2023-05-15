@@ -5,6 +5,38 @@
 @use "./partials/contact";
 @use "./partials/mediaQueries";
 
+//popup modal
+
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(147, 147, 147);
+    border-radius: 6px;
+    width: 450px;
+    height: 500px;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 10000;
+
+    img {
+        width: 30%;
+    }
+    .modalClose {
+        align-self: flex-end;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 //nagivation section//
 header nav {
     height: 10vh;
@@ -219,13 +251,12 @@ header nav {
         all: revert;
         bottom: 1rem;
         width: 100%;
-        padding: 1rem 0;
-        border-radius: 4px;
+        padding: 1.4rem 0;
         border: none;
         background-color: $black;
+        text-transform: uppercase;
         color: $white;
     }
-
 
 //header section//
 header {
