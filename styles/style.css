@@ -784,10 +784,11 @@ button:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(147, 147, 147);
+  background-color: #fff;
   border-radius: 6px;
   width: 450px;
   height: 500px;
+  font-size: 0.8rem;
   text-align: center;
   padding: 1rem;
   position: fixed;
@@ -795,16 +796,68 @@ button:hover {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 5;
+  box-shadow: 0 0 15px rgba(189, 189, 189, 0.4);
 }
 .modalContainer img {
   width: 30%;
 }
-.modalContainer .modalClose {
+.modalContainer .closeModal {
   align-self: flex-end;
+  font-size: 1.5rem;
+  color: darkgray;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.modalContainer .closeModal:hover {
+  color: #5EA85E;
+}
+.modalContainer h2 {
+  padding: 1.5rem 0;
+  color: #1A2428;
 }
 .modalContainer form {
+  width: 90%;
   display: flex;
   flex-direction: column;
+  padding: 1rem 0;
+}
+.modalContainer form input[type=text] {
+  padding: 1rem;
+  outline: none;
+}
+.modalContainer form input[type=text]:focus {
+  border: 2px solid #5EA85E;
+}
+.modalContainer form button {
+  all: revert;
+  background-color: #5EA85E;
+  border: none;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 0.75rem;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  letter-spacing: 0.2rem;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.modalContainer form button:hover {
+  background-color: #1A2428;
+}
+.modalContainer .disclaimer {
+  color: grey;
+  font-size: 0.7rem;
+  padding-bottom: 1rem;
+}
+.modalContainer .modalLinks {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+.modalContainer .modalLinks a {
+  color: grey;
+  font-size: 0.6rem;
+  text-decoration: underline;
 }
 
 .modalOverlay {
