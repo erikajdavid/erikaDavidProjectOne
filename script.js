@@ -33,6 +33,7 @@ overlay.addEventListener('click', function() {
   }
 });
 
+
 //popup modal
 
 //target modal and save in a variable
@@ -41,7 +42,7 @@ popupModal.style.display = 'none';
 
 //want to load a function 3 seconds after webpage is loaded. 
 function loadModal() {
-  popupModal.classList.add('modalOverLay');
+  popupModal.classList.add('modalOverlay');
   popupModal.style.display = 'block';
 }
 
@@ -67,7 +68,6 @@ closeModal.addEventListener('click', closeModalWindow);
 
 function closeModalWindow() {
   popupModal.classList.remove('modalOverlay');
-  popupModal.classList.remove('modalContainer');
   popupModal.style.display = 'none'; //without this line, only the overlay is removed.
 }
 
@@ -81,10 +81,10 @@ form.addEventListener('submit', (event) => {
 
 //function to submit 
 function submitEmailInModal() {
-  popupModal.classList.remove('modalOverlay');
   popupModal.classList.remove('modalContainer');
   popupModal.style.display = 'none'; //without this line, only the overlay is removed.
 }
+
 
 
 

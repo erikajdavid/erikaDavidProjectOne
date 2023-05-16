@@ -794,7 +794,7 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  z-index: 10000;
+  z-index: 5;
 }
 .modalContainer img {
   width: 30%;
@@ -932,7 +932,7 @@ header nav .navHover:hover::after {
   background-color: rgba(205, 205, 205, 0.695);
   display: none;
   transition: 0.4s;
-  z-index: 1000;
+  z-index: 4;
 }
 
 .overlay.activated {
