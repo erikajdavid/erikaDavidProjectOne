@@ -33,6 +33,67 @@ overlay.addEventListener('click', function() {
   }
 });
 
+//popup modal
+
+//target modal and save in a variable
+const popupModal = document.querySelector('.modalOverlay');
+popupModal.style.display = 'none';
+
+//want to load a function 3 seconds after webpage is loaded. 
+function loadModal() {
+  popupModal.classList.add('modalOverLay');
+  popupModal.style.display = 'block';
+}
+
+//load after 3 seconds
+function checkElapsedTime() {
+  timeElapsed += 1000;
+  if (timeElapsed >= 3000) {
+    clearInterval(timerId);
+    loadModal();
+  }
+}
+
+let timeElapsed = 0;
+let timerId = setInterval(checkElapsedTime, 1000);
+
+//when user clicks on x, modal and modal overlay disappear
+
+//target x and save in a variable
+const closeModal = document.querySelector('.closeModal');
+//add event listener
+closeModal.addEventListener('click', closeModalWindow);
+
+
+function closeModalWindow() {
+  popupModal.classList.remove('modalOverlay');
+  popupModal.classList.remove('modalContainer');
+  popupModal.style.display = 'none'; //without this line, only the overlay is removed.
+}
+
+//target form and save in variable
+const form = document.querySelector('form');
+//add event listener
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  submitEmailInModal();
+})
+
+//function to submit 
+function submitEmailInModal() {
+  popupModal.classList.remove('modalOverlay');
+  popupModal.classList.remove('modalContainer');
+  popupModal.style.display = 'none'; //without this line, only the overlay is removed.
+}
+
+
+
+
+
+
+
+
+
 
   
 
