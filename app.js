@@ -6,8 +6,6 @@ const subTotalPriceEl = document.querySelector('.subTotalPrice')
 const itemsInCartEl = document.querySelector('.cartItemNumber');
 const totalTaxPriceEl = document.querySelector('.totalTaxPrice');
 const finalTotalPriceEl = document.querySelector('.finalTotalPrice');
-const noItemsInCartEl = document.querySelector('.noItemsInCart');
-const continueShoppingEl = document.querySelector('.continueShopping')
 
 
 //RENDER SHOP PRODUCTS ON PRODUCT PAGE WITH INNERHTML
@@ -62,7 +60,7 @@ function addToCart(id) {
     trashIt();
   }
 
-  
+
 //RENDER CART ITEMS WITH INNERHTML
 //ADDING TO THE PAGE DYNAMICALLY
 function renderCartItems() {
@@ -190,23 +188,23 @@ function renderFinalTotal() {
   finalTotalPriceEl.textContent = (finalTotal).toFixed(2);
 }
 
-
+const cartMessagesEl = document.querySelector('.cartMessages')
 //UPDATE THE CART
 function updateCart() {
     renderCartItems(); //this renders the products to the cart 
     if (myCart.length === 0) {
-      noItemsInCartEl.style.display = 'block';
-      continueShoppingEl.style.display = 'block';
+      //if there are items in the cart, display these elements
+      cartMessagesEl.style.display = 'block';
+      cartMessagesEl.style.display = 'block';
     } else {
-      noItemsInCartEl.style.display = 'none';
-      continueShoppingEl.style.display = 'none';
+      //if there are no items in the cart, display these elements
+      cartMessagesEl.style.display = 'none';
+      cartMessagesEl.style.display = 'none';
     }
     renderSubTotal(); //this renders sub-total in app
     renderTax(); //this renders tax in app
     renderFinalTotal(); //this renders final total in app
 };
-
-
 
 //CODE REMOVED TO SIMPLIFY PROJECT
 /*
