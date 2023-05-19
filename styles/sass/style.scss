@@ -173,6 +173,7 @@ header nav {
     .reviewCart {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: center;
         height: 90vh;
         overflow-y: scroll;
@@ -194,6 +195,11 @@ header nav {
         left: 75%;
     }
 
+    .cartTop {
+        width: 100%;
+        text-align: center;
+    }
+
     .reviewCart .yourCart {
         padding: 1rem 0;
         text-transform: uppercase;
@@ -203,6 +209,10 @@ header nav {
         width: 100%;
         text-align: center;
         color: $white;
+    }
+
+    .yourCart {
+        height: auto;
     }
 
     .overlay {
@@ -293,10 +303,33 @@ header nav {
             }
         }
     }
+
+    .cartMessages {
+        margin-top: 4rem;
+    }
+
+    .noItemsInCart {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .continueShopping {
+        color: $lightgreen;
+        width: 75%;
+        margin: 0 auto;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-family: $primaryFont;
+    }
+
+    .moneyTings {
+        width: 100%;
+    }
+
     .subTotal,
     .tax,
     .finalTotal {
-        width: 100%;
         text-align: right;
         padding: 1rem 0 0 0;
     }
@@ -310,6 +343,7 @@ header nav {
 
     .finalTotal {
         padding-bottom: 2rem;
+        border-top: 1px solid black;
     }
 
     .checkoutBtn {

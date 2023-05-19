@@ -1067,6 +1067,22 @@ header nav .navHover:hover::after {
   background-color: #1A2428;
 }
 
+.noItemsInCart {
+  padding: 4rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.continueShopping {
+  color: #5EA85E;
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Barlow", sans-serif;
+  padding: 1.25rem;
+}
+
 .subTotal,
 .tax,
 .finalTotal {
@@ -1085,6 +1101,7 @@ header nav .navHover:hover::after {
 
 .finalTotal {
   padding-bottom: 2rem;
+  border-top: 1px solid black;
 }
 
 .checkoutBtn {
