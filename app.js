@@ -56,14 +56,13 @@ function addToCart(id) {
       });
       
       //if there is an item in the cart remove the no items in cart element and continue shopping element.
-      noItemsInCartEl.remove('noItemsInCart');
-      continueShoppingEl.remove('continueShopping');
     }
 
     updateCart();
     trashIt();
   }
 
+  
 //RENDER CART ITEMS WITH INNERHTML
 //ADDING TO THE PAGE DYNAMICALLY
 function renderCartItems() {
@@ -141,7 +140,6 @@ function trashIt(id) {
   updateCart();
 }
 
-  
 
 //CALCULATE THE SUBTOTAL IN APP
 function renderSubTotal(){
@@ -156,13 +154,6 @@ function renderSubTotal(){
     subTotalPriceEl.textContent = totalPrice.toFixed(2);
     
     itemsInCartEl.innerHTML = totalItems; // this is what is responsible for displaying the number of items in cart in the cart icon in top nav
-
-    /*if (totalItems <=0) {
-      noItemsInCartEl.add('noItemsInCart');
-      continueShoppingEl.add('continueShopping');
-    } else {
-      return;
-    }*/
 };
 
 
@@ -203,6 +194,13 @@ function renderFinalTotal() {
 //UPDATE THE CART
 function updateCart() {
     renderCartItems(); //this renders the products to the cart 
+    if (myCart.length === 0) {
+      noItemsInCartEl.style.display = 'block';
+      continueShoppingEl.style.display = 'block';
+    } else {
+      noItemsInCartEl.style.display = 'none';
+      continueShoppingEl.style.display = 'none';
+    }
     renderSubTotal(); //this renders sub-total in app
     renderTax(); //this renders tax in app
     renderFinalTotal(); //this renders final total in app
