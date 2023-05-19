@@ -6,6 +6,8 @@ const subTotalPriceEl = document.querySelector('.subTotalPrice')
 const itemsInCartEl = document.querySelector('.cartItemNumber');
 const totalTaxPriceEl = document.querySelector('.totalTaxPrice');
 const finalTotalPriceEl = document.querySelector('.finalTotalPrice');
+const noItemsInCartEl = document.querySelector('.noItemsInCart');
+const continueShoppingEl = document.querySelector('.continueShopping')
 
 
 //RENDER SHOP PRODUCTS ON PRODUCT PAGE WITH INNERHTML
@@ -52,7 +54,12 @@ function addToCart(id) {
         ...item, ///... is a spread operator to copy all properties of the item object
         numberOfUnits: 1,
       });
+      
+      //if there is an item in the cart remove the no items in cart element and continue shopping element.
+      noItemsInCartEl.remove('noItemsInCart');
+      continueShoppingEl.remove('continueShopping');
     }
+
     updateCart();
     trashIt();
   }
@@ -91,22 +98,30 @@ renderCartItems();
 //THIS CHANGES THE NUMBER OF UNITS FOR AN ITEM IN THE CART APP
 function changeNumberOfUnits(action, id) {
   myCart = myCart.map((item) => { //you're making a new array in the cart with this
-      let numberOfUnits = item.numberOfUnits
-      if(item.id === id) {
-          if(action === "minus" && numberOfUnits > 0){ // this line is to prevent the number from going below 0
-              numberOfUnits--;
-            } else if (action === "plus"){
-              numberOfUnits++;
-            }
+    let numberOfUnits = item.numberOfUnits;
+    if (item.id === id) {
+      if (action === "minus" && numberOfUnits > 0) { // this line is to prevent the number from going below 0
+        numberOfUnits--;
+      } else if (action === "plus") {
+        numberOfUnits++;
       }
-      return { // need to return to see the array because of the map method
-          ...item, //this restructures the item
-          numberOfUnits,
-      };
-      
+      // Additional condition to remove item if numberOfUnits is zero
+      if (numberOfUnits === 0) {
+        return null;
+      }
+    }
+    return { // need to return to see the array because of the map method
+      ...item, //this restructures the item
+      numberOfUnits,
+    };
   });
+
+  // Remove null items (items with numberOfUnits === 0)
+  myCart = myCart.filter(item => item !== null);
+
   updateCart();
 }
+
 
 //THIS GIVES THE TRASH CAN IN THE APP FUNCTIONALITY
 function trashIt(id) {
@@ -141,6 +156,13 @@ function renderSubTotal(){
     subTotalPriceEl.textContent = totalPrice.toFixed(2);
     
     itemsInCartEl.innerHTML = totalItems; // this is what is responsible for displaying the number of items in cart in the cart icon in top nav
+
+    /*if (totalItems <=0) {
+      noItemsInCartEl.add('noItemsInCart');
+      continueShoppingEl.add('continueShopping');
+    } else {
+      return;
+    }*/
 };
 
 
