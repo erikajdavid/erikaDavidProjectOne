@@ -85,12 +85,21 @@ function submitEmailInModal() {
 }
 
 //close the cart when continueShopping is clicked on. 
-
 //target continueShopping and save in variable
 
 const continueShoppingEl = document.querySelector('.continueShopping')
 //add event listener
 continueShoppingEl.addEventListener('click', function(){
+  //remove overlay and make cart review dissapear
+  reviewCart.classList.remove('activated');
+  overlay.classList.remove('activated');
+})
+
+//close the cart when the x is clicked on
+
+const closeCartEl = document.querySelector('.closeCart')
+//add event listener
+closeCartEl.addEventListener('click', function() {
   //remove overlay and make cart review dissapear
   reviewCart.classList.remove('activated');
   overlay.classList.remove('activated');
