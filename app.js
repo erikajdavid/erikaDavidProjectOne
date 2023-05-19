@@ -1,10 +1,11 @@
 //SELECT ELEMENTS
 const productsEl = document.querySelector('.productGallery');
 const cartItemsEl = document.querySelector('.orderItems');
-const subTotalEl = document.querySelector('.subTotal');
+const totalItemsEl = document.querySelector('.totalItems');
+const subTotalPriceEl = document.querySelector('.subTotalPrice')
 const itemsInCartEl = document.querySelector('.cartItemNumber');
-const taxEl = document.querySelector('.tax');
-const finalTotalEl = document.querySelector('.finalTotal');
+const totalTaxPriceEl = document.querySelector('.totalTaxPrice');
+const finalTotalPriceEl = document.querySelector('.finalTotalPrice');
 
 
 //RENDER SHOP PRODUCTS ON PRODUCT PAGE WITH INNERHTML
@@ -136,9 +137,8 @@ function renderSubTotal(){
         totalItems += item.numberOfUnits
     });
 
-    subTotalEl.innerHTML = `
-        Sub-Total (${totalItems} items): $${totalPrice.toFixed(2)} 
-        `;
+    totalItemsEl.textContent = totalItems;
+    subTotalPriceEl.textContent = totalPrice.toFixed(2);
     
     itemsInCartEl.innerHTML = totalItems; // this is what is responsible for displaying the number of items in cart in the cart icon in top nav
 };
@@ -156,9 +156,7 @@ function renderTax() {
 
   totalTax += totalPrice * taxRate;
   
-  taxEl.innerHTML = `
-    Total tax (HST 13%): $${totalTax.toFixed(2)}
-  `;
+  totalTaxPriceEl.textContent = totalTax.toFixed(2);
 };
 
 
@@ -176,10 +174,7 @@ function renderFinalTotal() {
   totalTax = totalPrice * taxRate;
   finalTotal = totalPrice + totalTax;
 
-  finalTotalEl.innerHTML = `
-    Final total: $${finalTotal.toFixed(2)}
-  `;
-  finalTotalEl.style.borderTop = "1px solid black";
+  finalTotalPriceEl.textContent = (finalTotal).toFixed(2);
 }
 
 
