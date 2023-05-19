@@ -49,7 +49,7 @@ function loadModal() {
 //load after 3 seconds
 function checkElapsedTime() {
   timeElapsed += 1000;
-  if (timeElapsed >= 3000) {
+  if (timeElapsed >= 5000) {
     clearInterval(timerId);
     loadModal();
   }
@@ -64,7 +64,6 @@ let timerId = setInterval(checkElapsedTime, 1000);
 const closeModal = document.querySelector('.closeModal');
 //add event listener
 closeModal.addEventListener('click', closeModalWindow);
-
 
 function closeModalWindow() {
   popupModal.classList.remove('modalOverlay');
@@ -84,6 +83,18 @@ function submitEmailInModal() {
   popupModal.classList.remove('modalContainer');
   popupModal.style.display = 'none'; //without this line, only the overlay is removed.
 }
+
+//close the cart when continueShopping is clicked on. 
+
+//target continueShopping and save in variable
+
+const continueShoppingEl = document.querySelector('.continueShopping')
+//add event listener
+continueShoppingEl.addEventListener('click', function(){
+  //remove overlay and make cart review dissapear
+  reviewCart.classList.remove('activated');
+  overlay.classList.remove('activated');
+})
 
 
 
