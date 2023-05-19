@@ -174,7 +174,6 @@ header nav {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        align-items: center;
         height: 90vh;
         overflow-y: scroll;
         min-width: 25%;
@@ -187,7 +186,7 @@ header nav {
         color: $black;
         font-size: 0.8rem;
         transition: 0.5s ease-in-out;
-        padding: 1rem;
+        padding: 0rem 1rem 1rem 1rem;
 
     }
 
@@ -197,7 +196,7 @@ header nav {
 
     .cartTop {
         width: 100%;
-        text-align: center;
+        text-align: right;
     }
 
     .reviewCart .yourCart {
@@ -213,6 +212,13 @@ header nav {
 
     .yourCart {
         height: auto;
+    }
+
+    .closeCart {
+        font-size: 1.25rem;
+        color: grey;
+        padding: 0.5rem 0;
+        cursor: pointer;
     }
 
     .overlay {
@@ -259,6 +265,7 @@ header nav {
                 width: 55%;
                 height: 100%;
                 padding: 0 0.5rem;
+                text-align: left;
             }
             .productPrice {
                 width: 20%;
@@ -306,6 +313,7 @@ header nav {
 
     .cartMessages {
         margin-top: 4rem;
+        text-align: center;
     }
 
     .noItemsInCart {
@@ -322,6 +330,7 @@ header nav {
         text-decoration: underline;
         font-family: $primaryFont;
         letter-spacing: 0.05rem;
+
     }
 
     .moneyTings {
