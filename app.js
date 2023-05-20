@@ -42,6 +42,7 @@ let myCart = []
 function addToCart(id) {
     if (myCart.some((item) => item.id === id)) {
     changeNumberOfUnits("plus", id); // this line right here updates the total cart number when the quantities of the products already in the cart are being modified. 
+   
     } else {
       const item = products.find((product) => product.id === id);
   
@@ -52,49 +53,34 @@ function addToCart(id) {
         ...item, ///... is a spread operator to copy all properties of the item object
         numberOfUnits: 1,
       });
-      
-      //if there is an item in the cart remove the no items in cart element and continue shopping element.
     }
 
     updateCart();
     trashIt();
   }
 
-//ADD TO CART FROM SHOP BUTTON ANIMATION
-//target add to cart from shop button and save in a variable
+//function to open up cart when item is added to it from the shop
 const plusBtnEl = document.querySelectorAll('.plus');
-//use forEach()
-  plusBtnEl.forEach(plusBtn => {
-    //add event listener
-    plusBtn.addEventListener('click', function() {
-      //Create a new element for the +1 animation
-      const plusOne = document.createElement('div');
-      plusOne.classList.add('score-animation');
-      plusOne.textContent = '+1';
-      plusBtn.appendChild(plusOne);
 
-      //style the +1 element
-      plusOne.style.fontSize = "15px";
-      plusOne.style.color = "black";
+function appearCart() {
+  plusBtnEl.forEach((plus) => {
+    plus.addEventListener('click', function(){
+        cart.classList.toggle('activated');
+        reviewCart.classList.toggle('activated');
+        overlay.classList.toggle('activated');
+      })
+    })
 
-      // animate the +1 animation
-      plusOne.animate(
-        [
-          { opacity: '1', transform: 'translateY(-60px)' },
-          { opacity: '0', transform: 'translateY(-90px)' }
-        ],
-        {
-          duration: 1000, // Animation duration in milliseconds
-          easing: 'ease-out' // Animation easing function
-        }
-      ).onfinish = () => {
-        plusOne.remove(); // Remove the score animation element after the animation finishes
-      };
+  overlay.addEventListener('click', function() {
+    if (cart.classList.contains('activated')) {
+      cart.classList.remove('activated');
+      reviewCart.classList.remove('activated');
+      overlay.classList.remove('activated');
+    }
+  })
+};
 
-    });
-  });
-
-
+appearCart();
 
 //RENDER CART ITEMS WITH INNERHTML
 //ADDING TO THE PAGE DYNAMICALLY
