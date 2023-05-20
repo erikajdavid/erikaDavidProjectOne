@@ -945,7 +945,7 @@ header nav .navHover:hover::after {
 .reviewCart {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
   height: 90vh;
   overflow-y: scroll;
   min-width: 25%;
@@ -958,11 +958,16 @@ header nav .navHover:hover::after {
   color: #1A2428;
   font-size: 0.8rem;
   transition: 0.5s ease-in-out;
-  padding: 1rem;
+  padding: 0rem 1rem 1rem 1rem;
 }
 
 .reviewCart.activated {
   left: 75%;
+}
+
+.cartTop {
+  width: 100%;
+  text-align: right;
 }
 
 .reviewCart .yourCart {
@@ -974,6 +979,17 @@ header nav .navHover:hover::after {
   width: 100%;
   text-align: center;
   color: #fff;
+}
+
+.yourCart {
+  height: auto;
+}
+
+.closeCart {
+  font-size: 1.25rem;
+  color: grey;
+  padding: 0.25rem 0;
+  cursor: pointer;
 }
 
 .overlay {
@@ -1022,6 +1038,7 @@ header nav .navHover:hover::after {
   width: 55%;
   height: 100%;
   padding: 0 0.5rem;
+  text-align: left;
 }
 .cartItemInfo .cartItemProduct .productPrice {
   width: 20%;
@@ -1067,10 +1084,14 @@ header nav .navHover:hover::after {
   background-color: #1A2428;
 }
 
-.noItemsInCart {
-  padding: 4rem;
-  font-size: 1rem;
+.cartMessages {
+  margin-top: 4rem;
   text-align: center;
+}
+
+.noItemsInCart {
+  padding: 1rem;
+  font-size: 1rem;
 }
 
 .continueShopping {
@@ -1079,14 +1100,19 @@ header nav .navHover:hover::after {
   margin: 0 auto;
   text-align: center;
   text-transform: uppercase;
+  text-decoration: underline;
   font-family: "Barlow", sans-serif;
-  padding: 1.25rem;
+  letter-spacing: 0.05rem;
+}
+
+.moneyTings {
+  width: 100%;
+  border-top: 1px solid #EAEAEA;
 }
 
 .subTotal,
 .tax,
 .finalTotal {
-  width: 100%;
   text-align: right;
   padding: 1rem 0 0 0;
 }
@@ -1101,7 +1127,7 @@ header nav .navHover:hover::after {
 
 .finalTotal {
   padding-bottom: 2rem;
-  border-top: 1px solid black;
+  border-top: 1px solid lightgrey;
 }
 
 .checkoutBtn {
