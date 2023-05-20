@@ -60,6 +60,41 @@ function addToCart(id) {
     trashIt();
   }
 
+//ADD TO CART FROM SHOP BUTTON ANIMATION
+//target add to cart from shop button and save in a variable
+const plusBtnEl = document.querySelectorAll('.plus');
+//use forEach()
+  plusBtnEl.forEach(plusBtn => {
+    //add event listener
+    plusBtn.addEventListener('click', function() {
+      //Create a new element for the +1 animation
+      const plusOne = document.createElement('div');
+      plusOne.classList.add('score-animation');
+      plusOne.textContent = '+1';
+      plusBtn.appendChild(plusOne);
+
+      //style the +1 element
+      plusOne.style.fontSize = "15px";
+      plusOne.style.color = "black";
+
+      // animate the +1 animation
+      plusOne.animate(
+        [
+          { opacity: '1', transform: 'translateY(-60px)' },
+          { opacity: '0', transform: 'translateY(-90px)' }
+        ],
+        {
+          duration: 1000, // Animation duration in milliseconds
+          easing: 'ease-out' // Animation easing function
+        }
+      ).onfinish = () => {
+        plusOne.remove(); // Remove the score animation element after the animation finishes
+      };
+
+    });
+  });
+
+
 
 //RENDER CART ITEMS WITH INNERHTML
 //ADDING TO THE PAGE DYNAMICALLY
