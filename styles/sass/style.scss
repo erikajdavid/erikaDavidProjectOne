@@ -368,6 +368,21 @@ header nav {
         color: $white;
     }
 
+//wishlist
+
+.wishListIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.15rem;
+    margin-right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 1px black solid;
+    cursor: pointer;
+}
+
 //header section//
 header {
     height: 100vh;
