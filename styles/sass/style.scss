@@ -442,9 +442,9 @@ header {
     li {
         max-width: 24%;
         margin-bottom: 3rem;
-        position: relative;
         border: 1.5px solid $lightgrey;
         border-radius: 10px;
+        position: relative;
         transition: 0.4s ease-in-out;
         &:hover {
             border: 2.5px $lightgreen solid;
@@ -466,7 +466,7 @@ header {
             border-radius: 1.3rem;
             box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
             position: absolute;
-            top: 0.75rem;
+            bottom: 10.75rem;
             right: 0.75rem;
             cursor: pointer;
             transition: all 0.25s;
