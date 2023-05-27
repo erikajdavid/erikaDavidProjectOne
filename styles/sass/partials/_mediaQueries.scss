@@ -133,6 +133,15 @@
 
     .mobileNav a:hover {
         color: $black;
+
+   header .reviewCart {
+    max-width: 50%;
+    }
+
+    header .reviewCart.activated {
+        left: 50%;
+    }
+
         
     }
     .hero .wrapper {

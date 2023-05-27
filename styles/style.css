@@ -661,6 +661,12 @@ button:hover {
   .mobileNav a:hover {
     color: #1A2428;
   }
+  .mobileNav a:hover header .reviewCart {
+    max-width: 50%;
+  }
+  .mobileNav a:hover header .reviewCart.activated {
+    left: 50%;
+  }
   .hero .wrapper {
     flex-direction: column;
     padding: 1rem;
@@ -948,7 +954,7 @@ header nav .navHover:hover::after {
   justify-content: space-between;
   height: 90vh;
   overflow-y: scroll;
-  min-width: 25%;
+  width: 400px;
   border-radius: 0 0 10px 10px;
   position: fixed;
   top: 10vh;
@@ -962,7 +968,7 @@ header nav .navHover:hover::after {
 }
 
 .reviewCart.activated {
-  left: 75%;
+  left: calc(100% - 400px);
 }
 
 .cartTop {
