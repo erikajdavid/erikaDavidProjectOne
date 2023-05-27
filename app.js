@@ -1,15 +1,117 @@
-//SELECT ELEMENTS
-const productsEl = document.querySelector('.productGallery');
-const cartItemsEl = document.querySelector('.orderItems');
-const totalItemsEl = document.querySelector('.totalItems');
-const subTotalPriceEl = document.querySelector('.subTotalPrice')
-const itemsInCartEl = document.querySelector('.cartItemNumber');
-const totalTaxPriceEl = document.querySelector('.totalTaxPrice');
-const finalTotalPriceEl = document.querySelector('.finalTotalPrice');
+//HAMBURGER MENU AND MOBIL NAV
+//CART APP TOGGLE
+//BACKGROUND COLOR MUTED WHEN CART APP IS ACTIVE
+//CART APP CLOSE ON WINDOW CLICK
+
+const body = document.body;
+const overlay = document.createElement('div');
+overlay.classList.add('overlay');
+body.appendChild(overlay);
+
+const hamburgerMenu = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobileNav');
+
+hamburgerMenu.addEventListener('click', function(){
+    hamburgerMenu.classList.toggle('activated');
+    mobileMenu.classList.toggle('activated');
+    overlay.classList.toggle('activated');
+});
+
+const cart = document.querySelector('.cart');
+const reviewCart = document.querySelector('.reviewCart');
+
+cart.addEventListener('click', function() {
+  cart.classList.toggle('activated');
+  reviewCart.classList.toggle('activated');
+  overlay.classList.toggle('activated');
+});
+
+overlay.addEventListener('click', function() {
+  if (cart.classList.contains('activated')) {
+    cart.classList.remove('activated');
+    reviewCart.classList.remove('activated');
+    overlay.classList.remove('activated');
+  }
+});
+
+
+//POPUP MODAL
+
+//target modal and save in a variable
+const popupModal = document.querySelector('.modalOverlay');
+popupModal.style.display = 'none';
+
+//want to load a function 3 seconds after webpage is loaded. 
+function loadModal() {
+  popupModal.classList.add('modalOverlay');
+  popupModal.style.display = 'block';
+}
+
+//load after 3 seconds
+function checkElapsedTime() {
+  timeElapsed += 1000;
+  if (timeElapsed >= 5000) {
+    clearInterval(timerId);
+    loadModal();
+  }
+}
+
+let timeElapsed = 0;
+let timerId = setInterval(checkElapsedTime, 1000);
+
+//when user clicks on x, modal and modal overlay disappear
+
+//target x and save in a variable
+const closeModal = document.querySelector('.closeModal');
+//add event listener
+closeModal.addEventListener('click', closeModalWindow);
+
+function closeModalWindow() {
+  popupModal.classList.remove('modalOverlay');
+  popupModal.style.display = 'none'; //without this line, only the overlay is removed.
+}
+
+//target form and save in variable
+const form = document.querySelector('form');
+//add event listener
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  submitEmailInModal();
+})
+
+//function to submit 
+function submitEmailInModal() {
+  popupModal.classList.remove('modalContainer');
+  popupModal.style.display = 'none'; //without this line, only the overlay is removed.
+}
+
+//close the cart when continueShopping is clicked on. 
+//target continueShopping and save in variable
+
+const continueShoppingEl = document.querySelector('.continueShopping')
+//add event listener
+continueShoppingEl.addEventListener('click', function(){
+  //remove overlay and make cart review dissapear
+  reviewCart.classList.remove('activated');
+  overlay.classList.remove('activated');
+})
+
+//close the cart when the x is clicked on
+
+const closeCartEl = document.querySelector('.closeCart')
+//add event listener
+closeCartEl.addEventListener('click', function() {
+  //remove overlay and make cart review dissapear
+  reviewCart.classList.remove('activated');
+  overlay.classList.remove('activated');
+})
 
 
 //RENDER SHOP PRODUCTS ON PRODUCT PAGE WITH INNERHTML
 //ADDING TO THE PAGE DYNAMICALLY
+
+const productsEl = document.querySelector('.productGallery');
+
 function renderProducts() {
   products.forEach((product) => {
     productsEl.innerHTML += `
@@ -84,6 +186,8 @@ appearCart();
 
 //RENDER CART ITEMS WITH INNERHTML
 //ADDING TO THE PAGE DYNAMICALLY
+const cartItemsEl = document.querySelector('.orderItems');
+
 function renderCartItems() {
     cartItemsEl.innerHTML = ""; //clear cart element
     myCart.forEach((item) => {
@@ -161,6 +265,10 @@ function trashIt(id) {
 
 
 //CALCULATE THE SUBTOTAL IN APP
+const subTotalPriceEl = document.querySelector('.subTotalPrice')
+const itemsInCartEl = document.querySelector('.cartItemNumber');
+const totalItemsEl = document.querySelector('.totalItems');
+
 function renderSubTotal(){
     let totalPrice = 0, totalItems = 0;
 
@@ -177,6 +285,8 @@ function renderSubTotal(){
 
 
 //CALCULATE TAX IN APP
+const totalTaxPriceEl = document.querySelector('.totalTaxPrice');
+
 function renderTax() {
   const taxRate = 0.13;
   let totalPrice = 0;
@@ -193,6 +303,8 @@ function renderTax() {
 
 
 //CALCULATE FINAL TAX IN APP
+const finalTotalPriceEl = document.querySelector('.finalTotalPrice');
+
 function renderFinalTotal() {
   const taxRate = 0.13;
   let totalPrice = 0;
@@ -244,3 +356,4 @@ function updateCart() {
     trashIt();
   };
 */
+
