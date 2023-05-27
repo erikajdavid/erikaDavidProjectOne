@@ -17,6 +17,15 @@ hamburgerMenu.addEventListener('click', function(){
     overlay.classList.toggle('activated');
 });
 
+const mobileLinks = document.querySelectorAll('.mobileNav a')
+
+mobileLinks.forEach((link) => {
+    link.addEventListener('click', function() {
+      overlay.classList.remove('activated')
+      mobileMenu.classList.remove('activated');
+    })
+});
+
 const cart = document.querySelector('.cart');
 const reviewCart = document.querySelector('.reviewCart');
 
@@ -50,7 +59,7 @@ function loadModal() {
 //load after 3 seconds
 function checkElapsedTime() {
   timeElapsed += 1000;
-  if (timeElapsed >= 5000) {
+  if (timeElapsed >= 7000) {
     clearInterval(timerId);
     loadModal();
   }
