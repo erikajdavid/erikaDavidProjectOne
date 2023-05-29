@@ -2,23 +2,15 @@
 @use "./mixins" as *;
 
 .reviewCart {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 90vh;
+    @include colors($white, $black, none);
+    @include boxModel(400px, 90vh, 0rem 1rem 1rem 1rem, none, 0 0 10px 10px, none);
     overflow-y: scroll;
-    width: 400px;
-    border-radius: 0 0 10px 10px;
     position: fixed;
     top: 10vh;
     left: 100%;
     z-index: 98;
-    background-color: $white;
-    color: $black;
     font-size: 0.8rem;
     transition: 0.5s ease-in-out;
-    padding: 0rem 1rem 1rem 1rem;
-
 }
 
 .reviewCart.activated {
@@ -31,14 +23,13 @@
 }
 
 .reviewCart .yourCart {
+    @include colors($lightgreen, $white, none);
     padding: 1rem 0;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-weight: 500;
-    background-color: $lightgreen;
     width: 100%;
     text-align: center;
-    color: $white;
 }
 
 .yourCart {
@@ -93,9 +84,7 @@
             width: 25%;
         }
         .productName {
-            width: 55%;
-            height: 100%;
-            padding: 0 0.5rem;
+            @include boxModel(55%, 100%, 0 0.5rem, none, none, none);
             text-align: left;
         }
         .productPrice {
@@ -131,13 +120,8 @@
             all: revert;
             appearance: none;
             background: none;
-            border: none;
-            color: $white;
-            padding: 0 0.25rem;
-            width: 1.2rem;
-            height: 1.2rem;
-            border-radius: 0.6rem;
-            background-color: $black;
+            @include colors($black, $white, none);
+            @include boxModel(1.2rem, 1.2rem, 0 0.25rem, none, 0.6rem, none);
         }
     }
 }
@@ -157,11 +141,8 @@
     width: 75%;
     margin: 0 auto;
     text-align: center;
-    text-transform: uppercase;
-    text-decoration: underline;
     font-family: $primaryFont;
-    letter-spacing: 0.05rem;
-
+    @include textStyling(0.05rem, auto, uppercase, underline);
 }
 
 .moneyTings {
@@ -191,10 +172,7 @@
 .checkoutBtn {
     all: revert;
     bottom: 1rem;
-    width: 100%;
-    padding: 1.4rem 0;
-    border: none;
-    background-color: $black;
     text-transform: uppercase;
-    color: $white;
+    @include colors($black, $white, none);
+    @include boxModel(100%, auto, 1.4rem 0, none, none, none);
 }

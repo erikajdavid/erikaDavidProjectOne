@@ -527,17 +527,15 @@ button:hover {
 }
 
 .modalContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   background-color: #fff;
-  border-radius: 6px;
   width: 450px;
   height: 500px;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  margin: none;
   font-size: 0.8rem;
   text-align: center;
-  padding: 1rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -578,8 +576,9 @@ button:hover {
 .modalContainer form button {
   all: revert;
   background-color: #5EA85E;
-  border: none;
   color: #fff;
+  box-shadow: none;
+  border: none;
   padding: 1rem;
   margin-top: 0.75rem;
   text-transform: uppercase;
@@ -620,22 +619,22 @@ button:hover {
 }
 
 .reviewCart {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 90vh;
-  overflow-y: scroll;
+  background-color: #fff;
+  color: #1A2428;
+  box-shadow: none;
   width: 400px;
+  height: 90vh;
+  padding: 0rem 1rem 1rem 1rem;
+  border: none;
   border-radius: 0 0 10px 10px;
+  margin: none;
+  overflow-y: scroll;
   position: fixed;
   top: 10vh;
   left: 100%;
   z-index: 98;
-  background-color: #fff;
-  color: #1A2428;
   font-size: 0.8rem;
   transition: 0.5s ease-in-out;
-  padding: 0rem 1rem 1rem 1rem;
 }
 
 .reviewCart.activated {
@@ -648,14 +647,15 @@ button:hover {
 }
 
 .reviewCart .yourCart {
+  background-color: #5EA85E;
+  color: #fff;
+  box-shadow: none;
   padding: 1rem 0;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   font-weight: 500;
-  background-color: #5EA85E;
   width: 100%;
   text-align: center;
-  color: #fff;
 }
 
 .yourCart {
@@ -715,6 +715,9 @@ button:hover {
   width: 55%;
   height: 100%;
   padding: 0 0.5rem;
+  border: none;
+  border-radius: none;
+  margin: none;
   text-align: left;
 }
 .cartItemInfo .cartItemProduct .productPrice {
@@ -752,13 +755,15 @@ button:hover {
      -moz-appearance: none;
           appearance: none;
   background: none;
-  border: none;
+  background-color: #1A2428;
   color: #fff;
-  padding: 0 0.25rem;
+  box-shadow: none;
   width: 1.2rem;
   height: 1.2rem;
+  padding: 0 0.25rem;
+  border: none;
   border-radius: 0.6rem;
-  background-color: #1A2428;
+  margin: none;
 }
 
 .cartMessages {
@@ -776,10 +781,11 @@ button:hover {
   width: 75%;
   margin: 0 auto;
   text-align: center;
-  text-transform: uppercase;
-  text-decoration: underline;
   font-family: "Barlow", sans-serif;
   letter-spacing: 0.05rem;
+  line-height: auto;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 .moneyTings {
@@ -810,12 +816,16 @@ button:hover {
 .checkoutBtn {
   all: revert;
   bottom: 1rem;
+  text-transform: uppercase;
+  background-color: #1A2428;
+  color: #fff;
+  box-shadow: none;
   width: 100%;
+  height: auto;
   padding: 1.4rem 0;
   border: none;
-  background-color: #1A2428;
-  text-transform: uppercase;
-  color: #fff;
+  border-radius: none;
+  margin: none;
 }
 
 @media (max-width: 940px) {

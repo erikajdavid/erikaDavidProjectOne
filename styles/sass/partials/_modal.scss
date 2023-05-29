@@ -3,17 +3,10 @@
 //popup modal
 
 .modalContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     background-color: $white;
-    border-radius: 6px;
-    width: 450px;
-    height: 500px;
+    @include boxModel(450px, 500px, 1rem, none, 6px, none);
     font-size: 0.8rem;
     text-align: center;
-    padding: 1rem;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -51,9 +44,8 @@
         }
         button {
             all: revert;
-            background-color: $lightgreen;
+            @include colors($lightgreen, $white, none);
             border: none;
-            color: $white;
             padding: 1rem;
             margin-top: 0.75rem;
             text-transform: uppercase;
