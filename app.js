@@ -205,7 +205,7 @@ function renderCartItems() {
             <div class="cartItemProduct">
                 <img src="${item.imgSrc}" alt="${item.name}">
                 <p class="productName">${item.name}</p>
-                <p class="productPrice">${item.price}</p>
+                <p class="productPrice">${item.price}/unit</p>
             </div>
             <div class="cartItemControls">
                 <div class="cartItemRemove" onclick="trashIt(${item.id})">
