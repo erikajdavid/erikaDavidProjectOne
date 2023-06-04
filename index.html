@@ -23,6 +23,7 @@
             <form>
                 <label for="modalEmail"></label>
                 <input type="text" id="modalEmail" name="modalEmail" placeholder="Enter your email...">
+                <span id="modalErrorMsg"></span>
                 <button type="submit" class="modalBtn">Unlock 15%</button>
             </form>
             <p class="disclaimer">*Don't worry, you can unsubcribe anytime.</p>
@@ -33,10 +34,16 @@
         </div>
         <div class="modalContainerAfterSubmit">
             <i class="fa-solid fa-xmark closeModal2"></i>
+            <img class="logo" src="./assets/logo.png" alt="Oreg logo.">
             <div class="modalAfterSubmitText">
-                <p>You're in!</p>
-                <p>From now on, you'll be the first to know about sales and new arrivals!</p>
-                <p>Check your email for 15% off your first order.</p>
+                <p class="line1">You're in!</p>
+                <p class="line2">From now on, you'll be the first to know about sales and new arrivals!</p>
+                <p class="line3">Check your email for <span>15% off</span> your first order.</p>
+                <a class="shopNowModalBtn" href="#shop"><button>Shop now</button></a>
+            </div>
+            <div class="modalLinks">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
             </div>
         </div>
     </div>
