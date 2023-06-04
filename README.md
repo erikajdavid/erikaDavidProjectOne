@@ -8,8 +8,8 @@ Add JS functionality* to desktop, tablet and mobile versions of a previously con
 *JS functionality is up to the student. 
 
 ## To-do:
-- Only the first element in the product section acts exactly the way it should. Method forEach() needs to be implemented to iterated over every item in the shop. 
-- Switch from onclick to event listeners.
+~~- Only the first element in the product section acts exactly the way it should. Method forEach() needs to be implemented to iterated over every item in the shop.~~
+~~- Switch from onclick to event listeners.~~
 - Convert code needing innerHTML with createElement and appendChild
 
 ## Technical wins/challenges: 
@@ -20,7 +20,7 @@ Add JS functionality* to desktop, tablet and mobile versions of a previously con
 ## Design liberties taken: 
 
 - Redesigned shop buttons and containers in the shop product section. 
-- Designed popup modal and cart
+- Designed popup modal and cart app. 
 
 
 
