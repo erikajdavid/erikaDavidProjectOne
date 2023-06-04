@@ -618,6 +618,47 @@ button:hover {
   z-index: 1000;
 }
 
+.modalContainerAfterSubmit {
+  background-color: #fff;
+  width: 450px;
+  height: 500px;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  margin: none;
+  font-size: 0.8rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 5;
+  box-shadow: 0 0 15px rgba(189, 189, 189, 0.4);
+}
+.modalContainerAfterSubmit .closeModal {
+  width: 100%;
+  text-align: right;
+  font-size: 1.5rem;
+  color: darkgray;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.modalContainerAfterSubmit .closeModal:hover {
+  color: #5EA85E;
+}
+.modalContainerAfterSubmit .modalAfterSubmitText {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modalContainerAfterSubmit .modalAfterSubmitText p {
+  font-size: 1.5rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .reviewCart {
   background-color: #fff;
   color: #1A2428;
