@@ -50,16 +50,19 @@ overlay.addEventListener('click', function() {
 const popupModal = document.querySelector('.modalOverlay');
 popupModal.style.display = 'none';
 
+const modalAfterSubmit = document.querySelector('.modalContainerAfterSubmit');
+
 //want to load a function 3 seconds after webpage is loaded. 
 function loadModal() {
   popupModal.classList.add('modalOverlay');
   popupModal.style.display = 'block';
+  modalAfterSubmit.style.display = 'none';
 }
 
 //load after 3 seconds
 function checkElapsedTime() {
   timeElapsed += 1000;
-  if (timeElapsed >= 7000) {
+  if (timeElapsed >= 5000) {
     clearInterval(timerId);
     loadModal();
   }
@@ -78,6 +81,7 @@ closeModal.addEventListener('click', closeModalWindow);
 function closeModalWindow() {
   popupModal.classList.remove('modalOverlay');
   popupModal.style.display = 'none'; //without this line, only the overlay is removed.
+  modalAfterSubmit.style.display = "none";
 }
 
 //target form and save in variable
@@ -85,13 +89,32 @@ const form = document.querySelector('form');
 //add event listener
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  submitEmailInModal();
+  validateModalEmail();
 })
+
+//function to validate email in modal
+
+function validateModalEmail() {
+  const modalEmail = document.getElementById('modalEmail').value;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (!emailRegex.test(modalEmail)) {
+    alert(`Please enter a valid email`);
+    return false;
+  } else {
+    submitEmailInModal();
+    return true;
+  }
+}
 
 //function to submit 
 function submitEmailInModal() {
+  const popupModal = document.querySelector('.modalContainer');  
+  //display thank you message
+  modalAfterSubmit.style.display = 'block'; 
+  //remove previous modal popup content 
   popupModal.classList.remove('modalContainer');
-  popupModal.style.display = 'none'; //without this line, only the overlay is removed.
+  popupModal.style.display = 'none';
 }
 
 //close the cart when continueShopping is clicked on. 
