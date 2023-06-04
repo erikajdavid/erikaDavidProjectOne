@@ -80,8 +80,15 @@ closeModal.addEventListener('click', closeModalWindow);
 
 function closeModalWindow() {
   popupModal.classList.remove('modalOverlay');
-  popupModal.style.display = 'none'; //without this line, only the overlay is removed.
-  modalAfterSubmit.style.display = "none";
+  popupModal.style.display = 'none';
+}
+
+const closeModal2 = document.querySelector('.closeModal2');
+closeModal2.addEventListener('click', closeModal2Window);
+
+function closeModal2Window() {
+  popupModal.classList.remove('modalOverlay');
+  modalAfterSubmit.style.display = 'none';
 }
 
 //target form and save in variable
