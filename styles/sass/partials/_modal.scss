@@ -4,7 +4,7 @@
 
 .modalContainer {
     background-color: $white;
-    @include boxModel(450px, 500px, 1rem, none, 6px, none);
+    @include boxModel(450px, 550px, 1rem, none, 6px, none);
     font-size: 0.8rem;
     text-align: center;
     position: fixed;
@@ -89,7 +89,7 @@
 
 .modalContainerAfterSubmit {
     background-color: $white;
-    @include boxModel(450px, 500px, 1rem, none, 6px, none);
+    @include boxModel(450px, 550px, 1rem, none, 6px, none);
     font-size: 0.8rem;
     text-align: center;
     position: absolute;
@@ -98,6 +98,9 @@
     transform: translateX(-50%) translateY(-50%);
     z-index: 5;
     box-shadow: $boxShadow;
+    img {
+        width: 30%;
+    }
     .closeModal2 {
         width: 100%;
         text-align: right;
@@ -110,15 +113,67 @@
         }
     }
     .modalAfterSubmitText {
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 90%;
+        margin: 50px auto 0 auto;
         p {
-            font-size: 1.5rem;
             margin: 0 auto;
             text-align: center;
+            padding: 0.75rem 0;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        .line1 {
+            color: $lightgreen;
+            font-family: $secondaryFont;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-top: 3px dotted grey;
+            padding-top: 2rem;
+        }
+        .line3 span {
+            font-weight: 700;
+            text-decoration: underline;
         }
     }
-}
+    .shopNowModalBtn {
+        width: 100%;
+        button {
+            all: revert;
+            width: 100%;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 1rem 0;
+            margin-top: 1.75rem;
+            font-size: 1.15rem;
+            color: $white;
+            background-color: $lightgreen;
+            letter-spacing: 0.15rem;
+            border: none;
+            cursor: pointer;
+            transform: all 0.25s;
+            &:hover {
+                background-color: $black;
+            }
+        }
+    }
+
+        .modalLinks {
+            display: flex;
+            width: 90%;
+            justify-content: space-between;
+            margin: 0 auto;
+            align-items: flex-end;
+            margin-top: 40px;
+            a {
+                color: grey;
+                font-size: 0.6rem;
+                text-decoration: underline;
+            }
+        }
+    }
+

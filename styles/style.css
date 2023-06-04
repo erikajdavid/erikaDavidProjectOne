@@ -529,7 +529,7 @@ button:hover {
 .modalContainer {
   background-color: #fff;
   width: 450px;
-  height: 500px;
+  height: 550px;
   padding: 1rem;
   border: none;
   border-radius: 6px;
@@ -621,7 +621,7 @@ button:hover {
 .modalContainerAfterSubmit {
   background-color: #fff;
   width: 450px;
-  height: 500px;
+  height: 550px;
   padding: 1rem;
   border: none;
   border-radius: 6px;
@@ -635,6 +635,9 @@ button:hover {
   z-index: 5;
   box-shadow: 0 0 15px rgba(189, 189, 189, 0.4);
 }
+.modalContainerAfterSubmit img {
+  width: 30%;
+}
 .modalContainerAfterSubmit .closeModal2 {
   width: 100%;
   text-align: right;
@@ -647,16 +650,66 @@ button:hover {
   color: #5EA85E;
 }
 .modalContainerAfterSubmit .modalAfterSubmitText {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 90%;
+  margin: 50px auto 0 auto;
 }
 .modalContainerAfterSubmit .modalAfterSubmitText p {
-  font-size: 1.5rem;
   margin: 0 auto;
   text-align: center;
+  padding: 0.75rem 0;
+  font-size: 0.9rem;
+  width: 100%;
+}
+.modalContainerAfterSubmit .modalAfterSubmitText .line1 {
+  color: #5EA85E;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-top: 3px dotted grey;
+  padding-top: 2rem;
+}
+.modalContainerAfterSubmit .modalAfterSubmitText .line3 span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+.modalContainerAfterSubmit .shopNowModalBtn {
+  width: 100%;
+}
+.modalContainerAfterSubmit .shopNowModalBtn button {
+  all: revert;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem 0;
+  margin-top: 1.75rem;
+  font-size: 1.15rem;
+  color: #fff;
+  background-color: #5EA85E;
+  letter-spacing: 0.15rem;
+  border: none;
+  cursor: pointer;
+  transform: all 0.25s;
+}
+.modalContainerAfterSubmit .shopNowModalBtn button:hover {
+  background-color: #1A2428;
+}
+.modalContainerAfterSubmit .modalLinks {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: flex-end;
+  margin-top: 40px;
+}
+.modalContainerAfterSubmit .modalLinks a {
+  color: grey;
+  font-size: 0.6rem;
+  text-decoration: underline;
 }
 
 .reviewCart {
