@@ -91,6 +91,10 @@ function closeModal2Window() {
   modalAfterSubmit.style.display = 'none';
 }
 
+const shopNowModal = document.querySelector('.shopNowModalBtn');
+shopNowModal.addEventListener('click', closeModal2Window);
+
+
 //target form and save in variable
 const form = document.querySelector('form');
 //add event listener
@@ -104,9 +108,12 @@ form.addEventListener('submit', (event) => {
 function validateModalEmail() {
   const modalEmail = document.getElementById('modalEmail').value;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const errorMessage = document.getElementById('modalErrorMsg');
 
   if (!emailRegex.test(modalEmail)) {
-    alert(`Please enter a valid email`);
+    errorMessage.textContent = `Please enter a valid email`;
+    errorMessage.style.color = "red";
+    modalEmail.style.color = "red"
     return false;
   } else {
     submitEmailInModal();
