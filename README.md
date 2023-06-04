@@ -13,12 +13,14 @@ Add JS functionality* to desktop, tablet and mobile versions of a previously con
 - Convert code needing innerHTML with createElement and appendChild
 
 ## Technical wins/challenges: 
+- Created a popup modal with email submission error handling.
 - Created a mobile navigation that slides in when the hamburger menu is click on. 
-- Created a full functioning shopping cart app
+- Created a fully functioning shopping cart app.
 
 ## Design liberties taken: 
 
-- redesigned shop buttons and containers in the shop product section. 
+- Redesigned shop buttons and containers in the shop product section. 
+- Designed popup modal and cart
 
 
 
