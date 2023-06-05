@@ -693,7 +693,6 @@ button:hover {
   letter-spacing: 0.15rem;
   border: none;
   cursor: pointer;
-  transform: all 0.25s;
 }
 .modalContainerAfterSubmit .shopNowModalBtn button:hover {
   background-color: #1A2428;
@@ -904,7 +903,8 @@ button:hover {
 
 .finalTotal {
   padding-bottom: 2rem;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid #1A2428;
+  font-weight: 700;
 }
 
 .checkoutBtn {
@@ -1030,7 +1030,7 @@ button:hover {
     position: fixed;
     top: 0;
     right: 100%;
-    min-width: 50%;
+    min-width: 100%;
     height: 100%;
     z-index: 98;
     background-color: #5EA85E;
@@ -1039,14 +1039,14 @@ button:hover {
     transition: 0.5s ease-in-out;
   }
   .mobileNav.activated {
-    right: 50%;
+    right: 0;
   }
   .mobileNav a {
     display: block;
     width: 70%;
     text-align: center;
     margin: 0 auto;
-    padding: 2rem 2.5rem;
+    padding: 2.75rem 2.5rem;
     text-transform: uppercase;
     color: #fff;
     font-weight: 700;
@@ -1159,16 +1159,13 @@ button:hover {
   }
 }
 @media (max-width: 480px) {
-  body .mobileNav {
-    min-width: 100%;
-  }
-  .mobileNav.activated {
-    right: 0;
-  }
   .shop .productGallery li {
     max-width: 90%;
     margin: 0 auto;
     padding-bottom: 2rem;
+  }
+  .shop .productGallery li .plus {
+    bottom: 12.5rem;
   }
   .contact .wrapper .contactContainer li {
     padding: 1rem;
@@ -1398,6 +1395,9 @@ header .hero .imageContainer img:hover {
 }
 .productGallery li .plus:hover {
   background-color: #1A2428;
+}
+.productGallery li .plus:active {
+  background-color: grey;
 }
 .productGallery li .plus img {
   filter: brightness(0) invert(1);

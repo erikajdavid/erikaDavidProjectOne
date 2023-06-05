@@ -196,6 +196,9 @@ header {
             &:hover {
                 background-color: $black;
             } 
+            &:active {
+                background-color: grey;
+            }
             img {
                 filter: brightness(0) invert(1);
                 padding-right: 0.15rem;

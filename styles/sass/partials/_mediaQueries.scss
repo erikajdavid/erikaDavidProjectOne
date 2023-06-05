@@ -104,7 +104,7 @@
         position: fixed;
         top: 0;
         right: 100%;
-        min-width: 50%;
+        min-width: 100%;
         height: 100%;
         z-index: 98;
         background-color: $lightgreen;
@@ -114,7 +114,7 @@
     }
 
     .mobileNav.activated {
-        right: 50%;
+        right: 0;
     }
         
     .mobileNav a {
@@ -122,7 +122,7 @@
             width: 70%;
             text-align: center;
             margin: 0 auto;
-            padding: 2rem 2.5rem;
+            padding: 2.75rem 2.5rem;
             text-transform: uppercase;
             color: $white;
             font-weight: 700;
@@ -248,18 +248,13 @@
 
 @media (max-width: 480px) {
 
-    body .mobileNav {
-        min-width: 100%;
-    } 
-
-    .mobileNav.activated {
-        right: 0;
-    }
-
     .shop .productGallery li {
         max-width: 90%;
         margin: 0 auto;
         padding-bottom: 2rem;
+        .plus {
+            bottom: 12.5rem;
+        }
     }
     
     .contact .wrapper .contactContainer li {
