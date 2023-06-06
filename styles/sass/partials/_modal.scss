@@ -176,3 +176,14 @@
         }
     }
 
+@media (max-width: 480px) {
+
+    .modalContainer,
+    .modalContainerAfterSubmit {
+        width: 90%;
+        height: auto;
+    }
+}
+
+
+

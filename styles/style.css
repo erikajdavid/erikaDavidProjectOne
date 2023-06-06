@@ -711,6 +711,13 @@ button:hover {
   text-decoration: underline;
 }
 
+@media (max-width: 480px) {
+  .modalContainer,
+  .modalContainerAfterSubmit {
+    width: 90%;
+    height: auto;
+  }
+}
 .reviewCart {
   background-color: #fff;
   color: #1A2428;
