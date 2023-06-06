@@ -1435,7 +1435,7 @@ header .hero .imageContainer img:hover {
   height: 70px;
 }
 .productGallery li .textContainer .price {
-  padding-bottom: 0.75rem;
+  padding: 1.25rem 0;
   align-self: flex-end;
 }
 .productGallery li .textContainer .price span {
