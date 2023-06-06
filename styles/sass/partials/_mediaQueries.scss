@@ -55,8 +55,7 @@
         display: none;
     }
 
-    //.hamburger menu needs more specificity than what was written in the original SCSS in order for the media query styles to apply
-    //clean code below
+    //mobile menu beginning
 
     header nav .hamburger { 
         all: revert;
@@ -78,14 +77,11 @@
 
     .hamburger .bar, .hamburger:after, .hamburger:before {
         content: '';
+        @include boxModel(100%, 3px, none, none, none, 6px 0px);
         display: block;
-        width: 100%;
-        height: 3px;
         background-color: $black;
-        margin: 6px 0px;
         transition: 0.4s;
     }
-    //clean code above
 
     .hamburger.activated:before {
         transform: rotate(-45deg) translate(-8px, 6px);
@@ -118,21 +114,20 @@
     }
         
     .mobileNav a {
+            @include fontStyling (0, 1.5rem, 700);
+            @include boxModel (70%, auto, 2.75rem 2.5rem, none, none, 0 auto);
             display: block;
-            width: 70%;
             text-align: center;
-            margin: 0 auto;
-            padding: 2.75rem 2.5rem;
             text-transform: uppercase;
             color: $white;
-            font-weight: 700;
-            font-size: 1.5rem;
             letter-spacing: 0.5rem;
             transition: all 0.25s;
         }
 
     .mobileNav a:hover {
         color: $black;
+    
+    //mobile menu end
 
    header .reviewCart {
     max-width: 50%;
@@ -141,7 +136,6 @@
     header .reviewCart.activated {
         left: 50%;
     }
-
         
     }
     .hero .wrapper {
