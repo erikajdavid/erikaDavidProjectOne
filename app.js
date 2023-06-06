@@ -133,6 +133,7 @@ function submitEmailInModal() {
   popupModal.style.display = 'none';
 }
 
+//FOR NOW THE CODE BELOW ONLY WORKS FOR THE CART IN HOME PAGE, NOT THE CONTACT PAGE. YOU CAN EXIST thE CART BY CLICKING ON THE SHOPPING BAG ICON OR ANYWHERE OUTSIDE THE CART.
 //close the cart when continueShopping is clicked on. 
 //target continueShopping and save in variable
 
@@ -144,7 +145,7 @@ continueShoppingEl.addEventListener('click', function(){
   overlay.classList.remove('activated');
 })
 
-//close the cart when the x is clicked on
+//FOR NOW THE CODE BELOW ONLY WORKS FOR THE CART IN HOME PAGE, NOT THE CONTACT PAGE. YOU CAN EXIST thE CART BY CLICKING ON THE SHOPPING BAG ICON OR ANYWHERE OUTSIDE THE CART.
 
 const closeCartEl = document.querySelector('.closeCart')
 //add event listener
