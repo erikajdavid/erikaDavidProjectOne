@@ -27,7 +27,7 @@ Add JS functionality* to desktop, tablet and mobile versions of a previously con
 - Convert code needing innerHTML with createElement and appendChild
 
 ## On-going bugs
-- Both th close cart icon and continue shopping link in the shopping cart only work for the shopping cart on the home page, and not the contact page. 
+- Both the close cart icon and continue shopping link in the shopping cart only work for the shopping cart on the home page, and not the contact page. 
 
 
 
