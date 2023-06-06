@@ -438,9 +438,10 @@ button:hover {
   position: relative;
   z-index: -1;
 }
-.contactHeader h2 {
+.contactHeader h1 {
   color: #fff;
   text-transform: capitalize;
+  font-family: "Lora", serif;
   font-family: 0;
   font-size: 2rem;
   font-weight: 500;
