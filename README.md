@@ -22,6 +22,10 @@ Add JS functionality* to desktop, tablet and mobile versions of a previously con
 - Redesigned shop buttons and containers in the shop product section. 
 - Designed popup modal and cart app. 
 
+## References used:
+- Cart basics: https://www.youtube.com/watch?v=UcrypywtAm0&t=2013s
+- Mobile Menu: https://www.youtube.com/watch?v=OFKBep95lb4&t=316s
+
 
 
 

@@ -1,3 +1,5 @@
+//REFERENCE USED FORR MOBILE NAV: https://www.youtube.com/watch?v=OFKBep95lb4&t=316s
+
 //HAMBURGER MENU AND MOBIL NAV
 //CART APP TOGGLE
 //BACKGROUND COLOR MUTED WHEN CART APP IS ACTIVE
@@ -151,6 +153,9 @@ closeCartEl.addEventListener('click', function() {
   reviewCart.classList.remove('activated');
   overlay.classList.remove('activated');
 })
+
+
+//REFERENCE USED FOR CART BASICS: https://www.youtube.com/watch?v=UcrypywtAm0&t=2013s
 
 
 //RENDER SHOP PRODUCTS ON PRODUCT PAGE WITH INNERHTML
