@@ -762,7 +762,8 @@ button:hover {
   height: auto;
 }
 
-.closeCart {
+.closeCart,
+.closeCartContact {
   font-size: 1.25rem;
   color: grey;
   padding: 0.25rem 0;
@@ -1172,7 +1173,7 @@ button:hover {
     width: 100%;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 495px) {
   .shop .productGallery li {
     max-width: 90%;
     margin: 0 auto;
