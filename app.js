@@ -1,3 +1,30 @@
+
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  import { getDatabase, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDk-agk26KSx1A6W_xGwOewNTgB4tz3jMA",
+    authDomain: "organic-app-dddcc.firebaseapp.com",
+    projectId: "organic-app-dddcc",
+    storageBucket: "organic-app-dddcc.appspot.com",
+    messagingSenderId: "685071758077",
+    appId: "1:685071758077:web:280fb93b5677cdc3f58494"
+  };
+
+  // Initialize Firebase
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const dbRef = ref(database, 'items');
+
+  console.log(dbRef);
+
+
 //REFERENCE USED FORR MOBILE NAV: https://www.youtube.com/watch?v=OFKBep95lb4&t=316s
 
 //HAMBURGER MENU AND MOBIL NAV
