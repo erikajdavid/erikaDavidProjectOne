@@ -4,7 +4,7 @@
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
   
-  import { getDatabase, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+  import { getDatabase, ref, get, update, onValue } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -189,14 +189,31 @@ closeCartEl.addEventListener('click', function() {
 //RENDER SHOP PRODUCTS ON PRODUCT PAGE WITH INNERHTML
 //ADDING TO THE PAGE DYNAMICALLY
 
+// Retrieve the data from Firebase
+
+onValue (dbRef, (snapshot) => {
+  const items = snapshot.val();
+
+  if (items) {
+  // Call the renderProducts function with the retrieved data
+  renderProducts(items);
+  } else {
+    console.log('no items exist here');
+  }
+  
+}, (error) => {
+  // Handle error
+  console.log(error);
+});
+
 const productsEl = document.querySelector('.productGallery');
 
-function renderProducts() {
-  products.forEach((product) => {
+function renderProducts(items) {
+  Object.values(items).forEach((product) => {  // Accessing the values of the "items" object
     productsEl.innerHTML += `
     <li>
       <div class="imageContainer">
-        <img src="${product.imgSrc}" alt="${product.name}">
+        <img src="${product.imgSrc}" alt="${product.name}">  // Accessing the "imgSrc" property of each product
       </div>
       <button class="plus" onclick="addToCart(${product.id})">
         <img src="./assets/icons/cart.svg">
@@ -212,8 +229,6 @@ function renderProducts() {
     `;
   });
 }
-
-renderProducts(); //call the function to display the shop items
 
 
 //CART ARRAY FOR SAVING ALL THE ITEMS BEING ADDED TO THE CART
