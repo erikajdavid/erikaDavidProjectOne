@@ -1,0 +1,58 @@
+
+.cartApp {
+    width: 350px;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: 0vh;
+    right: -30%;
+    z-index: 20;
+    transition: 0.4s ease-in;
+  }
+
+  .cartApp.activated {
+    right: 0;
+  }
+
+  .closeCart {
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.297);
+  display: none;
+  transition: 0.4s;
+  z-index: 4;
+}
+
+.overlay.activated {
+  display: block;
+}
+
+.notEmptyCartStuff {
+  display: none;
+}
+
+.productsInCart {
+  height: 50vh;
+  background-color: green;
+}
+
+.productInCartContainer {
+  background-color: black;
+  height: 50px;
+}
+
+.productName {
+  color: white;
+  border: 1px solid red;
+}
+
+
+
