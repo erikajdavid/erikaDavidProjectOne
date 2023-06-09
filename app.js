@@ -89,23 +89,37 @@ const addToCartBtnEl = document.querySelectorAll('.addToCartBtn');
 const emptyCartStuff = document.querySelector('.emptyCartStuff');
 const notEmptyCartStuff = document.querySelector('.notEmptyCartStuff');
 
-let productQty = 0;
-
 addToCartBtnEl.forEach((button) => {
   button.addEventListener('click', function(event) {
     toggleCart();
 
-    //function to render products to cart
-    productQty++;
-
-    //if item exist in cart, keep incremeting the qty
-
     emptyCartStuff.style.display = "none";
     notEmptyCartStuff.style.display = "block";
 
-    updateDb(event); //this is to update the firebase
+    // Get the item ID from the button ID
+    const id = event.target.id.slice(1);
+    const itemId = `item${id}`;
+
+    const childRef = ref(database, `items/${itemId}`);
+    get(childRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const itemData = snapshot.val();
+          const currentQty = itemData.quantity || 0;
+          const newQty = currentQty + 1;
+          update(childRef, { inCart: true, quantity: newQty });
+          // Render products to cart using the updated quantity
+          renderCartItems([{ ...itemData, quantity: newQty }]);
+        } else {
+          console.log(`Item ${itemId} does not exist in the database.`);
+        }
+      })
+      .catch((error) => {
+        console.log('Error retrieving data:', error);
+      });
   });
 });
+
 
 onValue(dbRef, (data) => {
   const firebaseData = [];
