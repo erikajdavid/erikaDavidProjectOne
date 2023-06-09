@@ -110,6 +110,7 @@ addToCartBtnEl.forEach((button) => {
           update(childRef, { inCart: true, quantity: newQty });
           // Render products to cart using the updated quantity
           renderCartItems([{ ...itemData, quantity: newQty }]);
+          updateDb(event);
         } else {
           console.log(`Item ${itemId} does not exist in the database.`);
         }
@@ -135,6 +136,7 @@ onValue(dbRef, (data) => {
     return item.inCart === true;
     });
 
+    console.log(inCartItems);
     renderCartItems(inCartItems);
 
   } else {
@@ -146,6 +148,8 @@ const updateDb = (event) => {
   if (event.target.tagName === 'BUTTON') {
     const id = event.target.id.slice(1);
     const itemId = `item${id}`;
+
+    let productQty = 0;
 
     const childRef = ref(database, `items/${itemId}`);
     update(childRef, { inCart: true, quantity: productQty });
@@ -169,6 +173,7 @@ function renderCartItems(inCartItems) {
     li.append(p);
   });
 }
+
 
 
 
