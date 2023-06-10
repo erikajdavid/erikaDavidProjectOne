@@ -39,20 +39,29 @@
   display: none;
 }
 
-.productsInCart {
-  height: 50vh;
-  background-color: green;
-}
-
 .productInCartContainer {
-  background-color: black;
-  height: 50px;
+  background-color: white;
+  padding: 1rem;
 }
 
 .productName {
-  color: white;
+  color: black;
   border: 1px solid red;
 }
 
+.qtyContainer {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+}
 
-
+.minusBtn,
+.plusBtn {
+  all: revert;
+  background-color: black;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+}
