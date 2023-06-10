@@ -89,6 +89,9 @@ const addToCartBtnEl = document.querySelectorAll('.addToCartBtn');
 const emptyCartStuff = document.querySelector('.emptyCartStuff');
 const notEmptyCartStuff = document.querySelector('.notEmptyCartStuff');
 
+// Create an empty array to store the cart items
+const cartItems = [];
+
 addToCartBtnEl.forEach((button) => {
   button.addEventListener('click', function(event) {
     toggleCart();
@@ -96,7 +99,6 @@ addToCartBtnEl.forEach((button) => {
     emptyCartStuff.style.display = "none";
     notEmptyCartStuff.style.display = "block";
 
-    // Get the item ID from the button ID
     const id = event.target.id.slice(1);
     const itemId = `item${id}`;
 
@@ -108,9 +110,14 @@ addToCartBtnEl.forEach((button) => {
           const currentQty = itemData.quantity || 0;
           const newQty = currentQty + 1;
           update(childRef, { inCart: true, quantity: newQty });
-          // Render products to cart using the updated quantity
-          renderCartItems([{ ...itemData, quantity: newQty }]);
-          updateDb(event);
+
+          // Add the updated item to the cartItems array
+          cartItems.push({ ...itemData, quantity: newQty });
+
+          // if the items exist in the cart, don't push a whole li. just increase the count.
+
+          // Render all the cart items
+          renderCartItems(cartItems);
         } else {
           console.log(`Item ${itemId} does not exist in the database.`);
         }
@@ -121,47 +128,12 @@ addToCartBtnEl.forEach((button) => {
   });
 });
 
-
-onValue(dbRef, (data) => {
-  const firebaseData = [];
-
-  if(data.exists()) {
-    const payload = data.val();
-
-    for (let item in payload) {
-      firebaseData.push(payload[item]);
-    }
-
-    const inCartItems = firebaseData.filter(item => {
-    return item.inCart === true;
-    });
-
-    console.log(inCartItems);
-    renderCartItems(inCartItems);
-
-  } else {
-    console.log('No data to report.');
-  }
-});
-
-const updateDb = (event) => {
-  if (event.target.tagName === 'BUTTON') {
-    const id = event.target.id.slice(1);
-    const itemId = `item${id}`;
-
-    let productQty = 0;
-
-    const childRef = ref(database, `items/${itemId}`);
-    update(childRef, { inCart: true, quantity: productQty });
-  }
-}
-
 const productsInCartEl = document.querySelector('.productsInCart');
 
-function renderCartItems(inCartItems) {
+function renderCartItems(cartItemsArray) {
   productsInCartEl.innerHTML = '';
   
-  inCartItems.forEach((item) => {
+  cartItemsArray.forEach((item) => {
     const li = document.createElement('li');
     li.classList.add('productInCartContainer');
     
