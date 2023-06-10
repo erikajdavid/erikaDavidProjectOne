@@ -89,8 +89,8 @@ const addToCartBtnEl = document.querySelectorAll('.addToCartBtn');
 const emptyCartStuff = document.querySelector('.emptyCartStuff');
 const notEmptyCartStuff = document.querySelector('.notEmptyCartStuff');
 
-// Create an empty array to store the cart items
-const cartItems = [];
+// Create an empty object to store the cart items
+const inCartItems = {};
 
 addToCartBtnEl.forEach((button) => {
   button.addEventListener('click', function(event) {
@@ -111,13 +111,16 @@ addToCartBtnEl.forEach((button) => {
           const newQty = currentQty + 1;
           update(childRef, { inCart: true, quantity: newQty });
 
-          // Add the updated item to the cartItems array
-          cartItems.push({ ...itemData, quantity: newQty });
-
-          // if the items exist in the cart, don't push a whole li. just increase the count.
+          // Update the quantity of the item in the cart
+          if (inCartItems[itemId]) {
+            inCartItems[itemId].quantity = newQty;
+          } else {
+            // Add the item to the cartItems object
+            inCartItems[itemId] = { ...itemData, quantity: newQty };
+          }
 
           // Render all the cart items
-          renderCartItems(cartItems);
+          renderCartItems(Object.values(inCartItems));
         } else {
           console.log(`Item ${itemId} does not exist in the database.`);
         }
@@ -128,6 +131,7 @@ addToCartBtnEl.forEach((button) => {
   });
 });
 
+
 const productsInCartEl = document.querySelector('.productsInCart');
 
 function renderCartItems(cartItemsArray) {
@@ -136,6 +140,7 @@ function renderCartItems(cartItemsArray) {
   cartItemsArray.forEach((item) => {
     const li = document.createElement('li');
     li.classList.add('productInCartContainer');
+
     
     const p = document.createElement('p');
     p.classList.add('productName');
@@ -143,6 +148,30 @@ function renderCartItems(cartItemsArray) {
 
     productsInCartEl.append(li);
     li.append(p);
+
+    const qtyContainer = document.createElement('div');
+    qtyContainer.classList.add('qtyContainer');
+
+    li.append(qtyContainer)
+
+    const minusBtn = document.createElement('button');
+    minusBtn.classList.add('minusBtn')
+    minusBtn.textContent = "-";
+
+    qtyContainer.append(minusBtn);
+
+    const productQty = document.createElement('p');
+    productQty.classList.add('productQty')
+    productQty.textContent = "0";
+
+    qtyContainer.append(productQty);
+
+    const plusBtn = document.createElement('button');
+    plusBtn.classList.add('plusBtn')
+    plusBtn.textContent = "+";
+
+    qtyContainer.append(plusBtn);
+
   });
 }
 
