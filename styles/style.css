@@ -761,7 +761,7 @@ button:hover {
 
 .qtyContainer {
   display: flex;
-  width: 50%;
+  width: 100%;
   justify-content: space-around;
 }
 
@@ -773,9 +773,26 @@ button:hover {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  border: none;
+  border: 15px;
 }
 
+/*.totalItemsInCart {
+  position: relative;
+}
+
+.totalItems {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-radius: 15px;
+  background-color: green;
+  position: absolute;
+  top: -45px;
+  right: -5px;
+  color: white;
+}*/
 header nav {
   height: 10vh;
   position: relative;
