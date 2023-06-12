@@ -93,6 +93,7 @@ addToCartBtnEl.forEach((button) => {
           // Render all the cart items
           renderCartItems(Object.values(inCartItems));
           console.log(inCartItems);
+          calculateTotalItemsInCart(Object.values(inCartItems));
         } else {
           console.log(`Item ${itemId} does not exist in the database.`);
         }
@@ -135,7 +136,7 @@ function renderCartItems(cartItemsArray) {
 
     const productPrice = document.createElement('p');
     productPrice.classList.add('productPrice');
-    productPrice.textContent = item.price;
+    productPrice.textContent = (item.price * item.quantity).toFixed(2);
 
     productTextContainer.append(productPrice);
 
@@ -188,9 +189,11 @@ function renderCartItems(cartItemsArray) {
         update(childRef, { quantity: item.quantity });
       } else {
         productQty.textContent = 0;
-        productInCartContainer.remove('productInCartContainer');
-        update (childRef, { inCart: false, quantity: 0 });
+        productInCartContainer.remove();
+        update(childRef, { inCart: false, quantity: 0 });
+        delete inCartItems[itemId];
       }
+      calculateTotalItemsInCart(Object.values(inCartItems));
     });
 
      // Event listener for minus button
@@ -205,6 +208,8 @@ function renderCartItems(cartItemsArray) {
 
         // Update the quantity in the database
         update(childRef, { quantity: item.quantity });
+
+        calculateTotalItemsInCart(cartItemsArray);
     });
 
     trashIcon.addEventListener('click', function(event) {
@@ -214,17 +219,42 @@ function renderCartItems(cartItemsArray) {
       
       const childRef = ref(database, `items/${itemId}`);
 
-      productInCartContainer.remove('productInCartContainer');
+      productInCartContainer.remove();
       update(childRef, { inCart: false, quantity: 0 });
-    })
+
+      // Remove the item from cartItemsArray
+      delete inCartItems[itemId];
+
+      // Update the total items count
+      calculateTotalItemsInCart(Object.values(inCartItems));
+    });
   });
+};
+
+
+function calculateTotalItemsInCart(cartItemsArray) {
+  const totalItemsInCart = document.querySelector('.totalItemsInCart');
+  const totalItems = document.createElement('p');
+  totalItems.classList.add('totalItems');
+
+  // Calculate the total quantity of items
+  const totalQuantity = cartItemsArray.reduce((total, item) => total + item.quantity, 0);
+
+  totalItems.textContent = totalQuantity;
+
+  // Update the total items display
+  totalItemsInCart.innerHTML = '';
+  totalItemsInCart.append(totalItems);
 }
 
-//if product qty = 0, remove it from the cart
-  //currently there is a bug where inCart: true, quantity: 0, and one more click to remove the container makes it inCart: false, quantity: 0
+
+calculateTotalItemsInCart(cartItemsArray);
+
+
+
+
 
 //need function clear the cart
-
 
 //need function to increment total items in cart
 //need function to calculate subTotal
