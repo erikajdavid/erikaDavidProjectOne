@@ -142,18 +142,18 @@ function renderCartItems(cartItemsArray) {
   productsInCartEl.innerHTML = '';
 
   cartItemsArray.forEach((item) => {
-    const li = document.createElement('li');
-    li.classList.add('productInCartContainer');
-    productsInCartEl.append(li);
+    const productInCartContainer = document.createElement('li');
+    productInCartContainer.classList.add('productInCartContainer');
+    productsInCartEl.append(productInCartContainer);
 
     const img = document.createElement('img');
     img.classList.add('productImage');
     img.src = item.imgSrc;
-    li.append(img);
+    productInCartContainer.append(img);
 
     const productInfoContainer = document.createElement('div');
     productInfoContainer.classList.add('productInfoContainer');
-    li.append(productInfoContainer);
+    productInCartContainer.append(productInfoContainer);
 
     const productTextContainer = document.createElement('div');
     productTextContainer.classList.add('productTextContainer');
@@ -216,9 +216,12 @@ function renderCartItems(cartItemsArray) {
       if (item.quantity > 0) {
         item.quantity--; // Decrement the quantity
         productQty.textContent = item.quantity; // Update the displayed quantity
-
         // Update the quantity in the database
         update(childRef, { quantity: item.quantity });
+      } else if (item.quantity === 0) {
+        productQty.textContent = 0;
+        productInCartContainer.remove('productInCartContainer');
+        update (childRef, { inCart: false, quantity: 0 });
       }
     });
 
@@ -239,6 +242,9 @@ function renderCartItems(cartItemsArray) {
     });
   });
 }
+
+//if product qty = 0, remove it from the cart
+  //currently there is a bug where inCart: true, quantity: 0, and one more click to remove the container makes it inCart: false, quantity: 0
 
 //need function remove item from cart
 //need function clear the cart
