@@ -186,7 +186,7 @@ function renderCartItems(cartItemsArray) {
         productQty.textContent = item.quantity; // Update the displayed quantity
         // Update the quantity in the database
         update(childRef, { quantity: item.quantity });
-      } else if (item.quantity === 0) {
+      } else {
         productQty.textContent = 0;
         productInCartContainer.remove('productInCartContainer');
         update (childRef, { inCart: false, quantity: 0 });
