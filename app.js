@@ -67,16 +67,27 @@ addToCartBtnEl.forEach((button) => {
     emptyCartStuff.style.display = "none";
     notEmptyCartStuff.style.display = "block";
 
+    //need to retrive the id associated with the button we clicked. we assigned out buttons and is of "0X"
     const id = event.target.id.slice(1);
+    //slice, slices of the 0, leaving you with X
     const itemId = `item${id}`;
+    //created a modified id called itemX through concatenation. 
 
+    //childRef id a reference to a specific location or child node in the database.
+    //it takes two aruguments. the first is the database, and the second is the path to what we want to change. 
     const childRef = ref(database, `items/${itemId}`);
+    //get retrieves the data from firebase
     get(childRef)
+      //is the data is retrived, it will execute the following code. 
       .then((snapshot) => {
+        //if the data exists, 
         if (snapshot.exists()) {
+          //this takes a snapshop what is currently in the database. 
           const itemData = snapshot.val();
           console.log(itemData);
+          //save the currentQty in a variable
           const currentQty = itemData.quantity || 0;
+          //the new quantity is +1 when the button is clicked on. 
           const newQty = currentQty + 1;
 
           // Update the quantity of the item in the cart
@@ -247,8 +258,6 @@ function calculateTotalItemsInCart(cartItemsArray) {
   totalItemsInCart.append(totalItems);
 }
 
-
-calculateTotalItemsInCart(cartItemsArray);
 
 
 
