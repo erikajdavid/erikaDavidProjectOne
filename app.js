@@ -144,18 +144,40 @@ function renderCartItems(cartItemsArray) {
   cartItemsArray.forEach((item) => {
     const li = document.createElement('li');
     li.classList.add('productInCartContainer');
-
-    const p = document.createElement('p');
-    p.classList.add('productName');
-    p.textContent = item.name;
-
     productsInCartEl.append(li);
-    li.append(p);
+
+    const img = document.createElement('img');
+    img.classList.add('productImage');
+    img.src = item.imgSrc;
+    li.append(img);
+
+    const productInfoContainer = document.createElement('div');
+    productInfoContainer.classList.add('productInfoContainer');
+    li.append(productInfoContainer);
+
+    const productTextContainer = document.createElement('div');
+    productTextContainer.classList.add('productTextContainer');
+    productInfoContainer.append(productTextContainer);
+
+    const productName = document.createElement('p');
+    productName.classList.add('productName');
+    productName.textContent = item.name;
+
+    productTextContainer.append(productName);
+
+    const productPrice = document.createElement('p');
+    productPrice.classList.add('productPrice');
+    productPrice.textContent = item.price;
+
+    productTextContainer.append(productPrice);
+
+    const productBtnContainer = document.createElement('div');
+    productBtnContainer.classList.add('productBtnContainer');
+    productInfoContainer.append(productBtnContainer);
 
     const qtyContainer = document.createElement('div');
     qtyContainer.classList.add('qtyContainer');
-
-    li.append(qtyContainer);
+    productBtnContainer.append(qtyContainer);
 
     const minusBtn = document.createElement('button');
     minusBtn.classList.add('minusBtn');
@@ -176,6 +198,12 @@ function renderCartItems(cartItemsArray) {
     plusBtn.id = `+${item.id}`; // Use item ID in the button's ID attribute
 
     qtyContainer.append(plusBtn);
+
+    const trashIcon = document.createElement('p');
+    trashIcon.classList.add('trashIcon');
+    trashIcon.textContent = 'Remove';
+
+    productBtnContainer.append(trashIcon);
 
     // Event listener for minus button
     minusBtn.addEventListener('click', function (event) {
