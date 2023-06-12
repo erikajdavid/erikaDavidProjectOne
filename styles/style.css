@@ -754,7 +754,7 @@ button:hover {
   background-color: white;
   padding: 1rem;
   display: flex;
-  border-top: 1px solid lightgray;
+  border-top: 1px solid gray;
 }
 
 .productName {
@@ -817,7 +817,7 @@ button:hover {
   border-bottom: 1px solid lightgray;
 }
 
-/*.totalItemsInCart {
+.totalItemsInCart {
   position: relative;
 }
 
@@ -833,7 +833,8 @@ button:hover {
   top: -45px;
   right: -5px;
   color: white;
-}*/
+}
+
 header nav {
   height: 10vh;
   position: relative;
