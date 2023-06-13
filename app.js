@@ -19,10 +19,10 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const dbRef = ref(database);
 
-const body = document.body;
+const bodyEl = document.querySelector('body');
 const overlay = document.createElement('div');
 overlay.classList.add('overlay');
-body.appendChild(overlay);
+bodyEl.appendChild(overlay);
 
 const cartIconEl = document.querySelector('.cartIcon');
 const cartAppEl = document.querySelector('.cartApp');
@@ -54,40 +54,29 @@ window.addEventListener('click', function(event) {
   });
   
 const addToCartBtnEl = document.querySelectorAll('.addToCartBtn');
-const emptyCartStuff = document.querySelector('.emptyCartStuff');
-const notEmptyCartStuff = document.querySelector('.notEmptyCartStuff');
+const emptyCartEl = document.querySelector('.emptyCart');
+const fullCartEl = document.querySelector('.fullCart');
 
-// Create an empty object to store the cart items
-const inCartItems = {};
+// Create an empty array to store the cart items
+const inCartItems = [];
 
 addToCartBtnEl.forEach((button) => {
   button.addEventListener('click', function(event) {
     toggleCart();
 
-    emptyCartStuff.style.display = "none";
-    notEmptyCartStuff.style.display = "block";
+    emptyCartEl.style.display = "none";
+    fullCartEl.style.display = "block";
 
-    //need to retrive the id associated with the button we clicked. we assigned out buttons and is of "0X"
     const id = event.target.id.slice(1);
-    //slice, slices of the 0, leaving you with X
     const itemId = `item${id}`;
-    //created a modified id called itemX through concatenation. 
 
-    //childRef id a reference to a specific location or child node in the database.
-    //it takes two aruguments. the first is the database, and the second is the path to what we want to change. 
     const childRef = ref(database, `items/${itemId}`);
-    //get retrieves the data from firebase
     get(childRef)
-      //is the data is retrived, it will execute the following code. 
       .then((snapshot) => {
-        //if the data exists, 
         if (snapshot.exists()) {
-          //this takes a snapshop what is currently in the database. 
           const itemData = snapshot.val();
           console.log(itemData);
-          //save the currentQty in a variable
           const currentQty = itemData.quantity || 0;
-          //the new quantity is +1 when the button is clicked on. 
           const newQty = currentQty + 1;
 
           // Update the quantity of the item in the cart
@@ -103,8 +92,9 @@ addToCartBtnEl.forEach((button) => {
 
           // Render all the cart items
           renderCartItems(Object.values(inCartItems));
-          console.log(inCartItems);
           calculateTotalItemsInCart(Object.values(inCartItems));
+          calculateSubTotal(Object.values(inCartItems));
+
         } else {
           console.log(`Item ${itemId} does not exist in the database.`);
         }
@@ -114,6 +104,7 @@ addToCartBtnEl.forEach((button) => {
       });
   });
 });
+
 
 
 const productsInCartEl = document.querySelector('.productsInCart');
@@ -147,7 +138,7 @@ function renderCartItems(cartItemsArray) {
 
     const productPrice = document.createElement('p');
     productPrice.classList.add('productPrice');
-    productPrice.textContent = (item.price * item.quantity).toFixed(2);
+    productPrice.textContent = item.price;
 
     productTextContainer.append(productPrice);
 
@@ -196,6 +187,7 @@ function renderCartItems(cartItemsArray) {
       if (item.quantity > 1) {
         item.quantity--; // Decrement the quantity
         productQty.textContent = item.quantity; // Update the displayed quantity
+        calculateSubTotal(cartItemsArray);
         // Update the quantity in the database
         update(childRef, { quantity: item.quantity });
       } else {
@@ -205,6 +197,8 @@ function renderCartItems(cartItemsArray) {
         delete inCartItems[itemId];
       }
       calculateTotalItemsInCart(Object.values(inCartItems));
+      calculateSubTotal(Object.values(inCartItems));
+
     });
 
      // Event listener for minus button
@@ -220,28 +214,29 @@ function renderCartItems(cartItemsArray) {
         // Update the quantity in the database
         update(childRef, { quantity: item.quantity });
 
-        calculateTotalItemsInCart(cartItemsArray);
+        calculateTotalItemsInCart(Object.values(inCartItems));
+        calculateSubTotal(Object.values(inCartItems));
+
     });
 
     trashIcon.addEventListener('click', function(event) {
       const id = event.target.id.slice(2);
-      //console.log(item); // Extract item ID from the button's ID attribute
       const itemId = `item${id}`;
-      
       const childRef = ref(database, `items/${itemId}`);
-
+    
       productInCartContainer.remove();
       update(childRef, { inCart: false, quantity: 0 });
-
-      // Remove the item from cartItemsArray
+    
+      // Remove the item from inCartItems
       delete inCartItems[itemId];
-
+    
       // Update the total items count
       calculateTotalItemsInCart(Object.values(inCartItems));
+      calculateSubTotal(Object.values(inCartItems));
     });
+    
   });
 };
-
 
 function calculateTotalItemsInCart(cartItemsArray) {
   const totalItemsInCart = document.querySelector('.totalItemsInCart');
@@ -256,7 +251,27 @@ function calculateTotalItemsInCart(cartItemsArray) {
   // Update the total items display
   totalItemsInCart.innerHTML = '';
   totalItemsInCart.append(totalItems);
+} 
+
+const subTotalEl = document.querySelector('.subTotal');
+
+function calculateSubTotal(cartItemsArray) {
+  if (cartItemsArray.length === 0) {
+    subTotalEl.textContent = '0.00'; // Set subtotal to 0 when cart is empty
+  } else {
+    const subTotal = cartItemsArray.reduce((total, item) => total + (item.price * item.quantity), 0);
+    subTotalEl.textContent = subTotal.toFixed(2);
+  }
 }
+
+
+
+
+
+
+
+
+
 
 
 
