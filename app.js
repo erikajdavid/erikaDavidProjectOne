@@ -45,6 +45,8 @@ window.addEventListener('click', function(event) {
       cartAppEl.classList.contains('activated') &&
       !cartAppEl.contains(event.target) &&
       !cartIconEl.contains(event.target) &&
+      //when we use querySelectorAll, we create a nodelist, which is a collection of nodes on the DOM. a nodelist is not the same as an array. to convert a nodelist to array we use the syntax [...nodelist]. if we just put [nodelist], this does creates an array but only contains one element, the nodelist itself. we want to convert the nodelsit to array so that we can use array methods, in this case, the some() method. 
+      //inside the (), this takes each button and checks if it contains the event.target(the click)
       ![...addToCartBtnEl].some(button => button.contains(event.target))
     ) {
       toggleCart();
