@@ -104,8 +104,6 @@ addToCartBtnEl.forEach((button) => {
   });
 });
 
-
-
 const productsInCartEl = document.querySelector('.productsInCart');
 
 function renderCartItems(cartItemsArray) {
@@ -199,8 +197,6 @@ function renderCartItems(cartItemsArray) {
       calculateSubTotal(Object.values(inCartItems));
 
       event.stopPropagation(); // Prevent event propagation
-
-
     });
 
      // Event listener for minus button
@@ -218,7 +214,6 @@ function renderCartItems(cartItemsArray) {
 
         calculateTotalItemsInCart(Object.values(inCartItems));
         calculateSubTotal(Object.values(inCartItems));
-
     });
 
     trashIcon.addEventListener('click', function(event) {
@@ -237,9 +232,7 @@ function renderCartItems(cartItemsArray) {
       calculateSubTotal(Object.values(inCartItems));
 
       event.stopPropagation(); // Prevent event propagation
-
     });
-    
   });
 };
 
@@ -267,7 +260,21 @@ function calculateSubTotal(cartItemsArray) {
     const subTotal = cartItemsArray.reduce((total, item) => total + (item.price * item.quantity), 0);
     subTotalEl.textContent = subTotal.toFixed(2);
   }
-}
+};
+
+/*function clearTheCart() {
+    emptyCartEl.style.display = "flex";
+    fullCartEl.style.display = "none";
+    subTotalEl.textContent = '0.00';
+    productsInCartEl.classList.remove('productsInCart');
+
+    //must update firebase to reflect all items in object like so: inCart: true, quantities: 0;
+};
+
+const clearCartEl = document.querySelector('.clearTheCart');
+clearCartEl.addEventListener('click', clearTheCart);*/
+
+
 
 
 
