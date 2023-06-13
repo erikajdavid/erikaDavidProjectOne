@@ -37,9 +37,7 @@ function toggleCart() {
 }
 
 cartIconEl.addEventListener('click', toggleCart);
-
 closeCartEl.addEventListener('click', toggleCart);
-
 continueShoppingEl.addEventListener('click', toggleCart);
 
 window.addEventListener('click', function(event) {
@@ -62,7 +60,8 @@ const inCartItems = [];
 
 addToCartBtnEl.forEach((button) => {
   button.addEventListener('click', function(event) {
-    toggleCart();
+
+    toggleCart();   
 
     emptyCartEl.style.display = "none";
     fullCartEl.style.display = "block";
@@ -199,6 +198,9 @@ function renderCartItems(cartItemsArray) {
       calculateTotalItemsInCart(Object.values(inCartItems));
       calculateSubTotal(Object.values(inCartItems));
 
+      event.stopPropagation(); // Prevent event propagation
+
+
     });
 
      // Event listener for minus button
@@ -233,6 +235,9 @@ function renderCartItems(cartItemsArray) {
       // Update the total items count
       calculateTotalItemsInCart(Object.values(inCartItems));
       calculateSubTotal(Object.values(inCartItems));
+
+      event.stopPropagation(); // Prevent event propagation
+
     });
     
   });
@@ -264,24 +269,6 @@ function calculateSubTotal(cartItemsArray) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//need function clear the cart
-
-//need function to increment total items in cart
-//need function to calculate subTotal
 
 
 
