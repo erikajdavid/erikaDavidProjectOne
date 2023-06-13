@@ -746,7 +746,7 @@ button:hover {
   display: block;
 }
 
-.notEmptyCartStuff {
+.fullCart {
   display: none;
 }
 
