@@ -1,14 +1,19 @@
+@use "./variables" as *;
+@use "./mixins" as *;
 
 .cartApp {
     width: 375px;
-    height: 100vh;
+    height: 90vh;
     background-color: white;
     position: fixed;
-    top: 0;
+    overflow-y: scroll;
+    top: 10vh;
     right: -30%;
     z-index: 20;
     transition: 0.4s ease-in;
     font-size: 0.9rem;
+    padding: 0 1rem 1rem 1rem;
+    border: 2px solid $lightgreen;
   }
 
   .cartApp.activated {
@@ -38,18 +43,78 @@
 
 .emptyCart {
   display: flex;
+  height: 90vh;
   flex-direction: column;
+  align-items: center;
+  p {
+    padding: 1rem 0;
+  }
+  a {
+    background-color: $lightgreen;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    padding: 1rem;
+    transform: background-color 0.5s;
+    cursor: pointer;
+    &:hover {
+      background-color: $black;
+    }
+  }
 }
 
 .fullCart {
   display: none;
+  .yourCart {
+    background-color: $lightgrey;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+  }
+  .clearTheCart {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin: 0.5rem 0;
+    color:$lightgreen;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: right;
+  }
+  .checkoutContainer {
+    width: calc(375px - 2rem);
+    p {
+      padding: 1rem 0;
+      text-align: right;
+      font-weight: 500;
+    }
+    .checkoutBtn {
+      all: revert;
+      background-color: $lightgreen;
+      color: $white;
+      border: none;
+      width: 100%;
+      padding: 1rem 0;
+      text-transform: uppercase;
+      font-family: $primaryFont;
+      font-size: 1rem;
+      letter-spacing: 0.15rem;
+      cursor: pointer;
+      transition: all 0.5s;
+      &:hover {
+        background-color: $black;
+      }
+    }
+  }
 }
 
 .productInCartContainer {
   background-color: white;
   padding: 1rem;
   display: flex;
-  border-top: 1px solid gray;
+  border: 1px solid $lightgrey;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
 }
 
 .productName {
@@ -89,6 +154,7 @@
   padding: 0 1rem;
   width: 2rem;
   display: flex;
+  font-size: 0.8rem;
   justify-content: center;
 }
 
@@ -97,8 +163,8 @@
   all: revert;
   background-color: black;
   color: white;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 15px;
   border: 15px;
 }
@@ -110,6 +176,7 @@
 
 .productsInCart {
   border-bottom: 1px solid lightgray;
+  padding-bottom: 1rem;
 }
 
 .totalItemsInCart {
@@ -123,7 +190,7 @@
   justify-content: center;
   border: none;
   border-radius: 15px;
-  background-color: green;
+  background-color: $lightgreen;
   position: absolute;
   top: -45px;
   right: -5px;
