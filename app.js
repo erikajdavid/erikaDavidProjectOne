@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+import { getDatabase, ref, get, update, onValue } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,7 +17,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-const dbRef = ref(database);
+//const dbRef = ref(database);
 
 const bodyEl = document.querySelector('body');
 const overlay = document.createElement('div');
@@ -40,6 +40,7 @@ cartIconEl.addEventListener('click', toggleCart);
 closeCartEl.addEventListener('click', toggleCart);
 continueShoppingEl.addEventListener('click', toggleCart);
 
+//event parameter is passed in the eventlistener function. 
 window.addEventListener('click', function(event) {
     if (
       cartAppEl.classList.contains('activated') &&
@@ -48,23 +49,21 @@ window.addEventListener('click', function(event) {
       //when we use querySelectorAll, we create a nodelist, which is a collection of nodes on the DOM. a nodelist is not the same as an array. to convert a nodelist to array we use the syntax [...nodelist]. if we just put [nodelist], this does creates an array but only contains one element, the nodelist itself. we want to convert the nodelsit to array so that we can use array methods, in this case, the some() method. 
       //inside the (), this takes each button and checks if it contains the event.target(the click)
       ![...addToCartBtnEl].some(button => button.contains(event.target))
+      //this line says for every
     ) {
       toggleCart();
     }
   });
+
+let inCartItems = [];
   
 const addToCartBtnEl = document.querySelectorAll('.addToCartBtn');
 const emptyCartEl = document.querySelector('.emptyCart');
 const fullCartEl = document.querySelector('.fullCart');
 
-// Create an empty array to store the cart items
-const inCartItems = [];
-
 addToCartBtnEl.forEach((button) => {
-  button.addEventListener('click', function(event) {
-
-    toggleCart();   
-
+  button.addEventListener('click', function (event) {
+    toggleCart();
     emptyCartEl.style.display = "none";
     fullCartEl.style.display = "block";
 
@@ -76,26 +75,23 @@ addToCartBtnEl.forEach((button) => {
       .then((snapshot) => {
         if (snapshot.exists()) {
           const itemData = snapshot.val();
-          console.log(itemData);
           const currentQty = itemData.quantity || 0;
           const newQty = currentQty + 1;
 
-          // Update the quantity of the item in the cart
-          if (inCartItems[itemId]) {
-            inCartItems[itemId].quantity = newQty;
+          let existingItemIndex = inCartItems.findIndex((item) => item.id === itemId);
+
+          if (existingItemIndex !== -1) {
+            inCartItems[existingItemIndex].quantity++; // Increment the quantity of the existing item
           } else {
-            // Add the item to the cartItems object
-            inCartItems[itemId] = { ...itemData, quantity: newQty };
+            const newItem = { ...itemData, quantity: newQty, id: itemId };
+            inCartItems.push(newItem);
+            console.log(inCartItems);
           }
 
-          // Update the quantity in the database
           update(childRef, { inCart: true, quantity: newQty });
-
-          // Render all the cart items
-          renderCartItems(Object.values(inCartItems));
-          calculateTotalItemsInCart(Object.values(inCartItems));
-          calculateSubTotal(Object.values(inCartItems));
-
+          renderCartItems(inCartItems);
+          calculateTotalItemsInCart(inCartItems);
+          calculateSubTotal(inCartItems);
         } else {
           console.log(`Item ${itemId} does not exist in the database.`);
         }
@@ -106,12 +102,36 @@ addToCartBtnEl.forEach((button) => {
   });
 });
 
-const productsInCartEl = document.querySelector('.productsInCart');
+
+
+const productsInCartEl = document.querySelector('.productsInCart')
 
 function renderCartItems(cartItemsArray) {
   productsInCartEl.innerHTML = '';
 
   cartItemsArray.forEach((item) => {
+    /*const productInCartContainer = document.createElement('li');
+      productInCartContainer.classList.add('productInCartContainer');
+      productInCartContainer.innerHTML = `
+        <img class="productImage" src="${item.imgSrc}" alt="${item.name}">
+        <div class="productInfoContainer">
+          <div class="productTextContainer">
+            <p class="productName">${item.name}</p>
+            <p class="productPrice">${item.price}</p>
+          </div>
+          <div class="productBtnContainer">
+            <div class="qtyContainer">
+              <button class="minusBtn" id="-${item.id}">-</button>
+              <p class="productQty">${item.quantity}</p>
+              <button class="plusBtn" id="+${item.id}">+</button>
+            </div>
+            <p class="trashIcon" id="$i{item.id}">Remove</p>
+          </div>
+        </div>
+      `;
+      productsInCartEl.appendChild(productInCartContainer);
+    });
+  }*/
     const productInCartContainer = document.createElement('li');
     productInCartContainer.classList.add('productInCartContainer');
     productsInCartEl.append(productInCartContainer);
@@ -175,76 +195,113 @@ function renderCartItems(cartItemsArray) {
     trashIcon.id = `i${item.id}`; // Set the ID attribute with the item ID
 
     productBtnContainer.append(trashIcon);
-
-    // Event listener for minus button
-    minusBtn.addEventListener('click', function (event) {
-      const id = event.target.id.slice(2);
-      //console.log(item); // Extract item ID from the button's ID attribute
-      const itemId = `item${id}`;
-      const childRef = ref(database, `items/${itemId}`);
-
-      if (item.quantity > 1) {
-        item.quantity--; // Decrement the quantity
-        productQty.textContent = item.quantity; // Update the displayed quantity
-        calculateSubTotal(cartItemsArray);
-        // Update the quantity in the database
-        update(childRef, { quantity: item.quantity });
-      } else {
-        productQty.textContent = 0;
-        productInCartContainer.remove();
-        update(childRef, { inCart: false, quantity: 0 });
-        delete inCartItems[itemId];
-      }
-      calculateTotalItemsInCart(Object.values(inCartItems));
-      calculateSubTotal(Object.values(inCartItems));
-
-      event.stopPropagation(); // Prevent event propagation
-    });
-
-     // Event listener for minus button
-     plusBtn.addEventListener('click', function (event) {
-      const id = event.target.id.slice(2); // Extract item ID from the button's ID attribute
-      const itemId = `item${id}`;
-
-      const childRef = ref(database, `items/${itemId}`);
-
-        item.quantity++; // Decrement the quantity
-        productQty.textContent = item.quantity; // Update the displayed quantity
-
-        // Update the quantity in the database
-        update(childRef, { quantity: item.quantity });
-
-        calculateTotalItemsInCart(Object.values(inCartItems));
-        calculateSubTotal(Object.values(inCartItems));
-    });
-
-    trashIcon.addEventListener('click', function(event) {
-      const id = event.target.id.slice(2);
-      const itemId = `item${id}`;
-      const childRef = ref(database, `items/${itemId}`);
-    
-      productInCartContainer.remove();
-      update(childRef, { inCart: false, quantity: 0 });
-    
-      // Remove the item from inCartItems
-      delete inCartItems[itemId];
-    
-      // Update the total items count
-      calculateTotalItemsInCart(Object.values(inCartItems));
-      calculateSubTotal(Object.values(inCartItems));
-
-      event.stopPropagation(); // Prevent event propagation
-    });
   });
 };
 
-function calculateTotalItemsInCart(cartItemsArray) {
+// Plus button click handler
+function plusButtonClick(event) {
+  const id = event.target.id.slice(1); // Remove the "+" prefix from the button ID
+  // Find the item in the cartItems array
+  const item = inCartItems.find((item) => item.id === id);
+
+  if (item) {
+    item.quantity++;
+    // Update the displayed quantity
+    const productQty = event.target.parentElement.querySelector('.productQty');
+    productQty.textContent = item.quantity;
+
+    const childRef = ref(database, `items/${id}`);
+    // Update the quantity in the database
+    update(childRef, { quantity: item.quantity });
+
+    calculateTotalItemsInCart(inCartItems);
+    calculateSubTotal(inCartItems);
+  }
+}
+
+// Minus button click handler
+function minusButtonClick(event) {
+  const id = event.target.id.slice(1); // Extract item ID from the button's ID attribute
+  const childRef = ref(database, `items/${id}`);
+
+  // Find the item in the cartItems array
+  const item = inCartItems.find((item) => item.id === id);
+
+  if (item && item.quantity > 0) {
+    item.quantity--; // Decrement the quantity
+    const productQty = event.target.parentElement.querySelector('.productQty');
+    productQty.textContent = item.quantity; // Update the displayed quantity
+
+    // Update the quantity in the database
+    update(childRef, { quantity: item.quantity });
+
+    calculateTotalItemsInCart(inCartItems);
+    calculateSubTotal(inCartItems);
+
+    // Check if the quantity is 0
+    if (item.quantity === 0) {
+      // Remove the item from the inCartItems array
+      const itemIndex = inCartItems.findIndex((item) => item.id === id);
+      if (itemIndex !== -1) {
+        inCartItems.splice(itemIndex, 1);
+        // Update the quantity in the database
+      }
+
+      update(childRef, { inCart: false, quantity: item.quantity });
+
+      
+
+      calculateTotalItemsInCart(inCartItems);
+      calculateSubTotal(inCartItems);
+      event.stopPropagation();
+
+      // Remove the container from the DOM
+      const productInCartContainer = event.target.closest('.productInCartContainer');
+      productInCartContainer.remove();
+    }
+  }
+}
+
+function trashIconClick(event) {
+  const id = event.target.id.slice(1);
+  const childRef = ref(database, `items/${id}`);
+
+  const productInCartContainer = event.target.closest('.productInCartContainer');
+  productInCartContainer.remove();
+
+  update(childRef, { inCart: false, quantity: 0 });
+
+  // Remove the item from inCartItems
+  const itemIndex = inCartItems.findIndex((item) => item.id === id);
+  if (itemIndex !== -1) {
+    inCartItems.splice(itemIndex, 1);
+  }
+
+  // Update the total items count
+  calculateTotalItemsInCart(inCartItems);
+  calculateSubTotal(inCartItems);
+
+  event.stopPropagation(); // Prevent event propagation
+}
+
+// Event delegation for plus, minus, and trash icon buttons
+productsInCartEl.addEventListener('click', function(event) {
+  if (event.target.classList.contains('plusBtn')) {
+    plusButtonClick(event);
+  } else if (event.target.classList.contains('minusBtn')) {
+    minusButtonClick(event);
+  } else if (event.target.classList.contains('trashIcon')) {
+    trashIconClick(event);
+  }
+});
+
+function calculateTotalItemsInCart(inCartItems) {
   const totalItemsInCart = document.querySelector('.totalItemsInCart');
   const totalItems = document.createElement('p');
   totalItems.classList.add('totalItems');
 
   // Calculate the total quantity of items
-  const totalQuantity = cartItemsArray.reduce((total, item) => total + item.quantity, 0);
+  const totalQuantity = inCartItems.reduce((total, item) => total + item.quantity, 0);
 
   totalItems.textContent = totalQuantity;
 
@@ -255,33 +312,11 @@ function calculateTotalItemsInCart(cartItemsArray) {
 
 const subTotalEl = document.querySelector('.subTotal');
 
-function calculateSubTotal(cartItemsArray) {
-  if (cartItemsArray.length === 0) {
+function calculateSubTotal(inCartItems) {
+  if (inCartItems.length === 0) {
     subTotalEl.textContent = '0.00'; // Set subtotal to 0 when cart is empty
   } else {
-    const subTotal = cartItemsArray.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
     subTotalEl.textContent = subTotal.toFixed(2);
   }
 };
-
-/*function clearTheCart() {
-    emptyCartEl.style.display = "flex";
-    fullCartEl.style.display = "none";
-    subTotalEl.textContent = '0.00';
-    productsInCartEl.classList.remove('productsInCart');
-
-    //must update firebase to reflect all items in object like so: inCart: true, quantities: 0;
-};
-
-const clearCartEl = document.querySelector('.clearTheCart');
-clearCartEl.addEventListener('click', clearTheCart);*/
-
-
-
-
-
-
-
-
-
-
