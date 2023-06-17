@@ -189,12 +189,18 @@ function renderCartItems(cartItemsArray) {
 
     qtyContainer.append(plusBtn);
 
-    const trashIcon = document.createElement('p');
-    trashIcon.classList.add('trashIcon');
-    trashIcon.textContent = 'Remove';
-    trashIcon.id = `i${item.id}`; // Set the ID attribute with the item ID
+    const trashItem = document.createElement('p');
+    trashItem.classList.add('trashItem');
+    trashItem.textContent = "Remove ";
+    trashItem.id = `i${item.id}`; // Set the ID attribute with the item ID
 
-    productBtnContainer.append(trashIcon);
+    const trashIcon = document.createElement('i');
+    trashIcon.classList.add('fa-solid', 'fa-trash-can');
+
+    trashItem.appendChild(trashIcon);
+
+    productBtnContainer.append(trashItem);
+
   });
 };
 
