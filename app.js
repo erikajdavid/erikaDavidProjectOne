@@ -46,10 +46,7 @@ window.addEventListener('click', function(event) {
       cartAppEl.classList.contains('activated') &&
       !cartAppEl.contains(event.target) &&
       !cartIconEl.contains(event.target) &&
-      //when we use querySelectorAll, we create a nodelist, which is a collection of nodes on the DOM. a nodelist is not the same as an array. to convert a nodelist to array we use the syntax [...nodelist]. if we just put [nodelist], this does creates an array but only contains one element, the nodelist itself. we want to convert the nodelsit to array so that we can use array methods, in this case, the some() method. 
-      //inside the (), this takes each button and checks if it contains the event.target(the click)
       ![...addToCartBtnEl].some(button => button.contains(event.target))
-      //this line says for every
     ) {
       toggleCart();
     }
@@ -101,8 +98,6 @@ addToCartBtnEl.forEach((button) => {
       });
   });
 });
-
-
 
 const productsInCartEl = document.querySelector('.productsInCart')
 
@@ -255,8 +250,6 @@ function minusButtonClick(event) {
 
       update(childRef, { inCart: false, quantity: item.quantity });
 
-      
-
       calculateTotalItemsInCart(inCartItems);
       calculateSubTotal(inCartItems);
       event.stopPropagation();
@@ -296,7 +289,7 @@ productsInCartEl.addEventListener('click', function(event) {
     plusButtonClick(event);
   } else if (event.target.classList.contains('minusBtn')) {
     minusButtonClick(event);
-  } else if (event.target.classList.contains('trashIcon')) {
+  } else if (event.target.classList.contains('trashItem')) {
     trashIconClick(event);
   }
 });
@@ -314,6 +307,8 @@ function calculateTotalItemsInCart(inCartItems) {
   // Update the total items display
   totalItemsInCart.innerHTML = '';
   totalItemsInCart.append(totalItems);
+
+  clearTheCart(inCartItems);
 } 
 
 const subTotalEl = document.querySelector('.subTotal');
@@ -326,3 +321,28 @@ function calculateSubTotal(inCartItems) {
     subTotalEl.textContent = subTotal.toFixed(2);
   }
 };
+
+function clearTheCart() {
+  const clearAllEl = document.querySelector('.clearTheCart');
+  clearAllEl.addEventListener('click', function() {
+    if(inCartItems.length > 0) {
+      emptyCartEl.style.display = "flex";
+      fullCartEl.style.display = "none";
+
+      for (let item in inCartItems) {
+        const id = inCartItems[item].id;
+        const childRef = ref(database, `items/${id}`);
+        update(childRef, { inCart: false, quantity: 0}) 
+      }
+
+      inCartItems = []; // Clear the inCartItems array
+
+      //update the total items to zero;
+      const clearToZero = document.querySelector('.totalItems');
+      clearToZero.textContent = 0;
+      clearToZero.style.display = "none";
+    } 
+  })
+}
+
+clearTheCart();
