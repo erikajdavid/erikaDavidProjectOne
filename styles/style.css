@@ -721,7 +721,7 @@ button:hover {
   transition: 0.4s ease-in;
   font-size: 0.9rem;
   padding: 0 1rem 1rem 1rem;
-  border: 2px solid #5EA85E;
+  border-top: 2px solid #5EA85E;
 }
 
 .cartApp.activated {
@@ -731,6 +731,8 @@ button:hover {
 .closeCart {
   font-size: 25px;
   cursor: pointer;
+  padding: 0.5rem 0;
+  color: rgb(157, 157, 157);
 }
 
 .overlay {
@@ -763,7 +765,9 @@ button:hover {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
-  padding: 1rem;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
   transform: background-color 0.5s;
   cursor: pointer;
 }
@@ -780,6 +784,7 @@ button:hover {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
+  margin-bottom: 0.5rem;
 }
 .fullCart .clearTheCart {
   text-transform: uppercase;
@@ -792,6 +797,7 @@ button:hover {
 }
 .fullCart .checkoutContainer {
   width: calc(375px - 2rem);
+  border-top: 1px solid #EAEAEA;
 }
 .fullCart .checkoutContainer p {
   padding: 1rem 0;
@@ -855,7 +861,7 @@ button:hover {
 
 .qtyContainer {
   display: flex;
-  width: 50%;
+  width: 45%;
 }
 
 .productQty {
@@ -869,22 +875,25 @@ button:hover {
 .minusBtn,
 .plusBtn {
   all: revert;
-  background-color: black;
+  background-color: #5EA85E;
   color: white;
   width: 25px;
   height: 25px;
   border-radius: 15px;
   border: 15px;
+  transition: all 0.5s;
+}
+.minusBtn:hover,
+.plusBtn:hover {
+  background-color: #1A2428;
 }
 
-.trashIcon {
+.trashItem {
   width: 50%;
   text-align: right;
-}
-
-.productsInCart {
-  border-bottom: 1px solid lightgray;
-  padding-bottom: 1rem;
+  font-size: 0.8rem;
+  color: #1A2428;
+  cursor: pointer;
 }
 
 .totalItemsInCart {
