@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getDatabase, ref, get, update, onValue } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -105,28 +105,6 @@ function renderCartItems(cartItemsArray) {
   productsInCartEl.innerHTML = '';
 
   cartItemsArray.forEach((item) => {
-    /*const productInCartContainer = document.createElement('li');
-      productInCartContainer.classList.add('productInCartContainer');
-      productInCartContainer.innerHTML = `
-        <img class="productImage" src="${item.imgSrc}" alt="${item.name}">
-        <div class="productInfoContainer">
-          <div class="productTextContainer">
-            <p class="productName">${item.name}</p>
-            <p class="productPrice">${item.price}</p>
-          </div>
-          <div class="productBtnContainer">
-            <div class="qtyContainer">
-              <button class="minusBtn" id="-${item.id}">-</button>
-              <p class="productQty">${item.quantity}</p>
-              <button class="plusBtn" id="+${item.id}">+</button>
-            </div>
-            <p class="trashIcon" id="$i{item.id}">Remove</p>
-          </div>
-        </div>
-      `;
-      productsInCartEl.appendChild(productInCartContainer);
-    });
-  }*/
     const productInCartContainer = document.createElement('li');
     productInCartContainer.classList.add('productInCartContainer');
     productsInCartEl.append(productInCartContainer);
@@ -147,13 +125,11 @@ function renderCartItems(cartItemsArray) {
     const productName = document.createElement('p');
     productName.classList.add('productName');
     productName.textContent = item.name;
-
     productTextContainer.append(productName);
 
     const productPrice = document.createElement('p');
     productPrice.classList.add('productPrice');
     productPrice.textContent = item.price;
-
     productTextContainer.append(productPrice);
 
     const productBtnContainer = document.createElement('div');
@@ -168,51 +144,64 @@ function renderCartItems(cartItemsArray) {
     minusBtn.classList.add('minusBtn');
     minusBtn.textContent = '-';
     minusBtn.id = `-${item.id}`; // Use item ID in the button's ID attribute
-
     qtyContainer.append(minusBtn);
 
     const productQty = document.createElement('p');
     productQty.classList.add('productQty');
     productQty.textContent = item.quantity; // Update the quantity
-
     qtyContainer.append(productQty);
 
     const plusBtn = document.createElement('button');
     plusBtn.classList.add('plusBtn');
     plusBtn.textContent = '+';
     plusBtn.id = `+${item.id}`; // Use item ID in the button's ID attribute
-
     qtyContainer.append(plusBtn);
 
     const trashItem = document.createElement('p');
     trashItem.classList.add('trashItem');
     trashItem.textContent = "Remove ";
-    trashItem.id = `i${item.id}`; // Set the ID attribute with the item ID
-
+    trashItem.id = `i${item.id}`; // Set the ID attributewith the item ID
     const trashIcon = document.createElement('i');
-    trashIcon.classList.add('fa-solid', 'fa-trash-can');
-
+    trashIcon.classList.add('fa-solid', 'fa-trash-can' );
     trashItem.appendChild(trashIcon);
-
     productBtnContainer.append(trashItem);
 
   });
 };
 
-// Plus button click handler
-function plusButtonClick(event) {
-  const id = event.target.id.slice(1); // Remove the "+" prefix from the button ID
-  // Find the item in the cartItems array
+// Refactor click handlers for plus, minus, and remove buttons
+function handleClick(event) {
+  const id = event.target.id.slice(1); // Remove the "+" or "-" prefix from the button ID
   const item = inCartItems.find((item) => item.id === id);
 
   if (item) {
-    item.quantity++;
-    // Update the displayed quantity
     const productQty = event.target.parentElement.querySelector('.productQty');
     productQty.textContent = item.quantity;
+    if (event.target.classList.contains('plusBtn')) {
+      item.quantity++;
+      
+    } else if (event.target.classList.contains('minusBtn')) {
+      item.quantity--;
+      if (item.quantity === 0) {
+        event.stopPropagation();
+        removeItemFromCart(id);
+        if (inCartItems.length === 0) {
+          emptyCartEl.style.display = "flex";
+          fullCartEl.style.display = "none";
+        }
+        return;
+      }
+    } else if (event.target.classList.contains('trashItem')) {
+      event.stopPropagation();
+      removeItemFromCart(id);
+      if (inCartItems.length === 0) {
+        emptyCartEl.style.display = "flex";
+        fullCartEl.style.display = "none";
+      }
+      return;
+    }
 
     const childRef = ref(database, `items/${id}`);
-    // Update the quantity in the database
     update(childRef, { quantity: item.quantity });
 
     calculateTotalItemsInCart(inCartItems);
@@ -220,77 +209,27 @@ function plusButtonClick(event) {
   }
 }
 
-// Minus button click handler
-function minusButtonClick(event) {
-  const id = event.target.id.slice(1); // Extract item ID from the button's ID attribute
-  const childRef = ref(database, `items/${id}`);
+// Create a function to remove an item from the cart
+function removeItemFromCart(itemId) {
+  const childRef = ref(database, `items/${itemId}`);
+  const itemIndex = inCartItems.findIndex((item) => item.id === itemId);
 
-  // Find the item in the cartItems array
-  const item = inCartItems.find((item) => item.id === id);
-
-  if (item && item.quantity > 0) {
-    item.quantity--; // Decrement the quantity
-    const productQty = event.target.parentElement.querySelector('.productQty');
-    productQty.textContent = item.quantity; // Update the displayed quantity
-
-    // Update the quantity in the database
-    update(childRef, { quantity: item.quantity });
-
-    calculateTotalItemsInCart(inCartItems);
-    calculateSubTotal(inCartItems);
-
-    // Check if the quantity is 0
-    if (item.quantity === 0) {
-      // Remove the item from the inCartItems array
-      const itemIndex = inCartItems.findIndex((item) => item.id === id);
-      if (itemIndex !== -1) {
-        inCartItems.splice(itemIndex, 1);
-        // Update the quantity in the database
-      }
-
-      update(childRef, { inCart: false, quantity: item.quantity });
-
-      calculateTotalItemsInCart(inCartItems);
-      calculateSubTotal(inCartItems);
-      event.stopPropagation();
-
-      // Remove the container from the DOM
-      const productInCartContainer = event.target.closest('.productInCartContainer');
-      productInCartContainer.remove();
-    }
+  if (itemIndex !== -1) {
+    inCartItems.splice(itemIndex, 1); // Remove the item from the inCartItems array
+    console.log(inCartItems);
   }
-}
-
-function trashIconClick(event) {
-  const id = event.target.id.slice(1);
-  const childRef = ref(database, `items/${id}`);
-
-  const productInCartContainer = event.target.closest('.productInCartContainer');
-  productInCartContainer.remove();
 
   update(childRef, { inCart: false, quantity: 0 });
 
-  // Remove the item from inCartItems
-  const itemIndex = inCartItems.findIndex((item) => item.id === id);
-  if (itemIndex !== -1) {
-    inCartItems.splice(itemIndex, 1);
-  }
-
-  // Update the total items count
+  renderCartItems(inCartItems);
   calculateTotalItemsInCart(inCartItems);
   calculateSubTotal(inCartItems);
-
-  event.stopPropagation(); // Prevent event propagation
 }
 
-// Event delegation for plus, minus, and trash icon buttons
-productsInCartEl.addEventListener('click', function(event) {
-  if (event.target.classList.contains('plusBtn')) {
-    plusButtonClick(event);
-  } else if (event.target.classList.contains('minusBtn')) {
-    minusButtonClick(event);
-  } else if (event.target.classList.contains('trashItem')) {
-    trashIconClick(event);
+// Attach event listener for plus, minus, and remove buttons using event delegation
+productsInCartEl.addEventListener('click', function (event) {
+  if (event.target.classList.contains('plusBtn') || event.target.classList.contains('minusBtn') || event.target.classList.contains('trashItem')) {
+    handleClick(event);
   }
 });
 
@@ -300,7 +239,9 @@ function calculateTotalItemsInCart(inCartItems) {
   totalItems.classList.add('totalItems');
 
   // Calculate the total quantity of items
-  const totalQuantity = inCartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalQuantity = inCartItems.reduce(function(total, item) {
+    return total + item.quantity;
+  }, 0);
 
   totalItems.textContent = totalQuantity;
 
@@ -308,7 +249,11 @@ function calculateTotalItemsInCart(inCartItems) {
   totalItemsInCart.innerHTML = '';
   totalItemsInCart.append(totalItems);
 
-  clearTheCart(inCartItems);
+  if (totalQuantity === 0) {
+    totalItemsInCart.style.display = "none";
+  } else {
+    totalItemsInCart.style.display = "block";
+  }
 } 
 
 const subTotalEl = document.querySelector('.subTotal');
@@ -335,14 +280,40 @@ function clearTheCart() {
         update(childRef, { inCart: false, quantity: 0}) 
       }
 
-      inCartItems = []; // Clear the inCartItems array
+      //inCartItems = []; // Clear the inCartItems array
 
       //update the total items to zero;
       const clearToZero = document.querySelector('.totalItems');
       clearToZero.textContent = 0;
       clearToZero.style.display = "none";
-    } 
+    }  
   })
 }
 
 clearTheCart();
+
+/*
+  //when we push a newItem to the inCartItems array, it takes on the following data structure. 
+  //notice how each item object doesn't have a name of item1, item2 or item3 - unlike our JSON data in firebase where each object is given a name of item1, item2, item3, etc. 
+  //each item object in the inCartItems array has index value instead. the first item object has an index value of 0. the second has an index value of 1. and the last has an index value of 2.  
+
+  const inCartItems = [
+    { name: "apple", id: "item1", quantity: 2 }, //this is an item object
+    { name: "banana", id: "item2", quantity: 3 }, //this is an item object
+    { name: "cherry", id: "item3", quantity: 1 } //this is an item object
+  ];
+
+  let existingItemIndex = inCartItems.findIndex((item) => item.id === itemId); 
+  
+  //item in this code refers to an item object in the inCartItems array. 
+  //by writing item.id we are extracting the value inside the item object id. 
+  //the item.id for apple is item1.
+  //the item.id for banana is item2.
+  //the item.id for cherry is item 3. 
+
+  //the itemId we defined in our code is equal to the id we gave the add to cart buttons in the HTML. the first button is item1, the second is item2, etc. 
+
+  //when we click on the button with the itemId of item1 for example, if it already exists in the inCartItems array, we just want to update the quantity by 1. 
+
+  //in order for our computer to know that the item object already exists in the cart, we have to match the item.id with the button id (itemId we defined in our code). 
+  */
