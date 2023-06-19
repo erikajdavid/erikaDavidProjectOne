@@ -173,15 +173,15 @@ function renderCartItems(cartItemsArray) {
 function handleClick(event) {
   const id = event.target.id.slice(1); // Remove the "+" or "-" prefix from the button ID
   const item = inCartItems.find((item) => item.id === id);
+  const productQty = event.target.parentElement.querySelector('.productQty');
 
   if (item) {
-    const productQty = event.target.parentElement.querySelector('.productQty');
-    productQty.textContent = item.quantity;
     if (event.target.classList.contains('plusBtn')) {
       item.quantity++;
-      
+      productQty.textContent = item.quantity;
     } else if (event.target.classList.contains('minusBtn')) {
       item.quantity--;
+      productQty.textContent = item.quantity;
       if (item.quantity === 0) {
         event.stopPropagation();
         removeItemFromCart(id);
@@ -280,7 +280,7 @@ function clearTheCart() {
         update(childRef, { inCart: false, quantity: 0}) 
       }
 
-      //inCartItems = []; // Clear the inCartItems array
+      inCartItems = []; // Clear the inCartItems array
 
       //update the total items to zero;
       const clearToZero = document.querySelector('.totalItems');
