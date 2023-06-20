@@ -75,20 +75,21 @@ addToCartBtnEl.forEach((button) => {
           const currentQty = itemData.quantity || 0;
           const newQty = currentQty + 1;
 
-          let existingItemIndex = inCartItems.findIndex((item) => item.id === itemId);
+          let index = inCartItems.findIndex((item) => item.id === itemId);
 
-          if (existingItemIndex !== -1) {
-            inCartItems[existingItemIndex].quantity++; // Increment the quantity of the existing item
+          if (index !== -1) { // this is a more specific value than index > -1, it is used more in professional settings. 
+            inCartItems[index].quantity++; // Increment the quantity of the existing item
           } else {
             const newItem = { ...itemData, quantity: newQty, id: itemId };
             inCartItems.push(newItem);
-            console.log(inCartItems);
           }
 
           update(childRef, { inCart: true, quantity: newQty });
           renderCartItems(inCartItems);
           calculateTotalItemsInCart(inCartItems);
           calculateSubTotal(inCartItems);
+          calculateTotalTax(inCartItems);
+          calculateTotalPrice(inCartItems)
         } else {
           console.log(`Item ${itemId} does not exist in the database.`);
         }
@@ -143,7 +144,7 @@ function renderCartItems(cartItemsArray) {
     const minusBtn = document.createElement('button');
     minusBtn.classList.add('minusBtn');
     minusBtn.textContent = '-';
-    minusBtn.id = `-${item.id}`; // Use item ID in the button's ID attribute
+    minusBtn.id = `${item.id}`; // Use item ID in the button's ID attribute
     qtyContainer.append(minusBtn);
 
     const productQty = document.createElement('p');
@@ -154,13 +155,13 @@ function renderCartItems(cartItemsArray) {
     const plusBtn = document.createElement('button');
     plusBtn.classList.add('plusBtn');
     plusBtn.textContent = '+';
-    plusBtn.id = `+${item.id}`; // Use item ID in the button's ID attribute
+    plusBtn.id = `${item.id}`; // Use item ID in the button's ID attribute
     qtyContainer.append(plusBtn);
 
     const trashItem = document.createElement('p');
     trashItem.classList.add('trashItem');
     trashItem.textContent = "Remove ";
-    trashItem.id = `i${item.id}`; // Set the ID attributewith the item ID
+    trashItem.id = `${item.id}`; // Set the ID attributewith the item ID
     const trashIcon = document.createElement('i');
     trashIcon.classList.add('fa-solid', 'fa-trash-can' );
     trashItem.appendChild(trashIcon);
@@ -171,8 +172,8 @@ function renderCartItems(cartItemsArray) {
 
 // Refactor click handlers for plus, minus, and remove buttons
 function handleClick(event) {
-  const id = event.target.id.slice(1); // Remove the "+" or "-" prefix from the button ID
-  const item = inCartItems.find((item) => item.id === id);
+  const itemId = event.target.id; // Remove the "+" or "-" prefix from the button ID
+  const item = inCartItems.find((item) => item.id === itemId);
   const productQty = event.target.parentElement.querySelector('.productQty');
 
   if (item) {
@@ -184,46 +185,47 @@ function handleClick(event) {
       productQty.textContent = item.quantity;
       if (item.quantity === 0) {
         event.stopPropagation();
-        removeItemFromCart(id);
-        if (inCartItems.length === 0) {
-          emptyCartEl.style.display = "flex";
-          fullCartEl.style.display = "none";
-        }
+        removeItemFromCart(itemId);
         return;
       }
     } else if (event.target.classList.contains('trashItem')) {
-      event.stopPropagation();
-      removeItemFromCart(id);
-      if (inCartItems.length === 0) {
-        emptyCartEl.style.display = "flex";
-        fullCartEl.style.display = "none";
-      }
-      return;
+        event.stopPropagation();
+        removeItemFromCart(itemId);
+        return;
     }
 
-    const childRef = ref(database, `items/${id}`);
+    const childRef = ref(database, `items/${itemId}`);
     update(childRef, { quantity: item.quantity });
 
     calculateTotalItemsInCart(inCartItems);
     calculateSubTotal(inCartItems);
+    calculateTotalTax(inCartItems);
+    calculateTotalPrice(inCartItems);
   }
 }
 
+
 // Create a function to remove an item from the cart
 function removeItemFromCart(itemId) {
-  const childRef = ref(database, `items/${itemId}`);
-  const itemIndex = inCartItems.findIndex((item) => item.id === itemId);
+  const index = inCartItems.findIndex((item) => item.id === itemId);
 
-  if (itemIndex !== -1) {
-    inCartItems.splice(itemIndex, 1); // Remove the item from the inCartItems array
-    console.log(inCartItems);
+  if (index !== -1) {
+    inCartItems.splice(index, 1); // Remove the item from the inCartItems array
   }
 
+  if (inCartItems.length === 0) {
+    emptyCartEl.style.display = "flex";
+    fullCartEl.style.display = "none";
+  }
+
+  const childRef = ref(database, `items/${itemId}`);
   update(childRef, { inCart: false, quantity: 0 });
 
   renderCartItems(inCartItems);
   calculateTotalItemsInCart(inCartItems);
   calculateSubTotal(inCartItems);
+  calculateTotalTax(inCartItems);
+  calculateTotalPrice(inCartItems);
 }
 
 // Attach event listener for plus, minus, and remove buttons using event delegation
@@ -256,16 +258,33 @@ function calculateTotalItemsInCart(inCartItems) {
   }
 } 
 
-const subTotalEl = document.querySelector('.subTotal');
-
 function calculateSubTotal(inCartItems) {
+  const subTotalEl = document.querySelector('.subTotal');
   if (inCartItems.length === 0) {
     subTotalEl.textContent = '0.00'; // Set subtotal to 0 when cart is empty
   } else {
     const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+
     subTotalEl.textContent = subTotal.toFixed(2);
   }
 };
+
+function calculateTotalTax(inCartItems) {
+  const totalTaxEl = document.querySelector('.totalTax');
+  const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+  const totalTax = subTotal * 0.13;
+  totalTaxEl.textContent = totalTax.toFixed(2);
+}
+
+function calculateTotalPrice(inCartItems) {
+  const totalPriceEl = document.querySelector('.totalPrice')
+  const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const totalTax = subTotal * 0.13;
+  const totalPrice = subTotal + totalTax;
+  totalPriceEl.textContent = totalPrice.toFixed(2);
+}
 
 function clearTheCart() {
   const clearAllEl = document.querySelector('.clearTheCart');
@@ -292,28 +311,51 @@ function clearTheCart() {
 
 clearTheCart();
 
-/*
-  //when we push a newItem to the inCartItems array, it takes on the following data structure. 
-  //notice how each item object doesn't have a name of item1, item2 or item3 - unlike our JSON data in firebase where each object is given a name of item1, item2, item3, etc. 
-  //each item object in the inCartItems array has index value instead. the first item object has an index value of 0. the second has an index value of 1. and the last has an index value of 2.  
+/** CONDENSED CODE FOR PRICING
+ * function calculateCartTotals(inCartItems) {
+  const subTotalEl = document.querySelector('.subTotal');
+  const totalTaxEl = document.querySelector('.totalTax');
+  const totalPriceEl = document.querySelector('.totalPrice');
 
-  const inCartItems = [
-    { name: "apple", id: "item1", quantity: 2 }, //this is an item object
-    { name: "banana", id: "item2", quantity: 3 }, //this is an item object
-    { name: "cherry", id: "item3", quantity: 1 } //this is an item object
-  ];
+  if (inCartItems.length === 0) {
+    subTotalEl.textContent = '0.00';
+    totalTaxEl.textContent = '0.00';
+    totalPriceEl.textContent = '0.00';
+  } else {
+    const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const totalTax = subTotal * 0.13;
+    const totalPrice = subTotal + totalTax;
 
-  let existingItemIndex = inCartItems.findIndex((item) => item.id === itemId); 
-  
-  //item in this code refers to an item object in the inCartItems array. 
-  //by writing item.id we are extracting the value inside the item object id. 
-  //the item.id for apple is item1.
-  //the item.id for banana is item2.
-  //the item.id for cherry is item 3. 
+    subTotalEl.textContent = subTotal.toFixed(2);
+    totalTaxEl.textContent = totalTax.toFixed(2);
+    totalPriceEl.textContent = totalPrice.toFixed(2);
+  }
+}
+ */
 
-  //the itemId we defined in our code is equal to the id we gave the add to cart buttons in the HTML. the first button is item1, the second is item2, etc. 
+/**
+ * function fetchCartItems() {
+  const itemsRef = ref(database, 'items');
+  get(itemsRef)
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const itemsData = snapshot.val();
+        inCartItems = Object.values(itemsData).filter(item => item.inCart);
+        renderCartItems(inCartItems);
+        calculateTotalItemsInCart(inCartItems);
+        calculateSubTotal(inCartItems);
+        calculateTotalTax(inCartItems);
+        calculateTotalPrice(inCartItems);
+        if (inCartItems.length > 0) {
+          emptyCartEl.style.display = "none";
+          fullCartEl.style.display = "block";
+        }
+      }
+    })
+    .catch((error) => {
+      console.log('Error retrieving data:', error);
+    });
+}
 
-  //when we click on the button with the itemId of item1 for example, if it already exists in the inCartItems array, we just want to update the quantity by 1. 
-
-  //in order for our computer to know that the item object already exists in the cart, we have to match the item.id with the button id (itemId we defined in our code). 
-  */
+fetchCartItems(); // Call the function to fetch cart items when the page loads
+ */
