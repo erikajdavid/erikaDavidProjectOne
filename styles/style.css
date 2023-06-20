@@ -796,7 +796,7 @@ button:hover {
   text-align: right;
 }
 .fullCart .checkoutContainer {
-  width: calc(375px - 2rem);
+  width: calc(375px - 3rem);
   border-top: 1px solid #EAEAEA;
 }
 .fullCart .checkoutContainer p {
