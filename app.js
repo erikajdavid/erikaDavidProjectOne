@@ -17,7 +17,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-//const dbRef = ref(database);
 
 const bodyEl = document.querySelector('body');
 const overlay = document.createElement('div');
@@ -82,14 +81,12 @@ addToCartBtnEl.forEach((button) => {
           } else {
             const newItem = { ...itemData, quantity: newQty, id: itemId };
             inCartItems.push(newItem);
+            console.log(inCartItems);
           }
 
           update(childRef, { inCart: true, quantity: newQty });
           renderCartItems(inCartItems);
-          calculateTotalItemsInCart(inCartItems);
-          calculateSubTotal(inCartItems);
-          calculateTotalTax(inCartItems);
-          calculateTotalPrice(inCartItems)
+          updateCart();
         } else {
           console.log(`Item ${itemId} does not exist in the database.`);
         }
@@ -198,9 +195,7 @@ function handleClick(event) {
     update(childRef, { quantity: item.quantity });
 
     calculateTotalItemsInCart(inCartItems);
-    calculateSubTotal(inCartItems);
-    calculateTotalTax(inCartItems);
-    calculateTotalPrice(inCartItems);
+    calculatePrices(inCartItems);
   }
 }
 
@@ -222,10 +217,7 @@ function removeItemFromCart(itemId) {
   update(childRef, { inCart: false, quantity: 0 });
 
   renderCartItems(inCartItems);
-  calculateTotalItemsInCart(inCartItems);
-  calculateSubTotal(inCartItems);
-  calculateTotalTax(inCartItems);
-  calculateTotalPrice(inCartItems);
+  updateCart();
 }
 
 // Attach event listener for plus, minus, and remove buttons using event delegation
@@ -258,104 +250,82 @@ function calculateTotalItemsInCart(inCartItems) {
   }
 } 
 
-function calculateSubTotal(inCartItems) {
-  const subTotalEl = document.querySelector('.subTotal');
-  if (inCartItems.length === 0) {
-    subTotalEl.textContent = '0.00'; // Set subtotal to 0 when cart is empty
-  } else {
-    const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-
-
-    subTotalEl.textContent = subTotal.toFixed(2);
-  }
-};
-
-function calculateTotalTax(inCartItems) {
+//FUNCTION TO CALCULATE SUBTOTAL, TAX, AND TOTAL PRICE. 
+function calculatePrices(inCartItems) {
+  const subTotalEl = document.querySelector(".subTotal");
   const totalTaxEl = document.querySelector('.totalTax');
-  const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const totalPriceEl = document.querySelector('.totalPrice');
 
-  const totalTax = subTotal * 0.13;
-  totalTaxEl.textContent = totalTax.toFixed(2);
-}
+  const subTotal = inCartItems.reduce(function (total, item) {
+    return total + item.quantity * item.price;
+  }, 0);
 
-function calculateTotalPrice(inCartItems) {
-  const totalPriceEl = document.querySelector('.totalPrice')
-  const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   const totalTax = subTotal * 0.13;
   const totalPrice = subTotal + totalTax;
+
+  subTotalEl.textContent = subTotal.toFixed(2);
+  totalTaxEl.textContent = totalTax.toFixed(2);
   totalPriceEl.textContent = totalPrice.toFixed(2);
 }
 
+//FUNCTION TO CLEAR ALL ITEMS FROM THE CART.
 function clearTheCart() {
   const clearAllEl = document.querySelector('.clearTheCart');
   clearAllEl.addEventListener('click', function() {
-    if(inCartItems.length > 0) {
+    if (inCartItems.length > 0) {
       emptyCartEl.style.display = "flex";
       fullCartEl.style.display = "none";
 
-      for (let item in inCartItems) {
-        const id = inCartItems[item].id;
+      inCartItems.forEach((item) => {
+        const id = item.id;
         const childRef = ref(database, `items/${id}`);
-        update(childRef, { inCart: false, quantity: 0}) 
-      }
+        update(childRef, { inCart: false, quantity: 0 });
 
-      inCartItems = []; // Clear the inCartItems array
+        item.quantity = 0;
+      });
 
-      //update the total items to zero;
       const clearToZero = document.querySelector('.totalItems');
       clearToZero.textContent = 0;
       clearToZero.style.display = "none";
-    }  
-  })
+
+      inCartItems.length = 0;
+
+      updateCart();
+    }
+  });
 }
 
 clearTheCart();
 
-/** CONDENSED CODE FOR PRICING
- * function calculateCartTotals(inCartItems) {
-  const subTotalEl = document.querySelector('.subTotal');
-  const totalTaxEl = document.querySelector('.totalTax');
-  const totalPriceEl = document.querySelector('.totalPrice');
-
-  if (inCartItems.length === 0) {
-    subTotalEl.textContent = '0.00';
-    totalTaxEl.textContent = '0.00';
-    totalPriceEl.textContent = '0.00';
-  } else {
-    const subTotal = inCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-    const totalTax = subTotal * 0.13;
-    const totalPrice = subTotal + totalTax;
-
-    subTotalEl.textContent = subTotal.toFixed(2);
-    totalTaxEl.textContent = totalTax.toFixed(2);
-    totalPriceEl.textContent = totalPrice.toFixed(2);
-  }
+//FUNCTION TO UPDATE THE CART.
+function updateCart() {
+  renderCartItems(inCartItems);
+  calculateTotalItemsInCart(inCartItems);
+  calculatePrices(inCartItems);
 }
- */
 
-/**
- * function fetchCartItems() {
-  const itemsRef = ref(database, 'items');
-  get(itemsRef)
+//FUNCTION TO DISPLAY ITEMS SAVED IN THE CART ON PAGE LOAD/REFRESH. 
+window.onload = function() {
+  const dbRef = ref(database, 'items');
+  get(dbRef)
     .then((snapshot) => {
       if (snapshot.exists()) {
-        const itemsData = snapshot.val();
-        inCartItems = Object.values(itemsData).filter(item => item.inCart);
-        renderCartItems(inCartItems);
-        calculateTotalItemsInCart(inCartItems);
-        calculateSubTotal(inCartItems);
-        calculateTotalTax(inCartItems);
-        calculateTotalPrice(inCartItems);
-        if (inCartItems.length > 0) {
-          emptyCartEl.style.display = "none";
-          fullCartEl.style.display = "block";
+        const data = snapshot.val();
+        for (const itemId in data) {
+          const itemData = data[itemId];
+          if (itemData.inCart) {
+            inCartItems.push({ ...itemData, id: itemId });
+            emptyCartEl.style.display = "none";
+            fullCartEl.style.display = "block";
+          }
         }
+        renderCartItems(inCartItems);
+        updateCart();
+      } else {
+        console.log('No items exist in the database.');
       }
     })
     .catch((error) => {
       console.log('Error retrieving data:', error);
     });
-}
-
-fetchCartItems(); // Call the function to fetch cart items when the page loads
- */
+};
